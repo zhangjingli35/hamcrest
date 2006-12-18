@@ -1,0 +1,3 @@
+== Version 1.0: Released Dec 15 2006 ==
+
+Initial release.
