@@ -52,7 +52,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     * `notNullValue`, nullValue - test for null
     * `sameInstance` - test object identity
   * Beans
-    * `hasProperty` - test JavaBeans properties
+    * `hasProperty` - test !JavaBeans properties
   * Collections
     * `array` - test an array's elements against an array of matchers
     * `hasEntry`, `hasKey`, `hasValue` - test a map contains an entry, key or value
@@ -150,3 +150,67 @@ public class NumberTest extends TestCase {
   }
 }
 }}}
+
+== Sugar generation ==
+
+If you produce more than a few custom matchers it becomes annoying to have to import them all individually. It would be nice to be able to group them together in a single class, so they can be imported using a single static import much like the Hamcrest library matchers. Hamcrest helps out here by providing a way to do this by using a _generator_.
+
+First, create an XML configuration file listing all the Matcher classes that should be searched for factory methods annotated with the org.hamcrest.Factory annotation. For example:
+
+{{{
+<matchers>
+
+  <!-- Hamcrest library -->
+  <factory class="org.hamcrest.core.Is"/>
+
+  <!-- Custom extension -->
+  <factory class="org.hamcrest.examples.tutorial.IsNotANumber"/>
+
+</matchers>
+}}}
+
+Second, run the `org.hamcrest.generator.config.XmlConfigurator` command-line tool that comes with Hamcrest. This tool takes the XML configuration file and generates a single Java class that includes all the factory methods specified by the XML file. Running it with no arguments will display a usage message. Here's the output for the example.
+
+{{{
+// Generated source.
+package org.hamcrest.examples.tutorial;
+
+public class Matchers {
+
+  public static <T> org.hamcrest.Matcher<T> is(T param1) {
+    return org.hamcrest.core.Is.is(param1);
+  }
+
+  public static <T> org.hamcrest.Matcher<T> is(java.lang.Class<T> param1) {
+    return org.hamcrest.core.Is.is(param1);
+  }
+
+  public static <T> org.hamcrest.Matcher<T> is(org.hamcrest.Matcher<T> param1) {
+    return org.hamcrest.core.Is.is(param1);
+  }
+
+  public static <T> org.hamcrest.Matcher<java.lang.Double> notANumber() {
+    return org.hamcrest.examples.tutorial.IsNotANumber.notANumber();
+  }
+
+}
+}}}
+
+Finally, we can update our test to use the new `Matchers` class.
+
+{{{
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import static org.hamcrest.examples.tutorial.Matchers.*;
+
+import junit.framework.TestCase;
+
+public class CustomSugarNumberTest extends TestCase {
+
+  public void testSquareRootOfMinusOneIsNotANumber() {
+    assertThat(Math.sqrt(-1), is(notANumber()));
+  }
+}
+}}}
+
+Notice we are now using the Hamcrest library `is` matcher imported from our own custom `Matchers` class. 
