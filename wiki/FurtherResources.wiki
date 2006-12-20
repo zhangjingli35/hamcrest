@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Additional reading elsewhere
 #labels Featured
 
   * Joe Walnes on [http://joe.truemesh.com/blog/000511.html Flexible Assertions]
