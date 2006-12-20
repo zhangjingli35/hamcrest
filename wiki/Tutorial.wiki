@@ -65,3 +65,88 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     * `equalToIgnoringCase` - test string equality ignoring case
     * `equalToIgnoringWhiteSpace` - test string equality ignoring differences in runs of whitespace
     * `containsString`, `endsWith`, `startsWith` - test string matching
+
+== Sugar ==
+
+Hamcrest strives to make your tests as readable as possible. For example, the `is` matcher is a wrapper that doesn't add any extra behavior to the underlying matcher. The following assertions are all equivalent:
+
+{{{
+assertThat(theBiscuit, equalTo(myBiscuit));
+assertThat(theBiscuit, is(equalTo(myBiscuit)));
+assertThat(theBiscuit, is(myBiscuit));
+}}}
+
+The last form is allowed since `is(T value)` is overloaded to return `is(equalTo(value))`.
+
+== Writing custom matchers ==
+
+Hamcrest comes bundled with lots of useful matchers, but you'll probably find that you need to create your own from time to time to fit your testing needs. This commonly occurs when you find a fragment of code that tests the same set of properties over and over again (and in different tests), and you want to bundle the fragment into a single assertion. By writing your own matcher you'll elimate code duplication and make your tests more readable!
+
+Let's write our own matcher for testing if a double value has the value NaN (not a number). This is the test we want to write:
+
+{{{
+public void testSquareRootOfMinusOneIsNotANumber() {
+  assertThat(Math.sqrt(-1), is(notANumber()));
+}
+}}}
+
+And here's the implementation:
+
+{{{
+package org.hamcrest.examples.tutorial;
+
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
+
+public class IsNotANumber extends TypeSafeMatcher<Double> {
+
+  @Override
+  public boolean matchesSafely(Double number) {
+    return number.isNaN();
+  }
+
+  public void describeTo(Description description) {
+    description.appendText("not a number");
+  }
+
+  @Factory
+  public static <T> Matcher<Double> notANumber() {
+    return new IsNotANumber();
+  }
+
+}
+}}}
+
+The `assertThat` method is a generic method which takes a `Matcher` parameterized by the type of the subject of the assertion. We are asserting things about `Double` values, so we know that we need a `Matcher<Double>`. For our Matcher implementation it is most convenient to subclass `TypeSafeMatcher`, which does the cast to a `Double` for us. We need only implement the `matchesSafely` method - which simply checks to see if the `Double` is NaN - and the `describeTo` method - which is used to produce a failure message when a test fails. Here's an example of how the failure message looks:
+
+{{{
+assertThat(1.0, is(notANumber()));
+}}}
+
+fails with the message
+
+{{{
+java.lang.AssertionError: 
+Expected: is not a number
+    got : <1.0>
+}}}
+
+The third method in our matcher is a convenience factory method. We statically import this method to use the matcher in our test:
+
+{{{
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
+import static org.hamcrest.examples.tutorial.IsNotANumber.notANumber;
+
+import junit.framework.TestCase;
+
+public class NumberTest extends TestCase {
+
+  public void testSquareRootOfMinusOneIsNotANumber() {
+    assertThat(Math.sqrt(-1), is(notANumber()));
+  }
+}
+}}}
