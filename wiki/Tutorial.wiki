@@ -32,3 +32,36 @@ The `assertThat` method is a stylized sentence for making a test assertion. In t
 Hamcrest has been designed from the outset to integrate with different unit testing frameworks. For example, Hamcrest can be used with [http://junit.org/ JUnit] 3 and 4 and [http://testng.org/ TestNG]. (For details have a look at the examples that come with the full Hamcrest distribution.) It is easy enough to migrate to using Hamcrest-style assertions in an existing test suite, since other assertion styles can co-exist with Hamcrest's.
 
 Hamcrest can also be used with mock objects frameworks by using adaptors to bridge from the mock objects framework's concept of a matcher to a Hamcrest matcher. For example, [http://jmock.org/ JMock] 1's _constraints_ are Hamcrest's matchers. Hamcrest provides a JMock 1 adaptor to allow you to use Hamcrest matchers in your JMock 1 tests. JMock 2 doesn't need such an adaptor layer since it is designed to use Hamcrest as its matching library. Hamcrest also provides adaptors for [http://easymock.org/ EasyMock] 2. Again, see the Hamcrest examples for more details. 
+
+== A tour of common matchers ==
+
+Hamcrest comes with a library of useful matchers. Here are some of the most important ones. 
+
+  * Core
+    * `anything` - always matches, useful if you don't care what the object under test is
+    * `describedAs` - decorator to adding custom failure description
+    * `is` - decorator to improve readability - see "Sugar", below
+  * Logical
+    * `allOf` - matches if all matchers match, short circuits (like Java &&)
+    * `anyOf` - matches if any matchers match, short circuits (like Java ||)
+    * `not` - matches if the wrapped matcher doesn't match and vice versa
+  * Object
+    * `equalTo` - test object equality using Object.equals
+    * `hasToString` - test Object.toString
+    * `instanceOf`, isCompatibleType - test type
+    * `notNullValue`, nullValue - test for null
+    * `sameInstance` - test object identity
+  * Beans
+    * `hasProperty` - test JavaBeans properties
+  * Collections
+    * `array` - test an array's elements against an array of matchers
+    * `hasEntry`, `hasKey`, `hasValue` - test a map contains an entry, key or value
+    * `hasItem`, `hasItems` - test a collection contains elements
+    * `hasItemInArray` - test an array contains an element
+  * Number
+    * `closeTo` - test floating point values are close to a given value
+    * `greaterThan`, `greaterThanOrEqualTo`, `lessThan`, `lessThanOrEqualTo` - test ordering
+  * Text
+    * `equalToIgnoringCase` - test string equality ignoring case
+    * `equalToIgnoringWhiteSpace` - test string equality ignoring differences in runs of whitespace
+    * `containsString`, `endsWith`, `startsWith` - test string matching
