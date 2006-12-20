@@ -214,3 +214,9 @@ public class CustomSugarNumberTest extends TestCase {
 }}}
 
 Notice we are now using the Hamcrest library `is` matcher imported from our own custom `Matchers` class. 
+
+== Where next? ==
+
+See FurtherResources.
+
+_--Tom White_
