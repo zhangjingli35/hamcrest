@@ -1,3 +1,11 @@
+== Version 1.1: Still in development ==
+
+* Added APT based sugar generator - removes the need for matchers.xml.
+  (Contributed by Magne Rasmussen).
+* Switched from Ant to Maven 2 (by popular demand).
+  (Contributed by Magne Rasmussen).
+
 == Version 1.0: Released Dec 15 2006 ==
 
 Initial release.
+
