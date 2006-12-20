@@ -9,27 +9,27 @@
   features. However the final built jars should run on 1.4
   and 1.3 JVMs with some features unavailable.
 
-* Ant 1.6 or greater
-  To enable testing support, ensure junit.jar exists in
-  ANT_HOME/lib.
+* Maven 2 or greater
 
 
 --[ Building from the command line ]-------------------------
 
-Execute the default ant target:
-  ant
+Execute the default Maven goal:
+  mvn install
 
-This will do a full clean build, run all tests and (if
-successful) package up a distribution. The resulting builds
-reside in the 'build' directory.
+This will do a full build, run all tests and install the 
+project in the local Maven repository.
 
-For a list of finer grained build operations:
-  ant -projecthelp
+<TODO how to build the distributions, including 'all' />
 
+To do a full clean build:
+  mvn clean install
+
+<TODO how to do this with maven?>  
 The default version number used in the build is 'SNAPSHOT'.
 To override this, you can pass a property to ant:
   ant -Dversion=MY.OTHER.VERSION
-
+</TODO>
 
 --[ Building from the IDE ]----------------------------------
 
