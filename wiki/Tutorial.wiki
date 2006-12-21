@@ -14,7 +14,6 @@ We'll start be writing a very simple JUnit 3 test, but instead of using JUnit's 
 {{{
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.hamcrest.examples.tutorial.EmptyCollection.*;
 
 import junit.framework.TestCase;
 
