@@ -29,6 +29,9 @@
         		<executions>
         			<execution>
         				<phase>generate-sources</phase>
+        				<goals>
+        					<goal>execute</goal>
+        				</goals>
         				<configuration>
         					<generated>target/generated-sources/hamcrest</generated>
         					<A>verbose, generatedClass=org.hamcrest.Matchers</A>
@@ -36,9 +39,6 @@
         					<nocompile>true</nocompile>
         					<showWarnings>true</showWarnings>
         				</configuration>
-        				<goals>
-        					<goal>execute</goal>
-        				</goals>
         			</execution>
         		</executions>
         	</plugin>
@@ -48,10 +48,17 @@
     <dependencies>
         <dependency>
             <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-generator</artifactId>
+            <artifactId>hamcrest-api</artifactId>
             <version>${project.version}</version>
         </dependency>
         
+	    <dependency>
+	        <groupId>org.hamcrest</groupId>
+	        <artifactId>hamcrest-generator</artifactId>
+	        <version>${project.version}</version>
+	        <optional>true</optional>
+	    </dependency>
+	    
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
