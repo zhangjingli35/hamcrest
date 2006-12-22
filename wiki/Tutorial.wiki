@@ -152,7 +152,7 @@ public class NumberTest extends TestCase {
 }
 }}}
 
-Even though the `notANumber` method creates a new matcher each time it is called, you should not assume this is the only usage pattern for your matcher. Therefore you should make sure your matcher is stateless.
+Even though the `notANumber` method creates a new matcher each time it is called, you should not assume this is the only usage pattern for your matcher. Therefore you should make sure your matcher is stateless, so a single instance can be reused between matches.
 
 == Sugar generation ==
 
