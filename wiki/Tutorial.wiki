@@ -152,6 +152,8 @@ public class NumberTest extends TestCase {
 }
 }}}
 
+Even though the `notANumber` method creates a new matcher each time it is called, you should not assume this is the only usage pattern for your matcher. Therefore you should make sure your matcher is stateless.
+
 == Sugar generation ==
 
 If you produce more than a few custom matchers it becomes annoying to have to import them all individually. It would be nice to be able to group them together in a single class, so they can be imported using a single static import much like the Hamcrest library matchers. Hamcrest helps out here by providing a way to do this by using a _generator_.
