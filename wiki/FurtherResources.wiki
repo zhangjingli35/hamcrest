@@ -1,5 +1,6 @@
 #summary Additional reading elsewhere
 #labels Featured
 
-  * Joe Walnes on [http://joe.truemesh.com/blog/000511.html Flexible Assertions]
-  * Tom White on [http://weblogs.java.net/blog/tomwhite/archive/2006/05/literate_progra_1.html Literate Programming with jMock]
+  * Joe Walnes on [http://joe.truemesh.com/blog/000511.html Flexible Assertions].
+  * Tom White on [http://weblogs.java.net/blog/tomwhite/archive/2006/05/literate_progra_1.html Literate Programming with jMock].
+  * jMock documentation for [http://www.jmock.org/constraints.html constraints] and [http://www.jmock.org/yoga.html writing good unit tests].
