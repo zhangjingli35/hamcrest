@@ -28,6 +28,13 @@ public class BiscuitTest extends TestCase {
 
 The `assertThat` method is a stylized sentence for making a test assertion. In this example, the subject of the assertion is the object `biscuit` that is the first method parameter. The second method parameter is a matcher for `Biscuit` objects, here a matcher that checks one object is equal to another using the `Object equals` method. The test passes since the `Biscuit` class defines an equals method.
 
+If you have more than one assertion in your test you can include an identifier for the tested value in the assertion:
+
+{{{
+assertThat("chocolate chips", theBiscuit.getChocolateChipCount(), equalTo(10));
+assertThat("hazelnuts", theBiscuit.getHazelnutCount(), equalTo(3));
+}}}
+
 == Other test frameworks ==
 
 Hamcrest has been designed from the outset to integrate with different unit testing frameworks. For example, Hamcrest can be used with [http://junit.org/ JUnit] 3 and 4 and [http://testng.org/ TestNG]. (For details have a look at the examples that come with the full Hamcrest distribution.) It is easy enough to migrate to using Hamcrest-style assertions in an existing test suite, since other assertion styles can co-exist with Hamcrest's.
