@@ -12,10 +12,12 @@ SVNROOT=https://hamcrest.googlecode.com/svn
 
 Note: if using Windows, replace $X with %X% in the scripts below.
 
+You also need to be in the hamcrest-java directory.
+
 == Tag the release in Subversion ==
 
 {{{
-svn copy -m "Tagged $VERSION" $SVNROOT/trunk/$PROJECT $SVNROOT/$PROJECT-$VERSION
+svn copy -m "Tagged $VERSION" $SVNROOT/trunk/$PROJECT $SVNROOT/tags/$PROJECT-$VERSION
 }}}
 
 
@@ -33,7 +35,8 @@ Check that the build was successful!
 {{{
 mkdir tmp
 cd tmp
-tar -xvzf build/$PROJECT-$VERSION.tgz
+tar -xvzf ../build/hamcrest-$VERSION.tgz
+cd hamcrest-$VERSION.tgz
 ant
 }}}
 
@@ -46,7 +49,7 @@ The following files should be uploaded from the build directory to Google Code:
 hamcrest-$VERSION.tgz
 hamcrest-$VERSION.zip
 hamcrest-all-$VERSION.jar
-hamcrest-api-$VERSION.jar
+hamcrest-core-$VERSION.jar
 hamcrest-library-$VERSION.jar
 hamcrest-integration-$VERSION.jar
 hamcrest-generator-$VERSION.jar
@@ -55,6 +58,7 @@ hamcrest-generator-$VERSION.jar
 == Clean up ==
 
 {{{
+cd ../../
 rm -rf tmp
 rm -rf build
 svn switch $SVNROOT/trunk/$PROJECT
