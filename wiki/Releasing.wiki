@@ -16,6 +16,8 @@ You also need to be in the hamcrest-java directory.
 
 == Tag the release in Subversion ==
 
+Update CHANGES.txt with today's date.
+
 {{{
 svn copy -m "Tagged $VERSION" $SVNROOT/trunk/$PROJECT $SVNROOT/tags/$PROJECT-$VERSION
 }}}
@@ -54,6 +56,10 @@ hamcrest-library-$VERSION.jar
 hamcrest-integration-$VERSION.jar
 hamcrest-generator-$VERSION.jar
 }}}
+
+Add 'Featured' tag to hamcrest.tgz, hamcrest.zip, hamcrest-all.jar and hamcrest-core.jar.
+
+Remove 'Featured' tag from previous versions and add 'Deprecated' tag.
 
 == Clean up ==
 
