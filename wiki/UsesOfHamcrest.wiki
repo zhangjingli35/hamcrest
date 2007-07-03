@@ -1,0 +1,53 @@
+#summary Uses of Hamcrest
+#labels Featured,Category-Users
+
+
+== Mock objects with jMock2 ==
+
+Hamcrest was originally spawned from the Constraints code in jMock1 (which came from the Predicates code in DynaMock. The latest version of jMock (jMock2) now uses Hamcrest directly.
+
+{{{
+// Expect one call to mockThing.doSomething(String) with a string containing "hello". 
+one(mockThing).doSomething(with(stringContaining("hello")));
+}}}
+
+  * Project: http://jmock.org
+
+== Using Hamcrest for Iterators ==
+
+Håkan Råberg has blogged about how Hamcrest can be used to create an API to make it easy to select/detect/reject elements from a list that using matchers.
+
+{{{
+List numbers = Arrays.asList(-1, 0, 1, 2);
+print("detect int: " + detect(numbers, greaterThan(0)));
+}}}
+
+He then further extended this, using CGLib, to create a query API on custom domain objects.
+
+{{{
+List<Person> employees = ...;
+List<Integer> allAges = collect(from(employees).getAge());
+List<Person> allBosses = collect(from(employees).getDepartment().getBoss());
+List<Person> allAccountants = select(from(employees).getDepartment().getName(), equalTo("Accounts"));
+}}}
+
+  * Blog post: http://jroller.com/page/ghettoJedi?entry=using_hamcrest_for_iterators
+
+== Record-based Text File Processing with GetInLine ==
+
+GetInLine is a simple embedded Java DSL for writing applications that process record-based type files.
+
+  * Project: http://sourceforge.net/projects/getinline
+
+== Behavior Driven Development with JDave ==
+
+  * Project: http://jdave.org/
+
+== Other Ideas ==
+
+These are other uses of Hamcrest we've heard of in passing.
+
+  * Robert Chatley has been using matchers to implement filters in logging infrastructure.
+  * Nat Pryce has been using it to write GUI tests - to find matching components that appear within some timeout.
+
+Doing something else with Hamcrest? [http://groups.google.com/group/hamcrest-java Let us know!]
