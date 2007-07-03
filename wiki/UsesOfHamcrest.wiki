@@ -55,7 +55,7 @@ specify(persons.get(0), is(Person.class));
 specify(persons, where(new Each<Person>() {{ matches(item.getAge(), is(greaterThan(30))); }}));
 }}}
 
-  * Project: http://jdave.org/
+  * Project: http://www.jdave.org/
   * Example: http://svn.laughingpanda.org/svn/jdave/trunk/jdave-examples/src/test/jdave/examples/HamcrestSampleSpec.java
 
 == Other Ideas ==
