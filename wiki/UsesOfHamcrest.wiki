@@ -4,7 +4,7 @@
 
 == Mock objects with jMock2 ==
 
-Hamcrest was originally spawned from the Constraints code in jMock1 (which came from the Predicates code in DynaMock. The latest version of jMock (jMock2) now uses Hamcrest directly to allow for precise expectations of arguments to be specified.
+Hamcrest was originally spawned from the Constraints code in jMock1 (which came from the Predicates code in !DynaMock. The latest version of jMock (jMock2) now uses Hamcrest directly to allow for precise expectations of arguments to be specified.
 
 {{{
 // Expect one call to mockThing.doSomething(String) with a string containing "hello". 
@@ -15,7 +15,7 @@ never(mockThing).doSomething(with(aNull(String.class)));
 }}}
 
   * Project: http://jmock.org
-  * Matcher docs: http://jmock.org/matchers.html
+!  * Matcher docs: http://jmock.org/matchers.html
 
 == Using Hamcrest for Iterators ==
 
@@ -39,7 +39,7 @@ List<Person> allAccountants = select(from(employees).getDepartment().getName(), 
 
 == Record-based Text File Processing with GetInLine ==
 
-GetInLine is a simple embedded Java DSL for writing applications that process record-based type files.
+!GetInLine is a simple embedded Java DSL for writing applications that process record-based type files.
 
  * Project: http://sourceforge.net/projects/getinline
  * Blog post: http://www.cocking.co.uk/blog/2006/10/dsl-for-file-processing-getinline.html
