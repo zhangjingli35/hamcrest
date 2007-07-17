@@ -58,6 +58,23 @@ specify(persons, where(new Each<Person>() {{ matches(item.getAge(), is(greaterTh
   * Project: http://www.jdave.org/
   * Example: http://svn.laughingpanda.org/svn/jdave/trunk/jdave-examples/src/test/jdave/examples/HamcrestSampleSpec.java
 
+== Web Testing ==
+
+Robert Chatley has been combining Hamcrest with [http://code.google.com/p/webdriver/ WebDriver] in a [https://lift.dev.java.net/ LiFT]-like way to do web-testing.
+
+{{{
+public void testHasLotsOfLinks() throws Exception {
+  goTo("http://some/url");
+   
+  assertPresenceOf(greaterThan(15), links());
+  assertPresenceOf(atLeast(1), link().with(text(equalTo("Sign in"))));
+
+  clickOn(link().with(text(equalTo("Sign in"))));
+
+  assertPresenceOf(exactly(1), title().with(text(equalTo("Sign in page"))));		
+}
+}}}
+
 == Other Ideas ==
 
 These are other uses of Hamcrest we've heard of in passing.
