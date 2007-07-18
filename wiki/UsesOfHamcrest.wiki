@@ -37,6 +37,12 @@ List<Person> allAccountants = select(from(employees).getDepartment().getName(), 
 
   * Blog post: http://jroller.com/page/ghettoJedi?entry=using_hamcrest_for_iterators
 
+== AssertThat in unit tests ==
+
+{{{
+assertThat(someList, containsItemWith(not(stringContaining("stuff")));
+}}}
+
 == Record-based Text File Processing with GetInLine ==
 
 !GetInLine is a simple embedded Java DSL for writing applications that process record-based type files.
