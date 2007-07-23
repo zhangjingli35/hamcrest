@@ -1,6 +1,15 @@
 #summary How people are using Hamcrest matchers
 #labels Featured,Category-Users
 
+== Unit tests: assertThat() and assumeThat() in JUnit ==
+
+As of JUnit 4.4, Hamcrest now comes with JUnit, along with `assertThat()` and `assumeThat()` methods.
+
+{{{
+assertThat(someList, containsItemWith(stringContaining("stuff"));
+}}}
+
+  * Release note: http://junit.sourceforge.net/doc/ReleaseNotes4.4.html
 
 == Mock objects with jMock2 ==
 
@@ -36,12 +45,6 @@ List<Person> allAccountants = select(from(employees).getDepartment().getName(), 
 }}}
 
   * Blog post: http://jroller.com/page/ghettoJedi?entry=using_hamcrest_for_iterators
-
-== AssertThat in unit tests ==
-
-{{{
-assertThat(someList, containsItemWith(not(stringContaining("stuff")));
-}}}
 
 == Record-based Text File Processing with GetInLine ==
 
