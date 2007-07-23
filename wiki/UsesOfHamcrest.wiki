@@ -24,7 +24,7 @@ never(mockThing).doSomething(with(aNull(String.class)));
 }}}
 
   * Project: http://jmock.org
-!  * Matcher docs: http://jmock.org/matchers.html
+  * Matcher docs: http://jmock.org/matchers.html
 
 == Using Hamcrest for Iterators ==
 
