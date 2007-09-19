@@ -1,6 +1,15 @@
 #summary How people are using Hamcrest matchers
 #labels Featured,Category-Users
 
+== Processing Collections ==
+
+Sam Newman's Hamcrest Collections project uses Hamcrest to implement features such as `select`, `reject`, `map`, `reduce` and `zip` familiar from languages like Ruby and Python.  
+
+It was inspired by Håkan Råberg's article about using Hamcrest with iterators (see below).
+
+ * Project: http://code.google.com/p/hamcrest-collections/
+ * Getting Started docs: http://code.google.com/p/hamcrest-collections/wiki/GettingStarted
+
 == Unit tests: assertThat() and assumeThat() in JUnit ==
 
 As of JUnit 4.4, Hamcrest now comes with JUnit, along with `assertThat()` and `assumeThat()` methods.
@@ -92,3 +101,4 @@ These are other uses of Hamcrest we've heard of in passing.
   * Nat Pryce has been using it to write GUI tests - to find matching components that appear within some timeout.
 
 Doing something else with Hamcrest? [http://groups.google.com/group/hamcrest-java Let us know!]
+ 
