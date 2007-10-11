@@ -115,6 +115,7 @@ These are other uses of Hamcrest we've heard of in passing.
 
   * Robert Chatley has been using matchers to implement filters in logging infrastructure.
   * Nat Pryce has been using it to write GUI tests - to find matching components that appear within some timeout.
+  * A team in an investment bank using Hamcrest to filter data in GUI tables.
 
 Doing something else with Hamcrest? [http://groups.google.com/group/hamcrest-java Let us know!]
  
