@@ -93,6 +93,11 @@ public void testHasLotsOfLinks() throws Exception {
 }
 }}}
 
+== Babble ==
+
+Nat Pryce has used Hamcrest to represent event subscription and advertisment filters in [http://www.doc.ic.ac.uk/~np2/babble.html Babble], an event bus with subscription-based routing and dynamic federation.
+
+
 == Other Ideas ==
 
 These are other uses of Hamcrest we've heard of in passing.
