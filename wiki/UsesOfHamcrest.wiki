@@ -97,6 +97,17 @@ public void testHasLotsOfLinks() throws Exception {
 
 Nat Pryce has used Hamcrest to represent event subscription and advertisment filters in [http://www.doc.ic.ac.uk/~np2/babble.html Babble], an event bus with subscription-based routing and dynamic federation.
 
+{{{
+session.subscribe(all(
+    events(with(REQUEST, ofAnyValue()),
+           with(OWNER,   ofAnyValue()),
+           with(LEASE,   greaterThanOrEqualTo(0))),
+    events(with(RESIGN,  ofAnyValue()),
+           with(OWNER,   ofAnyValue()),
+           with(LEASE,   greaterThanOrEqualTo(0)))));
+}}}
+
+  * Project: http://www.doc.ic.ac.uk/~np2/babble.html
 
 == Other Ideas ==
 
