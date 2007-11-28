@@ -109,6 +109,13 @@ session.subscribe(all(
 
   * Project: http://www.doc.ic.ac.uk/~np2/babble.html
 
+
+== File Matchers ==
+
+James Richardson has written Hamcrest matchers to select files.
+
+ * Wiki page, including code: http://www.time4tea.net/wiki/display/MAIN/Testing+Files+with+Hamcrest
+
 == Other Ideas ==
 
 These are other uses of Hamcrest we've heard of in passing.
