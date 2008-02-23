@@ -61,8 +61,8 @@ Hamcrest comes with a library of useful matchers. Here are the ones that are alr
     * `not` - matches if the wrapped matcher doesn't match and vice versa
   * Object
     * `equalTo` - test object equality using the `==` operator
-    * `instanceOf`, isCompatibleType - test type
-    * `notNullValue`, nullValue - test for null
+    * `instanceOf`, `isCompatibleType` - test type
+    * `notNullValue`, `nullValue` - test for null
     * `sameInstance` - test object identity using the `===` operator
   * Number
     * `closeTo` - test floating point values are close to a given value

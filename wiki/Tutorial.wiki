@@ -56,8 +56,8 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
   * Object
     * `equalTo` - test object equality using Object.equals
     * `hasToString` - test Object.toString
-    * `instanceOf`, isCompatibleType - test type
-    * `notNullValue`, nullValue - test for null
+    * `instanceOf`, `isCompatibleType` - test type
+    * `notNullValue`, `nullValue` - test for null
     * `sameInstance` - test object identity
   * Beans
     * `hasProperty` - test !JavaBeans properties
