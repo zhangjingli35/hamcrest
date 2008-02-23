@@ -8,7 +8,7 @@ When writing tests it is sometimes difficult to get the balance right between ov
 
 == My first Hamcrest test ==
 
-We'll start be writing a very simple PyUnit test, but instead of using PyUnit's `assertEquals` methods, we use Hamcrest's `assertThat` construct and the standard set of matchers, both of which we statically import:
+We'll start be writing a very simple PyUnit test, but instead of using PyUnit's `assertEqual` method, we use Hamcrest's `assert_that` construct and the standard set of matchers:
 
 {{{
 from hamcrest import *
