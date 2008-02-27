@@ -1,9 +1,9 @@
 #summary How people are using Hamcrest matchers
 #labels Featured,Category-Users
 
-== Windowlicker ==
+== Window Licker ==
 
-Windowlicker is a framework for testing Java programs with Swing GUIs.  It uses Hamcrest matchers to describe the expected state of the user interface.
+Window Licker is a framework for testing Java programs with Swing GUIs.  It uses Hamcrest matchers to describe the expected state of the user interface.
 
  * Project: http://code.google.com/p/windowlicker
 
