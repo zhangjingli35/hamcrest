@@ -3,7 +3,7 @@
 
 == Windowlicker ==
 
-Windowlicker is a framework for testing Java programs with Swing GUIs written by Nick Pomfret, Nat Pryce and James Richardson.  It uses Hamcrest matchers to describe the expected state of the user interface.
+Windowlicker is a framework for testing Java programs with Swing GUIs.  It uses Hamcrest matchers to describe the expected state of the user interface.
 
  * Project: http://code.google.com/p/hamcrest-collections/
 
@@ -120,7 +120,6 @@ James Richardson has written Hamcrest matchers to select files.
 These are other uses of Hamcrest we've heard of in passing.
 
   * Robert Chatley has been using matchers to implement filters in logging infrastructure.
-  * Nat Pryce has been using it to write GUI tests - to find matching components that appear within some timeout.
   * A team in an investment bank using Hamcrest to filter data in GUI tables.
 
 Doing something else with Hamcrest? [http://groups.google.com/group/hamcrest-java Let us know!]
