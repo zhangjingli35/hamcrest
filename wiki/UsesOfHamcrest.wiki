@@ -4,11 +4,23 @@
 == Processing Collections ==
 
 Sam Newman's Hamcrest Collections project uses Hamcrest to implement features such as `select`, `reject`, `map`, `reduce` and `zip` familiar from languages like Ruby and Python.  
-
-It was inspired by Håkan Råberg's article about using Hamcrest with iterators (see below).
-
  * Project: http://code.google.com/p/hamcrest-collections/
  * Getting Started docs: http://code.google.com/p/hamcrest-collections/wiki/GettingStarted
+
+
+Gareth Davis has implemented a similar collections API which also uses reflection to provide an extremely natural way of filtering by object properties:
+
+{{{
+smiths = select(people, where(Person.class).getLastName(),  equalToIgnoringCase("smith"));
+}}}
+
+ * Project: http://code.google.com/p/logicalpractice-collections/
+ * Getting Started docs: http://code.google.com/p/logicalpractice-collections/wiki/GettingStarted
+
+
+Both were inspired by an Håkan Råberg's article about using Hamcrest with iterators.
+
+  * Blog post: http://jroller.com/page/ghettoJedi?entry=using_hamcrest_for_iterators
 
 == Unit tests: assertThat() and assumeThat() in JUnit ==
 
@@ -35,25 +47,6 @@ never(mockThing).doSomething(with(aNull(String.class)));
   * Project: http://jmock.org
   * Matcher docs: http://jmock.org/matchers.html
 
-== Using Hamcrest for Iterators ==
-
-Håkan Råberg has blogged about how Hamcrest can be used to create an API to make it easy to select/detect/reject elements from a list that using matchers.
-
-{{{
-List numbers = Arrays.asList(-1, 0, 1, 2);
-print("detect int: " + detect(numbers, greaterThan(0)));
-}}}
-
-He then further extended this, using CGLib, to create a query API on custom domain objects.
-
-{{{
-List<Person> employees = ...;
-List<Integer> allAges = collect(from(employees).getAge());
-List<Person> allBosses = collect(from(employees).getDepartment().getBoss());
-List<Person> allAccountants = select(from(employees).getDepartment().getName(), equalTo("Accounts"));
-}}}
-
-  * Blog post: http://jroller.com/page/ghettoJedi?entry=using_hamcrest_for_iterators
 
 == Record-based Text File Processing with GetInLine ==
 
