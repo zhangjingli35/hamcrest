@@ -1,6 +1,12 @@
 #summary How people are using Hamcrest matchers
 #labels Featured,Category-Users
 
+== Windowlicker ==
+
+Windowlicker is a framework for testing Java programs with Swing GUIs written by Nick Pomfret, Nat Pryce and James Richardson.  It uses Hamcrest matchers to describe the expected state of the user interface.
+
+ * Project: http://code.google.com/p/hamcrest-collections/
+
 == Processing Collections ==
 
 Sam Newman's Hamcrest Collections project uses Hamcrest to implement features such as `select`, `reject`, `map`, `reduce` and `zip` familiar from languages like Ruby and Python.  
