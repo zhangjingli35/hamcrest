@@ -58,6 +58,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     * `close_to` - test numeric values are close to a given value
     * `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to` - test ordering
   * Text
+    * `equal_to_ignoring_case` - test string equality ignoring case
     * `equal_to_ignoring_whitespace` - test string equality ignoring differences in runs of whitespace
     * `contains_string`, `ends_with`, `starts_with` - test string matching
 
