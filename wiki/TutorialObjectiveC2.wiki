@@ -177,7 +177,7 @@ For our Matcher implementation we implement the `matches:` method - which calls 
 
 {{{
 NSCalendarDate* date = [NSCalendarDate dateWithString: @"6 April 2008"
-									   calendarFormat: @"%d %B %Y"];
+                                       calendarFormat: @"%d %B %Y"];
 assertThat(date, is(onASaturday()));
 }}}
 
@@ -189,4 +189,4 @@ Expected: is calendar date falling on Saturday, got: <06 April 2008>
 
 and Xcode shows it as a build error. Double clicking the error message takes you to the assertion that failed. 
 
-Even though the `onASaturday` function creates a new matcher each time it is called, you should not assume this is the only usage pattern for your matcher. Therefore you should make sure your matcher is stateless, so a single instance can be reused between matches.
+Even though the `HC_onASaturday` function creates a new matcher each time it is called, you should not assume this is the only usage pattern for your matcher. Therefore you should make sure your matcher is stateless, so a single instance can be reused between matches.
