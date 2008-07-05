@@ -47,7 +47,8 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     * `is_not` - matches if the wrapped matcher doesn't match and vice versa
   * Object
     * `equal_to` - test object equality using `==`
-    * `has_string` - test str(object) value
+    * `has_length` - test whether len(item) satisfies another matcher
+    * `has_string` - test whether str(item) satisfies another matcher
     * `instance_of` - test type
     * `none`, `not_none` - test for None
     * `same_instance` - test object identity
