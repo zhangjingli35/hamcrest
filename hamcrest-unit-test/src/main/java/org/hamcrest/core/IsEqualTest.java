@@ -106,12 +106,8 @@ public class IsEqualTest extends AbstractMatcherTest {
         assertDescription("null", equalTo(null));
     }
 
-    public void testMatchDescriptionForNonEqualsUsingEqualsMethod() throws Exception {
+    public void testMismatchDescriptionForNonEqualsUsingEqualsMethod() throws Exception {
 		assertMismatchDescription("Not equal using Object#equals(Object)", 1, equalTo(2));
-	}
-
-    public void testMatchDescriptionWhenEqualUsingEqualsMethod() throws Exception {
-		assertMismatchDescription("Equal using Object#equals(Object)", 1, equalTo(1));
 	}
 }
 

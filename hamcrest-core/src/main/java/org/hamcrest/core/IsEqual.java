@@ -38,8 +38,9 @@ public class IsEqual<T> extends BaseMatcher<T> {
             return isArray(o2) && areArraysEqual(o1, o2);
         } else {
             boolean equal = o1.equals(o2);
-            description.appendText(equal ? "Equal " : "Not equal ")
-            	.appendText("using Object#equals(Object)");
+            if (!equal) {
+            	description.appendText("Not equal using Object#equals(Object)");
+            }
             return equal;
         }
     }
