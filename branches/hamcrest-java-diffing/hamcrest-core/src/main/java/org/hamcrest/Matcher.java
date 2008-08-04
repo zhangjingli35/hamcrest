@@ -35,14 +35,17 @@ public interface Matcher<T> extends SelfDescribing {
      */
     boolean matches(Object item);
 
+    // TODO(ngd): javajdoc
+    boolean matches(Object item, MismatchDescription description);
+
     /**
      * This method simply acts a friendly reminder not to implement Matcher directly and
      * instead extend BaseMatcher. It's easy to ignore JavaDoc, but a bit harder to ignore
      * compile errors .
-     * 
+     *
      * @see Matcher for reasons why.
      * @see BaseMatcher
-     * @deprecated to make 
+     * @deprecated to make
      */
     @Deprecated
     void _dont_implement_Matcher___instead_extend_BaseMatcher_();

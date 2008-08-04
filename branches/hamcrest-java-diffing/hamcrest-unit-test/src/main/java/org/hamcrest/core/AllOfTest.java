@@ -10,11 +10,12 @@ import org.hamcrest.Matcher;
 
 public class AllOfTest extends AbstractMatcherTest {
 
-    @SuppressWarnings("unchecked")
+    @Override
+	@SuppressWarnings("unchecked")
     protected Matcher<?> createMatcher() {
         return allOf(equalTo("irrelevant"));
     }
-    
+
     @SuppressWarnings("unchecked")
     public void testEvaluatesToTheTheLogicalConjunctionOfTwoOtherMatchers() {
         assertThat("good", allOf(equalTo("good"), equalTo("good")));
@@ -29,7 +30,7 @@ public class AllOfTest extends AbstractMatcherTest {
         assertThat("good", allOf(equalTo("good"), equalTo("good"), equalTo("good"), equalTo("good"), equalTo("good")));
         assertThat("good", not(allOf(equalTo("good"), equalTo("good"), equalTo("bad"), equalTo("good"), equalTo("good"))));
     }
-    
+
     @SuppressWarnings("unchecked")
     public void testSupportsMixedTypes() {
         final Matcher<SampleSubClass> all = allOf(
@@ -37,12 +38,20 @@ public class AllOfTest extends AbstractMatcherTest {
                 equalTo(new SampleBaseClass("good")),
                 equalTo(new SampleSubClass("ugly")));
         final Matcher<SampleSubClass> negated = not(all);
-        
+
         assertThat(new SampleSubClass("good"), negated);
     }
-    
+
     public void testHasAReadableDescription() {
         assertDescription("(\"good\" and \"bad\" and \"ugly\")",
                 allOf(equalTo("good"), equalTo("bad"), equalTo("ugly")));
     }
+
+    public void testMismatchDescriptionComesFromFailingNestedMatcher() {
+    	String expectedMatchDescription =
+    			"  \n  Expected: \"bad\"\n" +
+    			"       got: \"good\"\n" +
+    			"       but: Not equal using Object#equals(Object)\n";
+    	assertMismatchDescription(expectedMatchDescription, "good", allOf(equalTo("good"), equalTo("bad")));
+	}
 }

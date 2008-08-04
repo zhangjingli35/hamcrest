@@ -16,6 +16,14 @@ public abstract class BaseMatcher<T> implements Matcher<T> {
         // See Matcher interface for an explanation of this method.
     }
 
+    public boolean matches(Object item) {
+    	return matches(item, MismatchDescription.NONE);
+    }
+
+    public boolean matches(Object item, MismatchDescription description) {
+    	return matches(item);
+    }
+
     @Override
     public String toString() {
         return StringDescription.toString(this);

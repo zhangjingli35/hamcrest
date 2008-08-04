@@ -7,6 +7,7 @@ import java.util.List;
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
+import org.hamcrest.MismatchDescription;
 
 /**
  * Calculates the logical disjunction of multiple matchers. Evaluation is shortcut, so
@@ -19,8 +20,8 @@ public class AnyOf<T> extends ShortcutCombination<T> {
     }
 
     @Override
-    public boolean matches(Object o) {
-        return matches(o, true);
+    public boolean matches(Object o, MismatchDescription description) {
+        return matches(o, true, description);
     }
 
     @Override
@@ -35,7 +36,7 @@ public class AnyOf<T> extends ShortcutCombination<T> {
     public static <T> Matcher<T> anyOf(Iterable<Matcher<? super T>> matchers) {
         return new AnyOf<T>(matchers);
     }
-    
+
     /**
      * Evaluates to true if ANY of the passed in matchers evaluate to true.
      */
