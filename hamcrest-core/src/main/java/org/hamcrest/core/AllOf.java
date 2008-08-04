@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
+import org.hamcrest.MismatchDescription;
 import org.hamcrest.Matcher;
 
 /**
@@ -19,8 +20,8 @@ public class AllOf<T> extends ShortcutCombination<T> {
     }
 
     @Override
-    public boolean matches(Object o) {
-        return matches(o, false);
+    public boolean matches(Object o, MismatchDescription description) {
+        return matches(o, false, description);
     }
 
     @Override

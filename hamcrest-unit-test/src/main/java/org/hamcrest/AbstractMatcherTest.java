@@ -38,7 +38,13 @@ public abstract class AbstractMatcherTest extends TestCase {
         createMatcher().matches(new UnknownType());
     }
 
-    public static class UnknownType {
+    protected static <T> void assertMismatchDescription(String expectedMismatchDescription, T value, Matcher<? super T> matcher) {
+    	MismatchDescription description = new StringMismatchDescription();
+    	matcher.matches(value, description);
+    	assertEquals(expectedMismatchDescription, description.toString());
+    }
+
+	public static class UnknownType {
     }
 
 }

@@ -1,11 +1,5 @@
 package org.hamcrest.xml;
 
-import org.hamcrest.Description;
-import org.hamcrest.Factory;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
-import org.w3c.dom.Node;
-
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.xpath.XPath;
@@ -13,6 +7,13 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.MismatchDescription;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
+import org.w3c.dom.Node;
 
 /**
  * Applies a Matcher to a given XML Node in an existing XML Node tree, specified by an XPath expression.
@@ -59,15 +60,17 @@ public class HasXPath extends TypeSafeMatcher<Node> {
         }
     }
 
-    public boolean matchesSafely(Node item) {
+    @Override
+	public boolean matchesSafely(Node item, MismatchDescription description) {
         try {
             Object result = compiledXPath.evaluate(item, evaluationMode);
             if (result == null) {
+            	description.appendText("xpath did not return a result");
                 return false;
             } else if (valueMatcher == null) {
                 return true;
             } else {
-                return valueMatcher.matches(result);
+                return description.appendMismatchDescription(result, valueMatcher);
             }
         } catch (XPathExpressionException e) {
             return false;
