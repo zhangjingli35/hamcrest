@@ -3,17 +3,15 @@
 package org.hamcrest.core;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNot.not;
-
+import static org.hamcrest.core.IsEqual.equalTo;
 import org.hamcrest.AbstractMatcherTest;
 import org.hamcrest.Matcher;
 
 
 public class IsEqualTest extends AbstractMatcherTest {
 
-    @Override
-	protected Matcher<?> createMatcher() {
+    protected Matcher<?> createMatcher() {
         return equalTo("irrelevant");
     }
 
@@ -34,14 +32,12 @@ public class IsEqualTest extends AbstractMatcherTest {
 
     public void testHonoursIsEqualImplementationEvenWithNullValues() {
         Object alwaysEqual = new Object() {
-            @Override
-			public boolean equals(Object obj) {
+            public boolean equals(Object obj) {
                 return true;
             }
         };
         Object neverEqual = new Object() {
-            @Override
-			public boolean equals(Object obj) {
+            public boolean equals(Object obj) {
                 return false;
             }
         };
@@ -49,7 +45,7 @@ public class IsEqualTest extends AbstractMatcherTest {
         assertThat(alwaysEqual, equalTo(null));
         assertThat(neverEqual, not(equalTo(null)));
     }
-
+    
     public void testComparesTheElementsOfAnObjectArray() {
         String[] s1 = {"a", "b"};
         String[] s2 = {"a", "b"};
@@ -89,8 +85,7 @@ public class IsEqualTest extends AbstractMatcherTest {
     public void testIncludesTheResultOfCallingToStringOnItsArgumentInTheDescription() {
         final String argumentDescription = "ARGUMENT DESCRIPTION";
         Object argument = new Object() {
-            @Override
-			public String toString() {
+            public String toString() {
                 return argumentDescription;
             }
         };
@@ -105,9 +100,5 @@ public class IsEqualTest extends AbstractMatcherTest {
     public void testReturnsGoodDescriptionIfCreatedWithNullReference() {
         assertDescription("null", equalTo(null));
     }
-
-    public void testMismatchDescriptionForNonEqualsUsingEqualsMethod() throws Exception {
-		assertMismatchDescription("Not equal using Object#equals(Object)", 1, equalTo(2));
-	}
 }
 

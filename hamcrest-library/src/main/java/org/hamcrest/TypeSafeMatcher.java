@@ -9,28 +9,18 @@ import java.lang.reflect.Method;
  * @author Joe Walnes
  */
 public abstract class TypeSafeMatcher<T> extends BaseMatcher<T> {
-    private final Class<?> expectedType;
+    private Class<?> expectedType;
 
     /**
      * Subclasses should implement this. The item will already have been checked for
      * the specific type and will never be null.
      */
-    public boolean matchesSafely(T item) {
-    	return matchesSafely(item, MismatchDescription.NONE);
-    }
-
-    /**
-     * Subclasses should implement this. The item will already have been checked for
-     * the specific type and will never be null.
-     */
-    public boolean matchesSafely(T item, MismatchDescription description) {
-    	return matchesSafely(item);
-    }
+    public abstract boolean matchesSafely(T item);
 
     protected TypeSafeMatcher() {
         expectedType = findExpectedType(getClass());
     }
-
+    
     private static Class<?> findExpectedType(Class<?> fromClass) {
         for (Class<?> c = fromClass; c != Object.class; c = c.getSuperclass()) {
             for (Method method : c.getDeclaredMethods()) {
@@ -39,17 +29,16 @@ public abstract class TypeSafeMatcher<T> extends BaseMatcher<T> {
                 }
             }
         }
-
+        
         throw new Error("Cannot determine correct type for matchesSafely() method.");
     }
-
+    
     private static boolean isMatchesSafelyMethod(Method method) {
-    	int numberOfParams = method.getParameterTypes().length;
-        return method.getName().equals("matchesSafely")
-            && (numberOfParams == 1 || numberOfParams == 2)
-            && !method.isSynthetic();
+        return method.getName().equals("matchesSafely") 
+            && method.getParameterTypes().length == 1
+            && !method.isSynthetic(); 
     }
-
+    
     protected TypeSafeMatcher(Class<T> expectedType) {
         this.expectedType = expectedType;
     }
@@ -59,11 +48,10 @@ public abstract class TypeSafeMatcher<T> extends BaseMatcher<T> {
      * If you need to override this, there's no point on extending TypeSafeMatcher.
      * Instead, extend the {@link BaseMatcher}.
      */
-    @Override
     @SuppressWarnings({"unchecked"})
-    public final boolean matches(Object item, MismatchDescription description) {
+    public final boolean matches(Object item) {
         return item != null
                 && expectedType.isInstance(item)
-                && matchesSafely((T) item, description);
+                && matchesSafely((T) item);
     }
 }

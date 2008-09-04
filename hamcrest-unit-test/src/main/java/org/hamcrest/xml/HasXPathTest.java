@@ -111,24 +111,12 @@ public class HasXPathTest extends AbstractMatcherTest {
                 hasXPath("/some/path"));
     }
 
-    public void testHasReadableMismatchDescriptionForMissingNode() throws Exception {
-    	assertMismatchDescription("xpath did not return a result", xml, hasXPath("/blah"));
+    public void testDescribesMissingNodeMismatch() {
+    	assertMismatchDescription("xpath returned no results.", hasXPath("//honky"), xml);
 	}
 
-    public void testHasReadableMismatchDescriptionForEmptyStringNodeMatch() throws Exception {
-    	String expectedMismatchDescription = "  \n  Expected: \"foo\"\n" +
-			"       got: \"\"\n" +
-			"       but: Not equal using Object#equals(Object)\n";
-    	assertMismatchDescription(expectedMismatchDescription, xml,
-    			hasXPath("/blah", equalTo("foo")));
-	}
-
-    public void testHasReadableMismatchDescriptionForIncorrectStringNodeMatch() throws Exception {
-    	String expectedMismatchDescription = "  \n  Expected: \"foo\"\n" +
-    		"       got: \"Cheddar\"\n" +
-    		"       but: Not equal using Object#equals(Object)\n";
-    	assertMismatchDescription(expectedMismatchDescription, xml,
-    			hasXPath("/root/something[2]/cheese", equalTo("foo")));
+    public void testDescribesIncorrectNodeValueMismatch() {
+    	assertMismatchDescription("xpath returned \"Edam\". It didn't match.", hasXPath("//something[1]/cheese", equalTo("parmesan")), xml);
 	}
 
     private Document parse(String xml) throws Exception {

@@ -47,11 +47,7 @@ public class AllOfTest extends AbstractMatcherTest {
                 allOf(equalTo("good"), equalTo("bad"), equalTo("ugly")));
     }
 
-    public void testMismatchDescriptionComesFromFailingNestedMatcher() {
-    	String expectedMatchDescription =
-    			"  \n  Expected: \"bad\"\n" +
-    			"       got: \"good\"\n" +
-    			"       but: Not equal using Object#equals(Object)\n";
-    	assertMismatchDescription(expectedMatchDescription, "good", allOf(equalTo("good"), equalTo("bad")));
+    public void testMismatchDescriptionDescribesFirstFailingMatch() {
+    	assertMismatchDescription("\"good\". It didn't match.", allOf(equalTo("bad"), equalTo("good")), "bad");
 	}
 }

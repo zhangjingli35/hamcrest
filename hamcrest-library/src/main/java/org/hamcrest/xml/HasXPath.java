@@ -10,9 +10,8 @@ import javax.xml.xpath.XPathFactory;
 
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
-import org.hamcrest.MismatchDescription;
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
+import org.hamcrest.TypeSafeDiagnosingMatcher;
 import org.w3c.dom.Node;
 
 /**
@@ -20,7 +19,7 @@ import org.w3c.dom.Node;
  *
  * @author Joe Walnes
  */
-public class HasXPath extends TypeSafeMatcher<Node> {
+public class HasXPath extends TypeSafeDiagnosingMatcher<Node> {
     private final Matcher<?> valueMatcher;
     private final XPathExpression compiledXPath;
     private final String xpathString;
@@ -61,16 +60,23 @@ public class HasXPath extends TypeSafeMatcher<Node> {
     }
 
     @Override
-	public boolean matchesSafely(Node item, MismatchDescription description) {
+	public boolean matchesSafely(Node item, Description mismatchDescription) {
         try {
             Object result = compiledXPath.evaluate(item, evaluationMode);
             if (result == null) {
-            	description.appendText("xpath did not return a result");
+            	mismatchDescription.appendText("xpath returned no results.");
                 return false;
             } else if (valueMatcher == null) {
                 return true;
             } else {
-                return description.appendMismatchDescription(result, valueMatcher);
+            	boolean valueMatched = valueMatcher.matches(result);
+            	if (!valueMatched) {
+            		mismatchDescription.appendText("xpath returned ")
+            			.appendValue(result)
+            			.appendText(". ");
+            		valueMatcher.describeMismatch(result, mismatchDescription);
+            	}
+                return valueMatched;
             }
         } catch (XPathExpressionException e) {
             return false;

@@ -9,10 +9,18 @@ public class MatcherAssert {
     }
 
     public static <T> void assertThat(String reason, T actual, Matcher<? super T> matcher) {
-    	StringMismatchDescription mismatchDescription = new StringMismatchDescription();
-    	if (!mismatchDescription.describeMatch(reason, actual, matcher)) {
-    		throw new AssertionError(mismatchDescription.toString());
-    	}
+        if (!matcher.matches(actual)) {
+            Description description = new StringDescription();
+            description.appendText(reason)
+                       .appendText("\nExpected: ")
+                       .appendDescriptionOf(matcher)
+                       .appendText("\n     got: ")
+                       .appendValue(actual)
+                       .appendText("\nmismatch: ");
+            matcher.describeMismatch(actual, description);
+
+            throw new AssertionError(description.toString());
+        }
     }
 
     public static void assertThat(String reason, boolean assertion) {
