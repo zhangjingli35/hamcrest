@@ -5,7 +5,6 @@ package org.hamcrest.core;
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
-import org.hamcrest.MismatchDescription;
 import org.hamcrest.Matcher;
 
 
@@ -25,17 +24,8 @@ public class IsInstanceOf extends BaseMatcher<Object> {
         this.theClass = theClass;
     }
 
-    @Override
-	public boolean matches(Object item, MismatchDescription description) {
-    	if (item == null) {
-    		return false;
-    	}
-    	boolean isInstance = theClass.isInstance(item);
-    	if (!isInstance) {
-    		description.appendText("Incompatible type ")
-    			.appendText(item.getClass().getName());
-    	}
-    	return isInstance;
+    public boolean matches(Object item) {
+        return theClass.isInstance(item);
     }
 
     public void describeTo(Description description) {

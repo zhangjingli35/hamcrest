@@ -54,22 +54,30 @@ public class MatcherAssertTest extends TestCase {
         fail("should have failed");
     }
 
-    public void testDescriptionContainsMismatch() {
-        String expected = "expected";
-        String actual = "actual";
-
-        String expectedMessage = "\nExpected: \"expected\"\n"
-        	+ "     got: \"actual\"\n"
-        	+ "     but: Not equal using Object#equals(Object)\n";
-
-        try {
-            assertThat(actual, equalTo(expected));
-        }
-        catch (AssertionError e) {
-            assertEquals(expectedMessage, e.getMessage());
-            return;
+    public void testIncludesMismatchDescription() {
+      Matcher<String> matcherWithCustomMismatchDescription = new BaseMatcher<String>() {
+        public boolean matches(Object item) {
+          return false;
         }
 
+        public void describeTo(Description description) {
+          description.appendText("Something cool");
+        }
+
+        @Override
+        public void describeMismatch(Object item, Description mismatchDescription) {
+          mismatchDescription.appendText("Not cool");
+        }
+      };
+
+      String expectedMessage = "\nExpected: Something cool\n     got: \"Value\"\nmismatch: Not cool";
+
+      try {
+        assertThat("Value", matcherWithCustomMismatchDescription);
         fail("should have failed");
+      }
+      catch (AssertionError e) {
+        assertEquals(expectedMessage, e.getMessage());
+      }
     }
 }

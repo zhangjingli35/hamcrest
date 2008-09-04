@@ -2,7 +2,6 @@ package org.hamcrest.core;
 
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
-import org.hamcrest.MismatchDescription;
 import org.hamcrest.Matcher;
 
 abstract class ShortcutCombination<T> extends BaseMatcher<T> {
@@ -13,15 +12,13 @@ abstract class ShortcutCombination<T> extends BaseMatcher<T> {
         this.matchers = matchers;
     }
 
-    @Override
-	public abstract boolean matches(Object o, MismatchDescription description);
+    public abstract boolean matches(Object o);
 
     public abstract void describeTo(Description description);
 
-    protected boolean matches(Object o, boolean shortcut, MismatchDescription description) {
+    protected boolean matches(Object o, boolean shortcut) {
         for (Matcher<? super T> matcher : matchers) {
-        	boolean matches = description.appendMismatchDescription(o, matcher);
-            if (matches == shortcut) {
+            if (matcher.matches(o) == shortcut) {
                 return shortcut;
             }
         }

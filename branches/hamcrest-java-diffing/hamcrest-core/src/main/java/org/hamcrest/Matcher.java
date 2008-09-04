@@ -35,8 +35,12 @@ public interface Matcher<T> extends SelfDescribing {
      */
     boolean matches(Object item);
 
-    // TODO(ngd): javajdoc
-    boolean matches(Object item, MismatchDescription description);
+    /**
+     * TODO(ngd): Document
+     * @param item
+     * @param mismatchDescription
+     */
+    void describeMismatch(Object item, Description mismatchDescription);
 
     /**
      * This method simply acts a friendly reminder not to implement Matcher directly and

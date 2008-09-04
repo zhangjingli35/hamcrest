@@ -16,12 +16,13 @@ public abstract class BaseMatcher<T> implements Matcher<T> {
         // See Matcher interface for an explanation of this method.
     }
 
-    public boolean matches(Object item) {
-    	return matches(item, MismatchDescription.NONE);
-    }
-
-    public boolean matches(Object item, MismatchDescription description) {
-    	return matches(item);
+    public void describeMismatch(Object item, Description mismatchDescription) {
+    	// TODO(ngd): Decide whether to have a default implementation
+    	// that says something or just does nothing
+    	//
+    	// Doing nothing might be more useful for tools
+    	// that don't want to show a pointless failure message.
+    	mismatchDescription.appendText("It didn't match.");
     }
 
     @Override
