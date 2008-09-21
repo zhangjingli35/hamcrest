@@ -4,27 +4,43 @@ import java.util.Arrays;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
+import org.hamcrest.TypeSafeDiagnosingMatcher;
 
 /**
  * Matcher for array whose elements satisfy a sequence of matchers.
  * The array size must equal the number of element matchers.
  */
-public class IsArray<T> extends TypeSafeMatcher<T[]> {
+public class IsArray<T> extends TypeSafeDiagnosingMatcher<T[]> {
     private final Matcher<T>[] elementMatchers;
     
     public IsArray(Matcher<T>[] elementMatchers) {
         this.elementMatchers = elementMatchers.clone();
     }
     
-    public boolean matchesSafely(T[] array) {
-        if (array.length != elementMatchers.length) return false;
-        
-        for (int i = 0; i < array.length; i++) {
-            if (!elementMatchers[i].matches(array[i])) return false;
+    @Override
+    public boolean matchesSafely(T[] array, Description description) {
+        if (array.length != elementMatchers.length) {
+          description.appendText("wrong number of values")
+                     .appendValueList(descriptionStart(), descriptionSeparator(), descriptionEnd(), array);
+          return false;
         }
         
-        return true;
+        return matchesValuesSafely(array, elementMatchers, description);
+    }
+
+    protected boolean matchesValuesSafely(T[] values, Matcher<T>[] matchers, Description description) {
+      for (int i = 0; i < values.length; i++) {
+          final Matcher<T> matcher = matchers[i];
+          if (!matcher.matches(values[i])) {
+            description.appendText("[");
+            matcher.describeMismatch(values[i], description);
+            description.appendText("]");
+            return false;
+          }
+          description.appendText("[Matched]");
+      }
+      
+      return true;
     }
     
     public void describeTo(Description description) {
@@ -68,4 +84,5 @@ public class IsArray<T> extends TypeSafeMatcher<T[]> {
     public static <T> IsArray<T> array(Matcher<T>... elementMatchers) {
         return new IsArray<T>(elementMatchers);
     }
+
 }

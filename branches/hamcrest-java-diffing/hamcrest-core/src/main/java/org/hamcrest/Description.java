@@ -7,7 +7,12 @@ package org.hamcrest;
  * @see Matcher#describeTo(Description)
  */
 public interface Description {
-	/**
+  /**
+   * A description that consumes input but does nothing.
+   */
+  static final Description NONE = new NullDescription();
+  
+    /**
      * Appends some plain text to the description.
      */
     Description appendText(String text);
@@ -41,37 +46,38 @@ public interface Description {
     Description appendList(String start, String separator, String end,
                            Iterable<? extends SelfDescribing> values);
 
-    /**
-     * A description that consumes input but does nothing.
-     */
-    Description NONE = new Description() {
 
-		public Description appendDescriptionOf(SelfDescribing value) {
-			return this;
-		}
+    public static final class NullDescription implements Description {
+      public Description appendDescriptionOf(SelfDescribing value) {
+        return this;
+      }
 
-		public Description appendList(String start, String separator,
-				String end, Iterable<? extends SelfDescribing> values) {
-			return this;
-		}
+      public Description appendList(String start, String separator,
+          String end, Iterable<? extends SelfDescribing> values) {
+        return this;
+      }
 
-		public Description appendText(String text) {
-			return this;
-		}
+      public Description appendText(String text) {
+        return this;
+      }
 
-		public Description appendValue(Object value) {
-			return this;
-		}
+      public Description appendValue(Object value) {
+        return this;
+      }
 
-		public <T> Description appendValueList(String start, String separator,
-				String end, T... values) {
-			return this;
-		}
+      public <T> Description appendValueList(String start, String separator,
+          String end, T... values) {
+        return this;
+      }
 
-		public <T> Description appendValueList(String start, String separator,
-				String end, Iterable<T> values) {
-			return this;
-		}
+      public <T> Description appendValueList(String start, String separator,
+          String end, Iterable<T> values) {
+        return this;
+      }
 
-    };
+      @Override
+        public String toString() {
+          return "";
+        }
+    }
 }

@@ -17,8 +17,7 @@ package org.hamcrest;
  * @see CoreMatchers
  * @see BaseMatcher
  */
-@SuppressWarnings({"unused"})
-public interface Matcher<T> extends SelfDescribing {
+public interface Matcher<T> extends Mismatchable {
 
     /**
      * Evaluates the matcher for argument <var>item</var>.
@@ -34,13 +33,6 @@ public interface Matcher<T> extends SelfDescribing {
      * @see BaseMatcher
      */
     boolean matches(Object item);
-
-    /**
-     * TODO(ngd): Document
-     * @param item
-     * @param mismatchDescription
-     */
-    void describeMismatch(Object item, Description mismatchDescription);
 
     /**
      * This method simply acts a friendly reminder not to implement Matcher directly and

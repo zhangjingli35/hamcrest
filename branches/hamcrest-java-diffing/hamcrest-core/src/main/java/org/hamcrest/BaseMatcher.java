@@ -16,13 +16,13 @@ public abstract class BaseMatcher<T> implements Matcher<T> {
         // See Matcher interface for an explanation of this method.
     }
 
-    public void describeMismatch(Object item, Description mismatchDescription) {
+    public void describeMismatch(Object item, Description description) {
     	// TODO(ngd): Decide whether to have a default implementation
     	// that says something or just does nothing
     	//
     	// Doing nothing might be more useful for tools
     	// that don't want to show a pointless failure message.
-    	mismatchDescription.appendText("It didn't match.");
+    	description.appendValue(item);
     }
 
     @Override
