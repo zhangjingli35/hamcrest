@@ -11,7 +11,7 @@ import org.hamcrest.TypeSafeDiagnosingMatcher;
  * The array size must equal the number of element matchers.
  */
 public class IsArray<T> extends TypeSafeDiagnosingMatcher<T[]> {
-    private final Matcher<T>[] elementMatchers;
+    protected final Matcher<T>[] elementMatchers;
     
     public IsArray(Matcher<T>[] elementMatchers) {
         this.elementMatchers = elementMatchers.clone();
