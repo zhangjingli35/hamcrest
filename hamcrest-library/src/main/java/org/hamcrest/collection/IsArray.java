@@ -4,43 +4,28 @@ import java.util.Arrays;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeDiagnosingMatcher;
+import org.hamcrest.TypeSafeMatcher;
 
 /**
  * Matcher for array whose elements satisfy a sequence of matchers.
  * The array size must equal the number of element matchers.
  */
-public class IsArray<T> extends TypeSafeDiagnosingMatcher<T[]> {
-    protected final Matcher<T>[] elementMatchers;
+public class IsArray<T> extends TypeSafeMatcher<T[]> {
+    private final Matcher<T>[] elementMatchers;
     
     public IsArray(Matcher<T>[] elementMatchers) {
         this.elementMatchers = elementMatchers.clone();
     }
     
     @Override
-    public boolean matchesSafely(T[] array, Description description) {
-        if (array.length != elementMatchers.length) {
-          description.appendText("wrong number of values")
-                     .appendValueList(descriptionStart(), descriptionSeparator(), descriptionEnd(), array);
-          return false;
+    public boolean matchesSafely(T[] array) {
+        if (array.length != elementMatchers.length) return false;
+        
+        for (int i = 0; i < array.length; i++) {
+            if (!elementMatchers[i].matches(array[i])) return false;
         }
         
-        return matchesValuesSafely(array, elementMatchers, description);
-    }
-
-    protected boolean matchesValuesSafely(T[] values, Matcher<T>[] matchers, Description description) {
-      for (int i = 0; i < values.length; i++) {
-          final Matcher<T> matcher = matchers[i];
-          if (!matcher.matches(values[i])) {
-            description.appendText("[");
-            matcher.describeMismatch(values[i], description);
-            description.appendText("]");
-            return false;
-          }
-          description.appendText("[Matched]");
-      }
-      
-      return true;
+        return true;
     }
     
     public void describeTo(Description description) {
@@ -84,5 +69,4 @@ public class IsArray<T> extends TypeSafeDiagnosingMatcher<T[]> {
     public static <T> IsArray<T> array(Matcher<T>... elementMatchers) {
         return new IsArray<T>(elementMatchers);
     }
-
 }

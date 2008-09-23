@@ -11,7 +11,8 @@ public abstract class DiagnosingMatcher<T> extends BaseMatcher<T> {
 		return matches(item, Description.NONE);
 	}
 
-	public final void describeMismatch(Object item, Description mismatchDescription) {
+	@Override
+  public final void describeMismatch(Object item, Description mismatchDescription) {
 		matches(item, mismatchDescription);
 	}
 
