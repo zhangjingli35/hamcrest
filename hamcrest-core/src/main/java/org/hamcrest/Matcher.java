@@ -17,7 +17,7 @@ package org.hamcrest;
  * @see CoreMatchers
  * @see BaseMatcher
  */
-public interface Matcher<T> extends Mismatchable {
+public interface Matcher<T> extends SelfDescribing {
 
     /**
      * Evaluates the matcher for argument <var>item</var>.
@@ -33,6 +33,7 @@ public interface Matcher<T> extends Mismatchable {
      * @see BaseMatcher
      */
     boolean matches(Object item);
+    public void describeMismatch(Object item, Description description);
 
     /**
      * This method simply acts a friendly reminder not to implement Matcher directly and

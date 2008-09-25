@@ -22,7 +22,7 @@ public abstract class BaseMatcher<T> implements Matcher<T> {
     	//
     	// Doing nothing might be more useful for tools
     	// that don't want to show a pointless failure message.
-    	description.appendText("it was <").appendValue(item).appendText(">");
+    	description.appendText("it was: ").appendValue(item);
     }
 
     @Override
