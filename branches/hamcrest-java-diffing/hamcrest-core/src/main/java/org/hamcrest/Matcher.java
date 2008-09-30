@@ -33,7 +33,7 @@ public interface Matcher<T> extends SelfDescribing {
      * @see BaseMatcher
      */
     boolean matches(Object item);
-    public void describeMismatch(Object item, Description description);
+    void describeMismatch(Object item, Description description);
 
     /**
      * This method simply acts a friendly reminder not to implement Matcher directly and
