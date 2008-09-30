@@ -116,7 +116,7 @@ public class HasXPathTest extends AbstractMatcherTest {
 	}
 
     public void testDescribesIncorrectNodeValueMismatch() {
-    	assertMismatchDescription("xpath returned \"Edam\". It didn't match.", hasXPath("//something[1]/cheese", equalTo("parmesan")), xml);
+    	assertMismatchDescription("xpath result was \"Edam\"", hasXPath("//something[1]/cheese", equalTo("parmesan")), xml);
 	}
 
     private Document parse(String xml) throws Exception {
