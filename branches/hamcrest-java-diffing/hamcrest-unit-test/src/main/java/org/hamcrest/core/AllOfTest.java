@@ -16,7 +16,6 @@ public class AllOfTest extends AbstractMatcherTest {
         return allOf(equalTo("irrelevant"));
     }
 
-    @SuppressWarnings("unchecked")
     public void testEvaluatesToTheTheLogicalConjunctionOfTwoOtherMatchers() {
         assertThat("good", allOf(equalTo("good"), equalTo("good")));
 
@@ -25,7 +24,6 @@ public class AllOfTest extends AbstractMatcherTest {
         assertThat("good", not(allOf(equalTo("bad"), equalTo("bad"))));
     }
 
-    @SuppressWarnings("unchecked")
     public void testEvaluatesToTheTheLogicalConjunctionOfManyOtherMatchers() {
         assertThat("good", allOf(equalTo("good"), equalTo("good"), equalTo("good"), equalTo("good"), equalTo("good")));
         assertThat("good", not(allOf(equalTo("good"), equalTo("good"), equalTo("bad"), equalTo("good"), equalTo("good"))));
@@ -48,6 +46,6 @@ public class AllOfTest extends AbstractMatcherTest {
     }
 
     public void testMismatchDescriptionDescribesFirstFailingMatch() {
-    	assertMismatchDescription("\"good\". It didn't match.", allOf(equalTo("bad"), equalTo("good")), "bad");
+    	assertMismatchDescription("\"good\" was \"bad\"", allOf(equalTo("bad"), equalTo("good")), "bad");
 	}
 }

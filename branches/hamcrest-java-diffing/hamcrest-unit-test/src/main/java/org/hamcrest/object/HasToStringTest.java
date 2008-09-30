@@ -41,7 +41,7 @@ public class HasToStringTest extends AbstractMatcherTest {
     }
 
     public void testMismatchContainsToStringValue() {
-    	String expectedMismatchString = "toString() was \"Cheese\". It didn't match.";
+    	String expectedMismatchString = "toString() was \"Cheese\"";
         assertMismatchDescription(expectedMismatchString, hasToString(TO_STRING_RESULT), "Cheese");
 	}
 

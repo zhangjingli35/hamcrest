@@ -22,9 +22,7 @@ public class HasToString<T> extends DiagnosingMatcher<T> {
         }
         String toString = item.toString();
         if (!toStringMatcher.matches(toString)) {
-            mismatchDescription.appendText("toString() was ")
-                .appendValue(toString)
-                .appendText(". ");
+            mismatchDescription.appendText("toString() ");
             toStringMatcher.describeMismatch(toString, mismatchDescription);
             return false;
         }

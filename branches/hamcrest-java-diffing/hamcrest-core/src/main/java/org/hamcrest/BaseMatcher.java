@@ -17,12 +17,7 @@ public abstract class BaseMatcher<T> implements Matcher<T> {
     }
 
     public void describeMismatch(Object item, Description description) {
-    	// TODO(ngd): Decide whether to have a default implementation
-    	// that says something or just does nothing
-    	//
-    	// Doing nothing might be more useful for tools
-    	// that don't want to show a pointless failure message.
-    	description.appendText("it was: ").appendValue(item);
+    	description.appendText("was ").appendValue(item);
     }
 
     @Override

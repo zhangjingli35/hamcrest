@@ -57,11 +57,11 @@ public class HasPropertyWithValueTest extends AbstractMatcherTest {
     }
 
     public void testDescribesMissingPropertyMismatch() {
-		assertMismatchDescription("No \"honk\" property.", hasProperty("honk", anything()), shouldNotMatch);
+		assertMismatchDescription("property \"honk\" was missing.", hasProperty("honk", anything()), shouldNotMatch);
 	}
 
     public void testDescribesMismatchingPropertyValueMismatch() {
-    	assertMismatchDescription("Property value was \"not expected\". It didn't match.", hasProperty("property", equalTo("foo")), shouldNotMatch);
+    	assertMismatchDescription("property \"property\" was \"not expected\".", hasProperty("property", equalTo("foo")), shouldNotMatch);
 	}
 
     public static class BeanWithoutInfo {

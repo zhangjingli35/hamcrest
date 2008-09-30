@@ -33,7 +33,19 @@ public interface Matcher<T> extends SelfDescribing {
      * @see BaseMatcher
      */
     boolean matches(Object item);
-    void describeMismatch(Object item, Description description);
+    
+    /**
+     * Generate a description of why the matcher has not accepted the item.
+     * The description will be part of a larger description of why a matching
+     * failed, so it should be concise. 
+     * This method assumes that <code>matches(item)</code> is false, but 
+     * will not check this.
+     *
+     * @param item The item that the Matcher has rejected.
+     * @param mismatchDescription
+     *     The description to be built or appended to.
+     */
+    void describeMismatch(Object item, Description mismatchDescription);
 
     /**
      * This method simply acts a friendly reminder not to implement Matcher directly and

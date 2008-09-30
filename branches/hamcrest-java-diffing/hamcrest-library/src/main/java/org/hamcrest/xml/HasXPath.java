@@ -64,19 +64,17 @@ public class HasXPath extends TypeSafeDiagnosingMatcher<Node> {
         try {
             Object result = compiledXPath.evaluate(item, evaluationMode);
             if (result == null) {
-            	mismatchDescription.appendText("xpath returned no results.");
-                return false;
+            	  mismatchDescription.appendText("xpath returned no results.");
+            	  return false;
             } else if (valueMatcher == null) {
                 return true;
             } else {
-            	boolean valueMatched = valueMatcher.matches(result);
-            	if (!valueMatched) {
-            		mismatchDescription.appendText("xpath returned ")
-            			.appendValue(result)
-            			.appendText(". ");
-            		valueMatcher.describeMismatch(result, mismatchDescription);
-            	}
-                return valueMatched;
+            	  boolean valueMatched = valueMatcher.matches(result);
+            	  if (!valueMatched) {
+                  mismatchDescription.appendText("xpath result ");
+            	    valueMatcher.describeMismatch(result, mismatchDescription);
+            	  }
+            	  return valueMatched;
             }
         } catch (XPathExpressionException e) {
             return false;

@@ -80,22 +80,17 @@ public class HasPropertyWithValue<T> extends TypeSafeDiagnosingMatcher<T> {
     @Override
 	public boolean matchesSafely(T argument, Description mismatchDescription) {
         try {
+            mismatchDescription.appendText("property \"" + propertyName + "\" "); 
             Method readMethod = getReadMethod(argument);
             if (readMethod == null) {
-            	mismatchDescription
-            		.appendText("No ")
-            		.appendValue(propertyName)
-            		.appendText(" property.");
+            	mismatchDescription.appendText("was missing.");
             	return false;
             }
             Object propertyValue = readMethod.invoke(argument, NO_ARGUMENTS);
             boolean valueMatches = value.matches(propertyValue);
             if (!valueMatches) {
-            	mismatchDescription
-            		.appendText("Property value was ")
-            		.appendValue(propertyValue)
-            		.appendText(". ");
             	value.describeMismatch(propertyValue, mismatchDescription);
+            	mismatchDescription.appendText(".");
             }
             return valueMatches;
         } catch (IntrospectionException e) {
