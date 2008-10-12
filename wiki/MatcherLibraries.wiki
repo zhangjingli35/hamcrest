@@ -1,5 +1,5 @@
+#summary Hamcrest can be extended with additional libraries of Matchers
 #labels Featured,Category-Users
-Hamcrest can be extended with additional libraries of Matchers:
 
 == Text Patterns ==
 
