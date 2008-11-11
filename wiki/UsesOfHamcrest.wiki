@@ -3,7 +3,7 @@
 
 == Window Licker ==
 
-Window Licker is a framework for the test-driven development of Java systems with Swing user interfaces.  It uses Hamcrest matchers to describe the expected state of the user interface.
+Window Licker is a framework for the test-driven development of systems with Java Swing rich clients or AJAX web GUIs.  It uses Hamcrest matchers to describe the expected state of the user interface.
 
  * Project: http://code.google.com/p/windowlicker
 
