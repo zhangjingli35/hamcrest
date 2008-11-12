@@ -60,6 +60,7 @@
             <arg value="hamcrest-core/src/main/java"/>
             <arg value="org.hamcrest.CoreMatchers"/>
             <arg value="build/temp/hamcrest-core/generated-code"/>
+            <arg value="core"/>
         </java>
         <!-- Append to core jar -->
         <java-to-jar srcdir="build/temp/hamcrest-core/generated-code"
@@ -87,6 +88,7 @@
             <arg value="hamcrest-core/src/main/java,hamcrest-library/src/main/java"/>
             <arg value="org.hamcrest.Matchers"/>
             <arg value="build/temp/hamcrest-library/generated-code"/>
+            <arg value="library"/>
         </java>
         <!-- Append to library jar -->
         <java-to-jar srcdir="build/temp/hamcrest-library/generated-code"
