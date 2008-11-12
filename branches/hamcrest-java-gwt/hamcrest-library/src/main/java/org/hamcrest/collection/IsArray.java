@@ -12,8 +12,10 @@ import org.hamcrest.Matcher;
 public class IsArray<T> extends ArrayMatcher<T> {
     private final Matcher<T>[] elementMatchers;
     
+    @SuppressWarnings("unchecked")
     public IsArray(Matcher<T>[] elementMatchers) {
-        this.elementMatchers = elementMatchers.clone();
+        this.elementMatchers = new Matcher[elementMatchers.length];
+        System.arraycopy(elementMatchers, 0, this.elementMatchers, 0, elementMatchers.length);
     }
     
     @Override
