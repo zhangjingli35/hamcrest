@@ -40,7 +40,7 @@ public class IsEqualIgnoringWhiteSpace extends StringMatcher {
         boolean lastWasSpace = true;
         for (int i = 0; i < toBeStripped.length(); i++) {
             char c = toBeStripped.charAt(i);
-            if (Character.isWhitespace(c)) {
+            if (isWhitespace(c)) {
                 if (!lastWasSpace) {
                     result.append(' ');
                 }
