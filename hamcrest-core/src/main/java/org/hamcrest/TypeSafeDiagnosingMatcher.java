@@ -33,7 +33,7 @@ public abstract class TypeSafeDiagnosingMatcher<T> extends DiagnosingMatcher<T> 
             mismatchDescription.appendText("The item was not an instance of " + expectedType);
         } else {
             result = matchesSafely((T) item, mismatchDescription);
-    }
+        }
         return result;
     }
 
