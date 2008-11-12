@@ -10,6 +10,6 @@ public abstract class StringMatcher extends BaseMatcher<String> {
     protected abstract boolean matchesSafely(String string);
     
     protected boolean isWhitespace(char ch) {
-        return Character.isWhitespace(ch);
+        return (ch >= 0x09 && ch <= 0x0D) || (ch >= 0x1C && ch <= 0x20);
     }
 }
