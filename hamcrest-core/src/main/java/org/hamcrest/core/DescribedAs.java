@@ -22,7 +22,8 @@ public class DescribedAs<T> extends BaseMatcher<T> {
     public DescribedAs(String descriptionTemplate, Matcher<T> matcher, Object[] values) {
         this.descriptionTemplate = descriptionTemplate;
         this.matcher = matcher;
-        this.values = values.clone();
+        this.values = new Object[values.length];
+        System.arraycopy(values, 0, this.values, 0, values.length);
     }
     
     public boolean matches(Object o) {
