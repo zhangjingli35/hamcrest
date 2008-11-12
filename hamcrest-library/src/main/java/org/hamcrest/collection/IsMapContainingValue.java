@@ -3,11 +3,10 @@ package org.hamcrest.collection;
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 import static org.hamcrest.core.IsEqual.equalTo;
 import java.util.Map;
 
-public class IsMapContainingValue<V> extends TypeSafeMatcher<Map<?, V>>{
+public class IsMapContainingValue<V> extends MapMatcher<Map<?,V>>{
     private final Matcher<? super V> valueMatcher;
 
     public IsMapContainingValue(Matcher<? super V> valueMatcher) {

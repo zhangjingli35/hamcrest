@@ -5,14 +5,13 @@ import java.util.Map;
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 
-public class IsMapContainingKey<K> extends TypeSafeMatcher<Map<K,?>> {
-    private final Matcher<K> keyMatcher;
+public class IsMapContainingKey<K> extends MapMatcher<Map<K,?>> {
+    private final Matcher<? super K> keyMatcher;
     
-    public IsMapContainingKey(Matcher<K> keyMatcher) {
+    public IsMapContainingKey(Matcher<? super K> keyMatcher) {
         this.keyMatcher = keyMatcher;
     }
     
