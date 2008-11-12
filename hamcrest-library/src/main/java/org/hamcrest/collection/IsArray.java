@@ -4,13 +4,12 @@ import java.util.Arrays;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 
 /**
  * Matcher for array whose elements satisfy a sequence of matchers.
  * The array size must equal the number of element matchers.
  */
-public class IsArray<T> extends TypeSafeMatcher<T[]> {
+public class IsArray<T> extends ArrayMatcher<T> {
     private final Matcher<T>[] elementMatchers;
     
     public IsArray(Matcher<T>[] elementMatchers) {
