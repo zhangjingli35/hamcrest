@@ -37,8 +37,8 @@ Check that the build was successful!
 {{{
 mkdir tmp
 cd tmp
-tar -xvzf ../build/hamcrest-$VERSION.tgz
-cd hamcrest-$VERSION.tgz
+tar xvzf ../build/hamcrest-$VERSION.tgz
+cd hamcrest-$VERSION
 ant
 }}}
 
