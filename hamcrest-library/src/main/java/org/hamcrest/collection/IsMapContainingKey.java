@@ -8,7 +8,7 @@ import org.hamcrest.Matcher;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 
-public class IsMapContainingKey<K> extends MapMatcher<Map<K,?>> {
+public class IsMapContainingKey<K> extends MapMatcher<Map<? extends K,?>> {
     private final Matcher<? super K> keyMatcher;
     
     public IsMapContainingKey(Matcher<? super K> keyMatcher) {
@@ -16,12 +16,12 @@ public class IsMapContainingKey<K> extends MapMatcher<Map<K,?>> {
     }
     
     @Override
-    public boolean matchesSafely(Map<K, ?> item) {      
+    public boolean matchesSafely(Map<? extends K, ? > item) {
         for (K key : item.keySet()) {
             if (keyMatcher.matches(key)) {
                 return true;
             }
-        }       
+        }
         return false;
     }
 
@@ -31,12 +31,12 @@ public class IsMapContainingKey<K> extends MapMatcher<Map<K,?>> {
     }
 
     @Factory
-    public static <K> Matcher<? super Map<K,?>> hasKey(K key) {
+    public static <K> Matcher<Map<? extends K,?>> hasKey(K key) {
         return IsMapContainingKey.<K>hasKey(equalTo(key));
     }
     
     @Factory
-    public static <K> Matcher<? super Map<K,?>> hasKey(Matcher<K> keyMatcher) {
+    public static <K> Matcher<Map<? extends K,?>> hasKey(Matcher<? super K> keyMatcher) {
         return new IsMapContainingKey<K>(keyMatcher);
     }
 }

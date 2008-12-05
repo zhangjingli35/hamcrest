@@ -6,7 +6,7 @@ import org.hamcrest.Matcher;
 import static org.hamcrest.core.IsEqual.equalTo;
 import java.util.Map;
 
-public class IsMapContainingValue<V> extends MapMatcher<Map<?,V>>{
+public class IsMapContainingValue<V> extends MapMatcher<Map<?, V>>{
     private final Matcher<? super V> valueMatcher;
 
     public IsMapContainingValue(Matcher<? super V> valueMatcher) {

@@ -2,11 +2,11 @@ package org.hamcrest.collection;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 
+import java.util.Collection;
+
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
-
-import java.util.Collection;
 
 /**
  * Matches if collection size satisfies a nested matcher.
@@ -35,6 +35,7 @@ public class IsCollectionWithSize<E> extends CollectionMatcher<Collection<? exte
     public static <E> Matcher<? super Collection<? extends E>> hasSize(Matcher<? super Integer> size) {
         return new IsCollectionWithSize<E>(size);
     }
+
 
     /**
      * This is a shortcut to the frequently used hasSize(equalTo(x)).
