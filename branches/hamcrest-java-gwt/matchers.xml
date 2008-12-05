@@ -51,6 +51,7 @@
     <!-- Beans -->
     <factory class="org.hamcrest.beans.HasProperty" excludes="gwt"/>
     <factory class="org.hamcrest.beans.HasPropertyWithValue" excludes="gwt"/>
+    <factory class="org.hamcrest.beans.WithSamePropertyValuesAs" excludes="gwt"/>
 
     <!-- XML -->
     <factory class="org.hamcrest.xml.HasXPath" excludes="gwt"/>

@@ -2,8 +2,6 @@
  */
 package org.hamcrest.beans;
 
-import java.beans.IntrospectionException;
-
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
@@ -31,7 +29,7 @@ public class HasProperty<T> extends TypeSafeMatcher<T> {
     	// TODO(ngd): this is not type safe.
         try {
             return PropertyUtil.getPropertyDescriptor(propertyName, obj) != null;
-        } catch (IntrospectionException e) {
+        } catch (IllegalArgumentException e) {
             // introspection failure is treated as a matcher failure
             return false;
         }

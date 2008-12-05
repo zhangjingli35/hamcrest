@@ -2,7 +2,8 @@
  */
 package org.hamcrest.beans;
 
-import java.beans.IntrospectionException;
+import static org.hamcrest.beans.PropertyUtil.NO_ARGUMENTS;
+
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -66,9 +67,6 @@ import org.hamcrest.TypeSafeDiagnosingMatcher;
  * @author Steve Freeman
  */
 public class HasPropertyWithValue<T> extends TypeSafeDiagnosingMatcher<T> {
-
-    private static final Object[] NO_ARGUMENTS = new Object[0];
-
     private final String propertyName;
     private final Matcher<?> value;
 
@@ -80,10 +78,9 @@ public class HasPropertyWithValue<T> extends TypeSafeDiagnosingMatcher<T> {
     @Override
 	public boolean matchesSafely(T argument, Description mismatchDescription) {
         try {
-            mismatchDescription.appendText("property \"" + propertyName + "\" "); 
             Method readMethod = getReadMethod(argument);
             if (readMethod == null) {
-            	mismatchDescription.appendText("was missing.");
+              mismatchDescription.appendText("missing.");
             	return false;
             }
             Object propertyValue = readMethod.invoke(argument, NO_ARGUMENTS);
@@ -93,8 +90,6 @@ public class HasPropertyWithValue<T> extends TypeSafeDiagnosingMatcher<T> {
             	mismatchDescription.appendText(".");
             }
             return valueMatches;
-        } catch (IntrospectionException e) {
-            return false;
         } catch (IllegalArgumentException e) {
             return false;
         } catch (IllegalAccessException e) {
@@ -104,7 +99,7 @@ public class HasPropertyWithValue<T> extends TypeSafeDiagnosingMatcher<T> {
         }
     }
 
-    private Method getReadMethod(Object argument) throws IntrospectionException {
+    private Method getReadMethod(Object argument) throws IllegalArgumentException {
         PropertyDescriptor property = PropertyUtil.getPropertyDescriptor(propertyName, argument);
         return property == null ? null : property.getReadMethod();
     }

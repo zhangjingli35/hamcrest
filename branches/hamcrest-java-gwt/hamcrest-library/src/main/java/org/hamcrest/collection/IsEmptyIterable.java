@@ -8,7 +8,7 @@ import org.hamcrest.core.DiagnosingIterableMatcher;
 /**
  * Tests if collection is empty.
  */
-public class IsEmptyIterable<E> extends DiagnosingIterableMatcher<E> {
+public class IsEmptyIterable<E> extends DiagnosingIterableMatcher<Iterable<E>> {
 
     @Override
     public boolean matchesSafely(Iterable<E> iterable, Description mismatchDescription) {
