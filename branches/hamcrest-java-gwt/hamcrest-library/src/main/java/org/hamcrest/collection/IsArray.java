@@ -10,10 +10,10 @@ import org.hamcrest.Matcher;
  * The array size must equal the number of element matchers.
  */
 public class IsArray<T> extends ArrayMatcher<T> {
-    private final Matcher<T>[] elementMatchers;
+    private final Matcher<? super T>[] elementMatchers;
     
     @SuppressWarnings("unchecked")
-    public IsArray(Matcher<T>[] elementMatchers) {
+    public IsArray(Matcher<? super T>[] elementMatchers) {
         this.elementMatchers = new Matcher[elementMatchers.length];
         System.arraycopy(elementMatchers, 0, this.elementMatchers, 0, elementMatchers.length);
     }
@@ -67,7 +67,7 @@ public class IsArray<T> extends ArrayMatcher<T> {
     /**
      * Evaluates to true only if each matcher[i] is satisfied by array[i].
      */
-    public static <T> IsArray<T> array(Matcher<T>... elementMatchers) {
+    public static <T> IsArray<T> array(Matcher<? super T>... elementMatchers) {
         return new IsArray<T>(elementMatchers);
     }
 }
