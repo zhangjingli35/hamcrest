@@ -9,7 +9,7 @@ import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.core.DiagnosingIterableMatcher;
 
-public class IsIterableWithSize<E> extends DiagnosingIterableMatcher<E> {
+public class IsIterableWithSize<E> extends DiagnosingIterableMatcher<Iterable<E>> {
     private final Matcher<? super Integer> sizeMatcher;
 
     public IsIterableWithSize(Matcher<? super Integer> sizeMatcher) {

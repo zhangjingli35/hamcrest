@@ -13,7 +13,7 @@ import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.core.DiagnosingIterableMatcher;
 
-public class IsIterableContainingInOrder<E> extends DiagnosingIterableMatcher<E> {
+public class IsIterableContainingInOrder<E> extends DiagnosingIterableMatcher<Iterable<E>> {
     private final Collection<Matcher<? super E>> matchers;
 
     public IsIterableContainingInOrder(Collection<Matcher<? super E>> contents) {

@@ -3,7 +3,7 @@ package org.hamcrest.core;
 import org.hamcrest.Description;
 import org.hamcrest.DiagnosingMatcher;
 
-public abstract class DiagnosingIterableMatcher<T> extends DiagnosingMatcher<Iterable<T>> {
+public abstract class DiagnosingIterableMatcher<I extends Iterable<?>> extends DiagnosingMatcher<I> {
     @SuppressWarnings("unchecked")
     protected boolean matches(Object item, Description mismatchDescription) {
         boolean result = false;
@@ -12,10 +12,10 @@ public abstract class DiagnosingIterableMatcher<T> extends DiagnosingMatcher<Ite
         } else if (!(item instanceof Iterable)) {
             mismatchDescription.appendText("Item was not an instance of " + Iterable.class);
         } else {
-            result = matchesSafely((Iterable<T>)item, mismatchDescription);
+            result = matchesSafely((I)item, mismatchDescription);
         }
         return result;
     }
 
-    protected abstract boolean matchesSafely(Iterable<T> iterable, Description mismatchDescription);
+    protected abstract boolean matchesSafely(I iterable, Description mismatchDescription);
 }

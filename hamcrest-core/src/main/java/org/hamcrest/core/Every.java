@@ -4,7 +4,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 
-public class Every<T> extends DiagnosingIterableMatcher<T> {
+public class Every<T> extends DiagnosingIterableMatcher<Iterable<T>> {
     private final Matcher<? super T> matcher;
 
     public Every(Matcher<? super T> matcher) {

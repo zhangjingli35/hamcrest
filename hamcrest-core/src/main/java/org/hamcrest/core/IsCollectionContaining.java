@@ -10,7 +10,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 
-public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<T> {
+public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<Iterable<? super T>> {
     private final Matcher<? super T> elementMatcher;
 
     public IsCollectionContaining(Matcher<? super T> elementMatcher) {
@@ -18,8 +18,8 @@ public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<T> {
     }
 
     @Override
-    public boolean matchesSafely(Iterable<T> collection, Description mismatchDescription) {
-        for (T item : collection) {
+    public boolean matchesSafely(Iterable<? super T> collection, Description mismatchDescription) {
+        for (Object item : collection) {
             if (elementMatcher.matches(item)){
                 return true;
             }
@@ -36,13 +36,14 @@ public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<T> {
     }
 
     @Factory
-    public static <T> Matcher<Iterable<T>> hasItem(Matcher<? super T> elementMatcher) {
-        return new IsCollectionContaining<T>(elementMatcher);
+    public static <T> Matcher<Iterable<? super T>> hasItem(Matcher<? super T> elementMatcher) {
+      return new IsCollectionContaining<T>(elementMatcher);
     }
 
     @Factory
-    public static <T> Matcher<Iterable<T>> hasItem(T element) {
-        return hasItem(equalTo(element));
+    public static <T> Matcher<Iterable<? super T>> hasItem(T element) {
+      // Doesn't forward to hasItem() method so compiler can sort out generics.
+      return new IsCollectionContaining<T>(equalTo(element));
     }
 
     @Factory
@@ -50,8 +51,8 @@ public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<T> {
         List<Matcher<? super Iterable<T>>> all = new ArrayList<Matcher<? super Iterable<T>>>(elementMatchers.length);
         
         for (Matcher<? super T> elementMatcher : elementMatchers) {
-            Matcher<? super Iterable<T>> itemMatcher = hasItem(elementMatcher);
-            all.add(itemMatcher);
+          // Doesn't forward to hasItem() method so compiler can sort out generics.
+          all.add(new IsCollectionContaining<T>(elementMatcher));
         }
         
         return allOf(all);
@@ -60,7 +61,6 @@ public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<T> {
     @Factory
     public static <T> Matcher<Iterable<T>> hasItems(T... elements) {
         List<Matcher<? super Iterable<T>>> all = new ArrayList<Matcher<? super Iterable<T>>>(elements.length);
-        
         for (T element : elements) {
             all.add(hasItem(element));
         }
