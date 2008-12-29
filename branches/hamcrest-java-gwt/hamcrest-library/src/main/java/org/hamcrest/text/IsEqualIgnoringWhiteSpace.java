@@ -3,8 +3,8 @@
 package org.hamcrest.text;
 
 import org.hamcrest.Description;
-import org.hamcrest.Matcher;
 import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
 import org.hamcrest.core.StringMatcher;
 
 /**
@@ -25,8 +25,12 @@ public class IsEqualIgnoringWhiteSpace extends StringMatcher {
     }
 
     @Override
-    public boolean matchesSafely(String item) {
-        return stripSpace(string).equalsIgnoreCase(stripSpace(item));
+    public boolean matchesSafely(String item, Description mismatchDescription) {
+        if (!stripSpace(string).equalsIgnoreCase(stripSpace(item))) {
+            mismatchDescription.appendText("was  ").appendText(stripSpace(item));
+            return false;
+        }
+        return true;
     }
 
     public void describeTo(Description description) {

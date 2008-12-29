@@ -13,8 +13,7 @@ public class IsEmptyIterable<E> extends DiagnosingIterableMatcher<Iterable<E>> {
     @Override
     public boolean matchesSafely(Iterable<E> iterable, Description mismatchDescription) {
         if (iterable.iterator().hasNext()) {
-            mismatchDescription.appendValue(iterable);
-            mismatchDescription.appendText(" was not empty.");
+            mismatchDescription.appendValueList("[", ",", "]", iterable);
             return false;
         }
         return true;

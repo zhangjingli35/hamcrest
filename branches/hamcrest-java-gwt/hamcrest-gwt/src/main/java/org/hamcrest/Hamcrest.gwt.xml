@@ -6,13 +6,13 @@
 <!--   - .StringDescription          - only the default constructor and the     -->
 <!--                                   constructor taking a StringBuilder       -->
 <!--   - .CustomTypeSafeMatcher      - not available                            -->
+<!--   - .FeatureMatcher             - not available                            -->
 <!--   - .TypeSafeDiagnosingMatcher  - not available                            -->
 <!--   - .TypeSafeMatcher            - not available (but its subclasses are)   -->
 <!--   - .core.IsInstanceOf          - not available                            -->
 <!-- - From Library:                                                            -->
 <!--   - .beans.*                    - not available                            -->
-<!--   - .object.IsCompatibleType    - not available                            -->
-<!--   - .object.IsEventFrom         - not available                            -->
+<!--   - .object.*                   - not available                            -->
 <!--   - .xml.*                      - not available                            -->
 
 <!-- @author Pascal Muetschard (pmuetschard@google.com)                         -->
@@ -26,15 +26,12 @@
   </source>
   <source path="internal">
     <exclude name="ArrayAccess.java" />
+    <exclude name="ReflectiveTypeFinder.java" />
   </source>
   
   <!-- library -->
   <source path="collection" />
   <source path="number" />
-  <source path="object">
-    <exclude name="IsCompatibleType.java" />
-    <exclude name="IsEventFrom.java" />
-  </source>
   <source path="text">
     <exclude name="pattern/**" />
   </source>

@@ -14,8 +14,12 @@ public abstract class SubstringMatcher extends StringMatcher {
     }
 
     @Override
-    public boolean matchesSafely(String item) {
-        return evalSubstringOf(item);
+    public boolean matchesSafely(String item, Description mismatchDescription) {
+        if (!evalSubstringOf(item)) {
+            mismatchDescription.appendText("was \"").appendText(item).appendText("\"");
+            return false;
+        }
+        return true;
     }
 
     public void describeTo(Description description) {

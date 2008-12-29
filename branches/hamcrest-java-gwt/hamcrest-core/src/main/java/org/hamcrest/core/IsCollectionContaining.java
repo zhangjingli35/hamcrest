@@ -3,12 +3,12 @@ package org.hamcrest.core;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<Iterable<? super T>> {
     private final Matcher<? super T> elementMatcher;
@@ -24,8 +24,7 @@ public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<Iterabl
                 return true;
             }
         }
-        mismatchDescription.appendText("did not contain an element that matched ");
-        elementMatcher.describeTo(mismatchDescription);
+        mismatchDescription.appendValue(collection);
         return false;
     }
 

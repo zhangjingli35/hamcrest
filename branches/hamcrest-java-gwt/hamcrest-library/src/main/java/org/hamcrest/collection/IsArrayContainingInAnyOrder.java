@@ -2,14 +2,14 @@ package org.hamcrest.collection;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-
-import org.hamcrest.Description;
-import org.hamcrest.Factory;
-import org.hamcrest.Matcher;
 
 public class IsArrayContainingInAnyOrder<E> extends ArrayMatcher<E> {
     private final IsIterableContainingInAnyOrder<E> iterableMatcher;
@@ -21,8 +21,12 @@ public class IsArrayContainingInAnyOrder<E> extends ArrayMatcher<E> {
     }
 
     @Override
-    public boolean matchesSafely(E[] item) {
-        return iterableMatcher.matches(Arrays.asList(item));
+    public boolean matchesSafely(E[] item, Description mismatchDescription) {
+        if (!iterableMatcher.matches(Arrays.asList(item))) {
+          iterableMatcher.describeMismatch(Arrays.asList(item), mismatchDescription);
+          return false;
+        }
+        return true;
     }
 
     public void describeTo(Description description) {

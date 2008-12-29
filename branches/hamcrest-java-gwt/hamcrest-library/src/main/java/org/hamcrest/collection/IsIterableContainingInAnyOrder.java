@@ -2,16 +2,16 @@ package org.hamcrest.collection;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
+import org.hamcrest.core.DiagnosingIterableMatcher;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
-import org.hamcrest.Description;
-import org.hamcrest.Factory;
-import org.hamcrest.Matcher;
-import org.hamcrest.core.DiagnosingIterableMatcher;
 
 
 public class IsIterableContainingInAnyOrder<T> extends DiagnosingIterableMatcher<Iterable<T>> {
@@ -29,39 +29,28 @@ public class IsIterableContainingInAnyOrder<T> extends DiagnosingIterableMatcher
         Iterator<T> items = iterable.iterator();
         List<Matcher<? super T>> currentMatchers = copyOfMatchers();
         while (items.hasNext() && !currentMatchers.isEmpty()) {
-            T item = items.next();
-            Iterator<Matcher<? super T>> availableMatchers = currentMatchers.iterator();
-            while (availableMatchers.hasNext()) {
-                Matcher<? super T> matcher = availableMatchers.next();
-                if (matcher.matches(item)) {
-                    availableMatchers.remove();
-                    break;
-                }
-            }
+            removeFirstMatcherThatMatchesItem(currentMatchers, items.next());
         }
-        boolean result = true;
-        if (!currentMatchers.isEmpty()) {
-            mismatchDescription.appendList("The following matchers did not match an element: ", ", ", ".", currentMatchers);
-            result = false;
-        }
-        if (items.hasNext()) {
-            mismatchDescription.appendText("The following items did not match any matcher: ");
-            mismatchDescription.appendValue(items.next());
-            while (items.hasNext()) {
-                mismatchDescription.appendText(", ");
-                mismatchDescription.appendValue(items.next());
-            }
-            result = false;
+        boolean result = currentMatchers.isEmpty() && !items.hasNext();
+        if (!result) {
+          mismatchDescription.appendText("iterable was ").appendValueList("[", ", ", "]", iterable);
         }
         return result;
     }
 
+    private void removeFirstMatcherThatMatchesItem(List<Matcher<? super T>> currentMatchers, T item) {
+      Iterator<Matcher<? super T>> availableMatchers = currentMatchers.iterator();
+      while (availableMatchers.hasNext()) {
+          Matcher<? super T> matcher = availableMatchers.next();
+          if (matcher.matches(item)) {
+              availableMatchers.remove();
+              break;
+          }
+      }
+    }
+
     private List<Matcher<? super T>> copyOfMatchers() {
-        List<Matcher<? super T>> availableMatchersForIteration = new ArrayList<Matcher<? super T>>();
-        for (Matcher<? super T> matcher : matchers) {
-            availableMatchersForIteration.add(matcher);
-        }
-        return availableMatchersForIteration;
+        return new ArrayList<Matcher<? super T>>(matchers);
     }
 
     public void describeTo(Description description) {

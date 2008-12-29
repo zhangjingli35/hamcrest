@@ -15,11 +15,17 @@ public class OrderingComparison<T extends Comparable<T>> extends ComparableMatch
     }
 
     @Override
-    public boolean matchesSafely(T other) {
+    public boolean matchesSafely(T other, Description mismatchDescription) {
         int compare = Integer.signum(value.compareTo(other));
-        return minCompare <= compare && compare <= maxCompare;
+        if (minCompare > compare || compare > maxCompare) {
+            mismatchDescription.appendValue(value) .appendText(" was ")
+                    .appendText(comparison(value.compareTo(other))).appendText(" ").appendValue(other);
+            return false;
+        }
+        return true;
     }
 
+    
     public void describeTo(Description description) {
         description.appendText("a value ").appendText(comparison(minCompare));
         if (minCompare != maxCompare) {

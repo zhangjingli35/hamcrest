@@ -1,9 +1,12 @@
 package org.hamcrest.collection;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.Factory;
 import static org.hamcrest.core.IsEqual.equalTo;
+
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
+
+import java.util.Arrays;
 
 /**
  * Matches if an array contains an item satisfying a nested matcher.
@@ -16,12 +19,13 @@ public class IsArrayContaining<T> extends ArrayMatcher<T> {
     }
 
     @Override
-    public boolean matchesSafely(T[] array) {
+    public boolean matchesSafely(T[] array, Description mismatchDescription) {
         for (T item : array) {
             if (elementMatcher.matches(item)) {
                 return true;
             }
         }
+        mismatchDescription.appendText("was ").appendValue(Arrays.asList(array));
         return false;
     }
 

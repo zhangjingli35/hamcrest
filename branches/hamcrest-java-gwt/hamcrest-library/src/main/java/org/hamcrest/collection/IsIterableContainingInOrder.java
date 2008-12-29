@@ -2,16 +2,16 @@ package org.hamcrest.collection;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
+import org.hamcrest.core.DiagnosingIterableMatcher;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
-import org.hamcrest.Description;
-import org.hamcrest.Factory;
-import org.hamcrest.Matcher;
-import org.hamcrest.core.DiagnosingIterableMatcher;
 
 public class IsIterableContainingInOrder<E> extends DiagnosingIterableMatcher<Iterable<E>> {
     private final Collection<Matcher<? super E>> matchers;
@@ -27,32 +27,18 @@ public class IsIterableContainingInOrder<E> extends DiagnosingIterableMatcher<It
     public boolean matchesSafely(Iterable<E> iterable, Description mismatchDescription) {
         Iterator<E> items = iterable.iterator();
         Iterator<Matcher<? super E>> matchersIterator = matchers.iterator();
+        boolean result = true;
         while (items.hasNext() && matchersIterator.hasNext()) {
             E item = items.next();
             Matcher<? super E> matcher = matchersIterator.next();
             if (!matcher.matches(item)) {
-                matcher.describeMismatch(item, mismatchDescription);
-                return false;
+                result = false;
+                break;
             }
         }
-        boolean result = true;
-        if (items.hasNext()) {
-            mismatchDescription.appendText("The following items did not match any matcher: ");
-            mismatchDescription.appendValue(items.next());
-            while (items.hasNext()) {
-                mismatchDescription.appendText(", ");
-                mismatchDescription.appendValue(items.next());
-            }
-            result = false;
-        }
-        if (matchersIterator.hasNext()) {
-            mismatchDescription.appendText("The following matchers did not match any item: ");
-            matchersIterator.next().describeTo(mismatchDescription);
-            while (matchersIterator.hasNext()) {
-                mismatchDescription.appendText(", ");
-                matchersIterator.next().describeTo(mismatchDescription);
-            }
-            result = false;
+        result &= !items.hasNext() && !matchersIterator.hasNext();
+        if (!result) {
+            mismatchDescription.appendText("iterable was ").appendValueList("[", ", ", "]", iterable);
         }
         return result;
     }

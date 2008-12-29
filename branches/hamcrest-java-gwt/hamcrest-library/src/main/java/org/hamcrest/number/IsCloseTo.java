@@ -3,8 +3,8 @@
 package org.hamcrest.number;
 
 import org.hamcrest.Description;
-import org.hamcrest.Matcher;
 import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
 
 
 /**
@@ -12,25 +12,36 @@ import org.hamcrest.Factory;
  * acceptable error?
  */
 public class IsCloseTo extends DoubleMatcher {
-    private final double error;
+    private final double delta;
     private final double value;
 
     public IsCloseTo(double value, double error) {
-        this.error = error;
+        this.delta = error;
         this.value = value;
     }
 
     @Override
-    public boolean matchesSafely(Double item) {
-        return Math.abs((item - value)) <= error;
+    public boolean matchesSafely(Double item, Description mismatchDescription) {
+        if (actualDelta(item) > 0.0) {
+            mismatchDescription.appendValue(item)
+                    .appendText(" differed by ")
+                    .appendValue(actualDelta(item));
+            return false;
+        }
+        return true;
     }
 
     public void describeTo(Description description) {
         description.appendText("a numeric value within ")
-                .appendValue(error)
+                .appendValue(delta)
                 .appendText(" of ")
                 .appendValue(value);
     }
+
+    private double actualDelta(Double item) {
+      return (Math.abs((item - value)) - delta);
+    }
+
 
     @Factory
     public static Matcher<Double> closeTo(double operand, double error) {
