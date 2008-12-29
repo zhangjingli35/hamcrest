@@ -11,19 +11,20 @@ public class StringContainsInOrder extends StringMatcher {
     }
     
     @Override
-    public boolean matchesSafely(String s) {
+    public boolean matchesSafely(String s, Description mismatchDescription) {
         int fromIndex = 0;
         
         for (String substring : substrings) {
             fromIndex = s.indexOf(substring, fromIndex);
             if (fromIndex == -1) {
+                mismatchDescription.appendText("string was \"").appendText(s).appendText("\"");
                 return false;
             }
         }
         
         return true;
     }
-    
+
     public void describeTo(Description description) {
         description.appendText("a string containing ")
                    .appendValueList("", ", ", "", substrings)

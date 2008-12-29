@@ -1,10 +1,10 @@
 package org.hamcrest.collection;
 
+import static org.hamcrest.core.IsEqual.equalTo;
+
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
-
-import static org.hamcrest.core.IsEqual.equalTo;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -19,12 +19,13 @@ public class IsMapContaining<K,V> extends MapMatcher<Map<? extends K, ? extends 
     }
 
     @Override
-    public boolean matchesSafely(Map<? extends K, ? extends V> map) {
+    public boolean matchesSafely(Map<? extends K, ? extends V> map, Description mismatchDescription) {
         for (Entry<? extends K, ? extends V> entry : map.entrySet()) {
             if (keyMatcher.matches(entry.getKey()) && valueMatcher.matches(entry.getValue())) {
                 return true;
             }
         }
+        mismatchDescription.appendText("map was ").appendValueList("[", ", ", "]", map.entrySet());
         return false;
     }
 

@@ -1,10 +1,10 @@
 package org.hamcrest.collection;
 
-import java.util.Collection;
-
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
+
+import java.util.Collection;
 
 /**
  * Tests if collection is empty.
@@ -12,8 +12,12 @@ import org.hamcrest.Matcher;
 public class IsEmptyCollection<E> extends CollectionMatcher<Collection<E>> {
 
     @Override
-    public boolean matchesSafely(Collection<E> item) {
-        return item.isEmpty();
+    public boolean matchesSafely(Collection<E> item, Description mismatchDescription) {
+        if (!item.isEmpty()) {
+            mismatchDescription.appendValue(item);
+            return false;
+        }
+        return true;
     }
 
     public void describeTo(Description description) {

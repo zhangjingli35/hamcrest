@@ -18,8 +18,12 @@ public class IsArrayWithSize<E> extends ArrayMatcher<E> {
     }
 
     @Override
-    public boolean matchesSafely(E[] item) {
-        return sizeMatcher.matches(item.length);
+    public boolean matchesSafely(E[] item, Description mismatchDescription) {
+        if (!sizeMatcher.matches(item.length)) {
+            mismatchDescription.appendText("array size was ").appendValue(item.length);
+            return false;
+        }
+        return true;
     }
 
     public void describeTo(Description description) {

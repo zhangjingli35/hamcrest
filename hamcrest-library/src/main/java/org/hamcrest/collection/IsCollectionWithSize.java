@@ -2,11 +2,11 @@ package org.hamcrest.collection;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 
-import java.util.Collection;
-
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
+
+import java.util.Collection;
 
 /**
  * Matches if collection size satisfies a nested matcher.
@@ -19,8 +19,12 @@ public class IsCollectionWithSize<E> extends CollectionMatcher<Collection<? exte
     }
 
     @Override
-    public boolean matchesSafely(Collection<? extends E> item) {
-        return sizeMatcher.matches(item.size());
+    public boolean matchesSafely(Collection<? extends E> item, Description mismatchDescription) {
+        if (!sizeMatcher.matches(item.size())) {
+            mismatchDescription.appendText("collection size was ").appendValue(item.size());
+            return false;
+        }
+        return true;
     }
 
     public void describeTo(Description description) {

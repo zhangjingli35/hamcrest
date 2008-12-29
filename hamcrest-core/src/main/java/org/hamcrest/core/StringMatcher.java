@@ -1,14 +1,22 @@
 package org.hamcrest.core;
 
-import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.DiagnosingMatcher;
 
-public abstract class StringMatcher extends BaseMatcher<String> {
-    public boolean matches(Object item) {
-        return item instanceof String && matchesSafely((String)item);
+public abstract class StringMatcher extends DiagnosingMatcher<String> {
+    @Override
+    public boolean matches(Object item, Description mismatchDescription) {
+        boolean result = false;
+        if (item == null || !(item instanceof String)) {
+            mismatchDescription.appendText("was ").appendValue(item);
+        } else {
+            result = matchesSafely((String)item, mismatchDescription);
+        }
+        return result;
     }
-    
-    protected abstract boolean matchesSafely(String string);
-    
+
+    protected abstract boolean matchesSafely(String string, Description mismatchDescription);
+
     protected boolean isWhitespace(char ch) {
         return Character.isWhitespace(ch);
     }
