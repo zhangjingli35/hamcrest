@@ -95,7 +95,7 @@ from hamcrest.core.internal.hasmethod import hasmethod
 
 class IsStringOfDigits(BaseMatcher):
 
-    def matches(self, item):
+    def _matches(self, item):
         if not hasmethod(item, 'isdigit'):
             return False
         return item.isdigit()
@@ -106,7 +106,7 @@ class IsStringOfDigits(BaseMatcher):
 only_digits = IsStringOfDigits
 }}}
 
-For our Matcher implementation we implement the `matches` method - which calls the `isdigit` string method after confirming that the argument (which may not be a string) has such a method - and the `describe_to` method - which is used to produce a failure message when a test fails. Here's an example of how the failure message looks:
+For our Matcher implementation we implement the `_matches` method - which calls the `isdigit` string method after confirming that the argument (which may not be a string) has such a method - and the `describe_to` method - which is used to produce a failure message when a test fails. Here's an example of how the failure message looks:
 
 {{{
 assert_that('17b', is_(only_digits()))
