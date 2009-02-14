@@ -1,4 +1,4 @@
-= The Hamcrest Tutorial =
+= The Hamcrest Tutorial for Objective-C =
 
 == Introduction ==
 
