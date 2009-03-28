@@ -61,7 +61,7 @@ Hamcrest comes with a library of useful matchers. Here are the ones that are alr
     * `not` - matches if the wrapped matcher doesn't match and vice versa
   * Object
     * `equalTo` - test object equality using the `==` operator
-    * `instanceOf`, `isCompatibleType` - test type
+    * `anInstanceOf` - test type
     * `notNullValue`, `nullValue` - test for null
     * `sameInstance` - test object identity using the `===` operator
   * Number
@@ -71,5 +71,10 @@ Hamcrest comes with a library of useful matchers. Here are the ones that are alr
     * `equalToIgnoringCase` - test string equality ignoring case
     * `equalToIgnoringWhiteSpace` - test string equality ignoring differences in runs of whitespace
     * `containsString`, `endsWith`, `startsWith` - test string matching
+  * Combinations
+    * `both` and `either`, for example:
+      * `both(startsWith('a'))->andAlso(endsWith('b'))`
+      * `either(startsWith('x'))->orElse(endsWith('y'))`
 
 _--Sebastian Bergmann_
+_--Chris Corbyn_
