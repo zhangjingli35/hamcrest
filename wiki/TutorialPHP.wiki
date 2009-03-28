@@ -79,5 +79,5 @@ Hamcrest comes with a library of useful matchers. Here are the ones that are alr
       * `both(startsWith('a'))->andAlso(endsWith('b'))`
       * `either(startsWith('x'))->orElse(endsWith('y'))`
 
-_--Sebastian Bergmann_
+_--Sebastian Bergmann_<br>
 _--Chris Corbyn_
