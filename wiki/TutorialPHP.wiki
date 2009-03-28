@@ -64,9 +64,12 @@ Hamcrest comes with a library of useful matchers. Here are the ones that are alr
     * `anInstanceOf` - test type
     * `notNullValue`, `nullValue` - test for null
     * `sameInstance` - test object identity using the `===` operator
+    * `identicalTo` - alias of `sameInstance`, but with similar semantics to `equalTo`
   * Number
     * `closeTo` - test floating point values are close to a given value
     * `greaterThan`, `greaterThanOrEqualTo`, `lessThan`, `lessThanOrEqualTo` - test ordering
+  * Collections
+    * `hasItem`, `hasItems` - test if an array contains one or more items
   * Text
     * `equalToIgnoringCase` - test string equality ignoring case
     * `equalToIgnoringWhiteSpace` - test string equality ignoring differences in runs of whitespace
