@@ -9,6 +9,11 @@ Window Licker is a framework for the test-driven development of systems with Jav
 
 == Processing Collections ==
 
+LambdaJ aims to partially eliminate the burden of writing (often nested and poorly readable) loops for iterating over collections. In particular it allows to iterate collections in order to filter items, convert items, extract a given property from each item, group or index the items on the value of one or more properties, invoke a method on each item, aggregate items or the values of one of their properties, and more!
+ * Project: http://code.google.com/p/lambdaj/
+ * Getting Started: http://code.google.com/p/lambdaj/
+ * Javadocs: http://lambdaj.googlecode.com/svn/trunk/html/apidocs/index.html
+
 Sam Newman's Hamcrest Collections project uses Hamcrest to implement features such as `select`, `reject`, `map`, `reduce` and `zip` familiar from languages like Ruby and Python.  
  * Project: http://code.google.com/p/hamcrest-collections/
  * Getting Started docs: http://code.google.com/p/hamcrest-collections/wiki/GettingStarted
