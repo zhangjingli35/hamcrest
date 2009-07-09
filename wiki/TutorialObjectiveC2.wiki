@@ -8,7 +8,9 @@ When writing tests it is sometimes difficult to get the balance right between ov
 
 == My first Hamcrest test ==
 
-We'll start be writing a very simple Xcode unit test, but instead of using SenTestingKit's `STAssertEqualObjects` method, we use Hamcrest's `assertThat` construct and the standard set of matchers:
+_Note: To use Hamcrest in an Xcode unit test bundle, add a "Copy Files" build phase which copies hamcrest.frameworks to the Products directory._
+
+We'll start be writing a very simple Xcode unit test, but instead of using !SenTestingKit's `STAssertEqualObjects` method, we use Hamcrest's `assertThat` construct and the standard set of matchers.
 
 {{{
 #import <SenTestingKit/SenTestingKit.h>
