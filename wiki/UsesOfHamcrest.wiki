@@ -1,6 +1,12 @@
 #summary How people are using Hamcrest matchers
 #labels Featured,Category-Users
 
+== JValidation ==
+
+JValidations is a framework to express and exercise validation rules for java objects. Its defining characteristics are: validation is performed by the objects themselves, not in external "validator" classes, preserving encapsulation; validation rules are expressed in declarative java using Hamcrest matchers, not in XML or annotations or what have you; how a validation failure is handled is entirely up to the caller through the use of callback interfaces; extensible in that custom validations can be coded, and the DSL syntax can be modified to suit your needs
+
+ * Project: http://jvalidations.codehaus.org/
+
 == Window Licker ==
 
 Window Licker is a framework for the test-driven development of systems with Java Swing rich clients or AJAX web GUIs.  It uses Hamcrest matchers to describe the expected state of the user interface.
