@@ -45,13 +45,13 @@ OCHamcrest comes with a library of useful matchers. Here are some of the most im
   * Core
     * `anything` - always matches, useful if you don't care what the object under test is
     * `describedAs` - decorator to adding custom failure description
-    * `is` - decorator to improve readability - see "Sugar", below
+    * `is` - decorator to improve readability - see "Syntactic sugar", below
   * Logical
     * `allOf` - matches if all matchers match, short circuits (like C's &&)
     * `anyOf` - matches if any matchers match, short circuits (like C's ||)
     * `isNot` - matches if the wrapped matcher doesn't match and vice versa
   * Object
-    * `equalTo` - test object equality using Object.equals
+    * `equalTo` - test object equality using -isEqual:
     * `hasDescription` - test -description
     * `instanceOf`, `isCompatibleType` - test type
     * `notNilValue`, `nilValue` - test for nil

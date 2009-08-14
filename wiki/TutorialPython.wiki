@@ -35,12 +35,12 @@ assert_that(theBiscuit.getHazelnutCount(), equal_to(3), 'hazelnuts')
 
 == A tour of common matchers ==
 
-Hamcrest comes with a library of useful matchers. Here are some of the most important ones. 
+Hamcrest comes with a library of useful matchers. Here are some of the most important ones.
 
   * Core
     * `anything` - always matches, useful if you don't care what the object under test is
     * `described_as` - decorator to adding custom failure description
-    * `is_` - decorator to improve readability - see "Sugar", below
+    * `is_` - decorator to improve readability - see "Syntactic sugar", below
   * Logical
     * `all_of` - matches if all matchers match, short circuits (like Python &&)
     * `any_of` - matches if any matchers match, short circuits (like Python ||)
@@ -63,7 +63,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     * `equal_to_ignoring_whitespace` - test string equality ignoring differences in runs of whitespace
     * `contains_string`, `ends_with`, `starts_with` - test string matching
 
-== Sugar ==
+== Syntactic sugar ==
 
 Hamcrest strives to make your tests as readable as possible. For example, the `is_` matcher is a wrapper that doesn't add any extra behavior to the underlying matcher. The following assertions are all equivalent:
 
@@ -115,7 +115,7 @@ assert_that('17b', is_(only_digits()))
 fails with the message
 
 {{{
-AssertionError: 
+AssertionError:
 Expected: is string of digits
      got: '17b'
 }}}
