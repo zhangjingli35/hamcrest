@@ -52,7 +52,7 @@ OCHamcrest comes with a library of useful matchers. Here are some of the most im
     * `isNot` - matches if the wrapped matcher doesn't match and vice versa
   * Object
     * `equalTo` - test object equality using Object.equals
-    * `hasToString` - test Object.toString
+    * `hasDescription` - test -description
     * `instanceOf`, `isCompatibleType` - test type
     * `notNilValue`, `nilValue` - test for nil
     * `sameInstance` - test object identity
