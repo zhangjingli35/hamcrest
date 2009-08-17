@@ -1,10 +1,10 @@
 package org.hamcrest.collection;
 
-import static org.hamcrest.core.IsEqual.equalTo;
-
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
+
+import static org.hamcrest.core.IsEqual.equalTo;
 
 import java.util.Map;
 import java.util.Map.Entry;

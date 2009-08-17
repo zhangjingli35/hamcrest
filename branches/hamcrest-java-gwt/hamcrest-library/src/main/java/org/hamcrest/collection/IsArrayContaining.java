@@ -1,12 +1,11 @@
 package org.hamcrest.collection;
 
-import static org.hamcrest.core.IsEqual.equalTo;
+import java.util.Arrays;
 
 import org.hamcrest.Description;
-import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
-
-import java.util.Arrays;
+import org.hamcrest.Factory;
+import static org.hamcrest.core.IsEqual.equalTo;
 
 /**
  * Matches if an array contains an item satisfying a nested matcher.

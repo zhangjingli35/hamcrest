@@ -3,12 +3,12 @@ package org.hamcrest.core;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.IsEqual.equalTo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<Iterable<? super T>> {
     private final Matcher<? super T> elementMatcher;
@@ -18,13 +18,18 @@ public class IsCollectionContaining<T> extends DiagnosingIterableMatcher<Iterabl
     }
 
     @Override
-    public boolean matchesSafely(Iterable<? super T> collection, Description mismatchDescription) {
+    protected boolean matchesSafely(Iterable<? super T> collection, Description mismatchDescription) {
+        boolean isPastFirst = false;
         for (Object item : collection) {
             if (elementMatcher.matches(item)){
                 return true;
             }
+            if (isPastFirst) {
+              mismatchDescription.appendText(", ");
+            }
+            elementMatcher.describeMismatch(item, mismatchDescription);
+            isPastFirst = true;
         }
-        mismatchDescription.appendValue(collection);
         return false;
     }
 
