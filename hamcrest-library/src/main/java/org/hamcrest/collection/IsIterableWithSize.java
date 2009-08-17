@@ -2,12 +2,12 @@ package org.hamcrest.collection;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 
-import org.hamcrest.Description;
+import java.util.Iterator;
+
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
+import org.hamcrest.Description;
 import org.hamcrest.core.DiagnosingIterableMatcher;
-
-import java.util.Iterator;
 
 public class IsIterableWithSize<E> extends DiagnosingIterableMatcher<Iterable<E>> {
     private final Matcher<? super Integer> sizeMatcher;

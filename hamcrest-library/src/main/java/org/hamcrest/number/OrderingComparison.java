@@ -1,3 +1,7 @@
+/*  Copyright (c) 2000-2009 hamcrest.org
+ */
+/*  Copyright (c) 2000-2009 hamcrest.org
+ */
 package org.hamcrest.number;
 
 import org.hamcrest.Description;
@@ -5,21 +9,25 @@ import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 
 public class OrderingComparison<T extends Comparable<T>> extends ComparableMatcher<T> {
-    private final T value;
+    private static final int LESS_THAN = -1;
+    private static final int GREATER_THAN = 1;
+    private static final int EQUAL = 0;
+    private final T expected;
     private final int minCompare, maxCompare;
 
-    private OrderingComparison(T value, int minCompare, int maxCompare) {
-        this.value = value;
+    private OrderingComparison(T expected, int minCompare, int maxCompare) {
+        this.expected = expected;
         this.minCompare = minCompare;
         this.maxCompare = maxCompare;
     }
 
     @Override
-    public boolean matchesSafely(T other, Description mismatchDescription) {
-        int compare = Integer.signum(value.compareTo(other));
+    public boolean matchesSafely(T actual, Description mismatchDescription) {
+        int compare = Integer.signum(actual.compareTo(expected));
         if (minCompare > compare || compare > maxCompare) {
-            mismatchDescription.appendValue(value) .appendText(" was ")
-                    .appendText(comparison(value.compareTo(other))).appendText(" ").appendValue(other);
+            mismatchDescription.appendValue(actual) .appendText(" was ")
+                         .appendText(comparison(actual.compareTo(expected)))
+                         .appendText(" ").appendValue(expected);
             return false;
         }
         return true;
@@ -31,19 +39,17 @@ public class OrderingComparison<T extends Comparable<T>> extends ComparableMatch
         if (minCompare != maxCompare) {
             description.appendText(" or ").appendText(comparison(maxCompare));
         }
-        description.appendText(" ").appendValue(value);
+        description.appendText(" ").appendValue(expected);
     }
 
     private String comparison(int compare) {
-        if (compare > 0) {
-            return "less than";
-        }
-        else if (compare == 0) {
-            return "equal to ";
-        }
-        else {
-            return "greater than";
-        }
+      if (compare == EQUAL) {
+        return "equal to";
+      } else if (compare > EQUAL) {
+        return "greater than";
+      } else {
+        return "less than";
+      }
     }
 
     /**
@@ -51,7 +57,7 @@ public class OrderingComparison<T extends Comparable<T>> extends ComparableMatch
      */
     @Factory
     public static <T extends Comparable<T>> Matcher<? super T> comparesEqualTo(T value) {
-        return new OrderingComparison<T>(value, 0, 0);
+        return new OrderingComparison<T>(value, EQUAL, EQUAL);
     }
 
     /**
@@ -59,7 +65,7 @@ public class OrderingComparison<T extends Comparable<T>> extends ComparableMatch
      */
     @Factory
     public static <T extends Comparable<T>> Matcher<? super T> greaterThan(T value) {
-        return new OrderingComparison<T>(value, -1, -1);
+        return new OrderingComparison<T>(value, GREATER_THAN, GREATER_THAN);
     }
 
     /**
@@ -67,7 +73,7 @@ public class OrderingComparison<T extends Comparable<T>> extends ComparableMatch
      */
     @Factory
     public static <T extends Comparable<T>> Matcher<? super T> greaterThanOrEqualTo(T value) {
-        return new OrderingComparison<T>(value, -1, 0);
+        return new OrderingComparison<T>(value, EQUAL, GREATER_THAN);
     }
 
     /**
@@ -75,7 +81,7 @@ public class OrderingComparison<T extends Comparable<T>> extends ComparableMatch
      */
     @Factory
     public static <T extends Comparable<T>> Matcher<? super T> lessThan(T value) {
-        return new OrderingComparison<T>(value, 1, 1);
+        return new OrderingComparison<T>(value, LESS_THAN, LESS_THAN);
     }
 
     /**
@@ -83,6 +89,6 @@ public class OrderingComparison<T extends Comparable<T>> extends ComparableMatch
      */
     @Factory
     public static <T extends Comparable<T>> Matcher<? super T> lessThanOrEqualTo(T value) {
-        return new OrderingComparison<T>(value, 0, 1);
+        return new OrderingComparison<T>(value, LESS_THAN, EQUAL);
     }
 }

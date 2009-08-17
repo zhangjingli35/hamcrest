@@ -1,6 +1,8 @@
 package org.hamcrest.text;
 
 import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
 import org.hamcrest.core.StringMatcher;
 
 public class StringContainsInOrder extends StringMatcher {
@@ -29,5 +31,10 @@ public class StringContainsInOrder extends StringMatcher {
         description.appendText("a string containing ")
                    .appendValueList("", ", ", "", substrings)
                    .appendText(" in order");
+    }
+    
+    @Factory
+    public static Matcher<String> stringContainsInOrder(Iterable<String> substrings) {
+        return new StringContainsInOrder(substrings);
     }
 }

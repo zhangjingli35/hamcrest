@@ -1,9 +1,10 @@
 package org.hamcrest.collection;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-
 import java.util.Arrays;
+
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
 
 /**
  * Matcher for array whose elements satisfy a sequence of matchers.
@@ -17,7 +18,7 @@ public class IsArray<T> extends ArrayMatcher<T> {
         this.elementMatchers = new Matcher[elementMatchers.length];
         System.arraycopy(elementMatchers, 0, this.elementMatchers, 0, elementMatchers.length);
     }
-
+    
     @Override
     public boolean matchesSafely(T[] array, Description mismatchDescription) {
         if (array.length != elementMatchers.length) {
@@ -69,11 +70,13 @@ public class IsArray<T> extends ArrayMatcher<T> {
     protected String descriptionEnd() {
         return "]";
     }
-
+    
     /**
      * Evaluates to true only if each matcher[i] is satisfied by array[i].
      */
+    @Factory
     public static <T> IsArray<T> array(Matcher<? super T>... elementMatchers) {
         return new IsArray<T>(elementMatchers);
     }
+
 }

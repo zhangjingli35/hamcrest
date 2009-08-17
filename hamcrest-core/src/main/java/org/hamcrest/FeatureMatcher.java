@@ -3,7 +3,7 @@ package org.hamcrest;
 import org.hamcrest.internal.ReflectiveTypeFinder;
 
 /**
- * Supporting class for matching a feature of an object. Implement <code>valueOfPartIn()</code>
+ * Supporting class for matching a feature of an object. Implement <code>featureValueOf()</code>
  * in a subclass to pull out the feature to be matched against. 
  *
  * @param <T> The type of the object to be matched
@@ -39,7 +39,8 @@ public abstract class FeatureMatcher<T, U> extends TypeSafeDiagnosingMatcher<T> 
   protected boolean matchesSafely(T actual, Description mismatchDescription) {
     final U featureValue = featureValueOf(actual);
     if (!subMatcher.matches(featureValue)) {
-      mismatchDescription.appendText(featureName).appendText(" was ").appendValue(featureValue);
+      mismatchDescription.appendText(featureName).appendText(" ");
+      subMatcher.describeMismatch(featureValue, mismatchDescription);
       return false;
     }
     return true;
