@@ -1,1 +1,0 @@
-This tutorial has moved; please see [http://code.google.com/p/hamcrest/wiki/TutorialObjectiveC TutorialObjectiveC].
