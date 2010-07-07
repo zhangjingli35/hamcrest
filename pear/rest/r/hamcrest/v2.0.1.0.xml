@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<r xmlns="http://pear.php.net/dtd/rest.release"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://pear.php.net/dtd/rest.release
+    http://pear.php.net/dtd/rest.release.xsd">
+ <p xlink:href="/rest/p/hamcrest">Hamcrest</p>
+ <c>hamcrest.googlecode.com</c>
+ <v>0.1.0</v>
+ <a>0.1.0</a>
+ <mp>5.2.7</mp>
+ <st>devel</st>
+ <l>BSD</l>
+ <m>dharkness</m>
+ <s>Hamcrest Matching Library</s>
+ <d>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</d>
+ <da>2010-07-06 16:20:00</da>
+ <n>- Initial development release
+    - Created PEAR channel</n>
+ <f>666</f>
+ <g>http://hamcrest.googlecode.com/files/hamcrest-php-0.1.0.tgz</g>
+ <x xlink:href="package.0.1.0.xml"/>
+</r>

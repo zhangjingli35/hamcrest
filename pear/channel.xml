@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channel version="1.0" xmlns="http://pear.php.net/channel-1.0">
+ <name>hamcrest.googlecode.com/svn/pear</name>
+ <suggestedalias>hamcrest</suggestedalias>
+ <summary>Hamcrest Matcher Library</summary>
+ <servers>
+  <primary>
+   <rest>
+    <baseurl type="REST1.0">http://hamcrest.googlecode.com/svn/pear/rest/</baseurl>
+    <baseurl type="REST1.1">http://hamcrest.googlecode.com/svn/pear/rest/</baseurl>
+    <baseurl type="REST1.2">http://hamcrest.googlecode.com/svn/pear/rest/</baseurl>
+    <baseurl type="REST1.3">http://hamcrest.googlecode.com/svn/pear/rest/</baseurl>
+   </rest>
+  </primary>
+ </servers>
+</channel>

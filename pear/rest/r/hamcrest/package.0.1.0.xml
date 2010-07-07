@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<package version="1.0">
+  <name>Hamcrest</name>
+  <summary>Hamcrest Matching Library</summary>
+  <description>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</description>
+  <maintainers>
+    <maintainer>
+      <user>dharkness</user>
+      <name>David Harkness</name>
+      <email>dharkness@gmail.net</email>
+      <role>lead</role>
+    </maintainer>
+  </maintainers>
+  <release>
+    <version>0.1.0</version>
+    <date>2010-07-06</date>
+    <license>BSD</license>
+    <state>devel</state>
+    <notes>- Initial development release
+    - Created PEAR channel</notes>
+    <filelist>
+      <file role="php" baseinstalldir="Hamcrest" md5sum="c0a7ca7b0f1905add3ae23c2189b830a" name="hamcrest.php"/>
+    </filelist>
+  </release>
+  <changelog>
+    <release>
+      <version>0.1.0</version>
+      <date>2010-07-06</date>
+      <state>devel</state>
+      <notes>This is the initial development release of the Hamcrest package.</notes>
+    </release>
+  </changelog>
+</package>
