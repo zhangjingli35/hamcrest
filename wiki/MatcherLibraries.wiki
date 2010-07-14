@@ -1,7 +1,9 @@
 #summary Hamcrest can be extended with additional libraries of Matchers
 #labels Featured,Category-Users
 
-== [http://code.google.com/p/hamsandwich/logo] Ham Sandwich ==
+== Ham Sandwich ==
+
+[http://code.google.com/p/hamsandwich/logo]
 
 Extensions to the Hamcrest library that provide a convienient way of declaring and combining property Matchers.
 
