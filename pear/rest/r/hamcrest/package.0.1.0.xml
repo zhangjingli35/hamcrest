@@ -5,10 +5,16 @@
   <description>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</description>
   <maintainers>
     <maintainer>
+      <user>sebastian.bergmann</user>
+      <name>Sebastian Bergmann</name>
+      <email>sb@sebastian-bergmann.de</email>
+      <role>lead</role>
+    </maintainer>
+    <maintainer>
       <user>dharkness</user>
       <name>David Harkness</name>
-      <email>dharkness@gmail.net</email>
-      <role>lead</role>
+      <email>dharkness@gmail.com</email>
+      <role>developer</role>
     </maintainer>
   </maintainers>
   <release>
@@ -19,7 +25,7 @@
     <notes>- Initial development release
     - Created PEAR channel</notes>
     <filelist>
-      <file role="php" baseinstalldir="Hamcrest" md5sum="c0a7ca7b0f1905add3ae23c2189b830a" name="hamcrest.php"/>
+      <file role="php" baseinstalldir="/" md5sum="c0a7ca7b0f1905add3ae23c2189b830a" name="hamcrest.php"/>
     </filelist>
   </release>
   <changelog>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Hamcrest</name>
+ <channel>hamcrest.googlecode.com/svn/pear</channel>
+ <summary>Hamcrest Matching Library</summary>
+ <description>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</description>
+ <lead>
+  <name>Sebastian Bergmann</name>
+  <user>sebastian.bergmann</user>
+  <email>sb@sebastian-bergmann.de</email>
+  <active>yes</active>
+ </lead>
+ <developer>
+  <name>David Harkness</name>
+  <user>dharkness</user>
+  <email>dharkness@gmail.com</email>
+  <active>yes</active>
+ </developer>
+ <date>2010-07-13</date>
+ <time>17:43:08</time>
+ <version>
+  <release>0.2.0</release>
+  <api>0.2.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+ <notes>
+Release Notes are awesome!
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="babce0fbda3c1d960cf7c476d7991448" name="Hamcrest/AssertionError.php" role="php" />
+   <file baseinstalldir="/" md5sum="af0a73e70f2ec3576a108b4582d8480c" name="Hamcrest/BaseDescription.php" role="php" />
+   <file baseinstalldir="/" md5sum="d7543a00589d4b03b355726ce649367b" name="Hamcrest/BaseMatcher.php" role="php" />
+   <file baseinstalldir="/" md5sum="e9414a08fb1473e3e6ebdc60a272df96" name="Hamcrest/Description.php" role="php" />
+   <file baseinstalldir="/" md5sum="5fffcdc2b0738538cba51646e13345fc" name="Hamcrest/DiagnosingMatcher.php" role="php" />
+   <file baseinstalldir="/" md5sum="bef017d3f3b7dfec98fd571659b54c7c" name="Hamcrest/FeatureMatcher.php" role="php" />
+   <file baseinstalldir="/" md5sum="4c61e2692d5f3aab94a05ba294e73eac" name="Hamcrest/hamcrest.php" role="php" />
+   <file baseinstalldir="/" md5sum="d670312059b316ba1dadbd5414732e02" name="Hamcrest/Matcher.php" role="php" />
+   <file baseinstalldir="/" md5sum="a3ee4124f7320efcdd0647fc5e51ba8b" name="Hamcrest/MatcherAssert.php" role="php" />
+   <file baseinstalldir="/" md5sum="465889b920135fd6550e950d5bdb114d" name="Hamcrest/Matchers.php" role="php" />
+   <file baseinstalldir="/" md5sum="c01e1353be051bd6fad00153b4890509" name="Hamcrest/NullDescription.php" role="php" />
+   <file baseinstalldir="/" md5sum="ddefd268285c36513b35b343b12ae1d6" name="Hamcrest/SelfDescribing.php" role="php" />
+   <file baseinstalldir="/" md5sum="419abc315a51c2d269bcbe9376cf67ca" name="Hamcrest/StringDescription.php" role="php" />
+   <file baseinstalldir="/" md5sum="0db80d576731fce99fb3c6f71f356382" name="Hamcrest/TypeSafeDiagnosingMatcher.php" role="php" />
+   <file baseinstalldir="/" md5sum="3db01b007ee236ed2115ab3c9ce31804" name="Hamcrest/TypeSafeMatcher.php" role="php" />
+   <file baseinstalldir="/" md5sum="150dcc32786cdcf7bda1a623610273fb" name="Hamcrest/Array/IsArray.php" role="php" />
+   <file baseinstalldir="/" md5sum="d918fd6a717c80859af6747d628acfc3" name="Hamcrest/Array/IsArrayContaining.php" role="php" />
+   <file baseinstalldir="/" md5sum="a0a077a25e1440b9cddeff7465706733" name="Hamcrest/Array/IsArrayContainingInAnyOrder.php" role="php" />
+   <file baseinstalldir="/" md5sum="ce19837e7fb8ad1305cba2d43a317c14" name="Hamcrest/Array/IsArrayContainingInOrder.php" role="php" />
+   <file baseinstalldir="/" md5sum="aac15f43c41222fb51d428368c11d24b" name="Hamcrest/Array/IsArrayContainingKey.php" role="php" />
+   <file baseinstalldir="/" md5sum="087a3176b81fc8a650672f4f3dbb4b78" name="Hamcrest/Array/IsArrayContainingKeyValuePair.php" role="php" />
+   <file baseinstalldir="/" md5sum="e01b7c3e5e96e3221dbea2d77fade0f8" name="Hamcrest/Array/IsArrayWithSize.php" role="php" />
+   <file baseinstalldir="/" md5sum="377b668b2242e30eed3c588dfb66ad16" name="Hamcrest/Array/MatchingOnce.php" role="php" />
+   <file baseinstalldir="/" md5sum="f3d74c7627a84fcdfa6d3fd658805a0d" name="Hamcrest/Array/SeriesMatchingOnce.php" role="php" />
+   <file baseinstalldir="/" md5sum="b0847e4f114d4ddc9c8e97baceffda78" name="Hamcrest/Core/AllOf.php" role="php" />
+   <file baseinstalldir="/" md5sum="75b15fc374cb01760597da7dd90d21f5" name="Hamcrest/Core/AnyOf.php" role="php" />
+   <file baseinstalldir="/" md5sum="c13655edcdb4529699c100d9bdf21cfb" name="Hamcrest/Core/CombinableMatcher.php" role="php" />
+   <file baseinstalldir="/" md5sum="61d17626a09c04f46fc07bbd11622ca8" name="Hamcrest/Core/DescribedAs.php" role="php" />
+   <file baseinstalldir="/" md5sum="93eadb5fd2453b687edf1851e720eb60" name="Hamcrest/Core/Every.php" role="php" />
+   <file baseinstalldir="/" md5sum="54b004b36466c4b22e802442d283c6d3" name="Hamcrest/Core/Is.php" role="php" />
+   <file baseinstalldir="/" md5sum="014b8a41176ca0afad0817b92d40ed4f" name="Hamcrest/Core/IsAnything.php" role="php" />
+   <file baseinstalldir="/" md5sum="dd3d28bef915840cb9372b7951c4b496" name="Hamcrest/Core/IsCollectionContaining.php" role="php" />
+   <file baseinstalldir="/" md5sum="5b11448fa9b64652789167859b5f8c84" name="Hamcrest/Core/IsEqual.php" role="php" />
+   <file baseinstalldir="/" md5sum="5a0b97ef2963796e70dc352366c94d39" name="Hamcrest/Core/IsIdentical.php" role="php" />
+   <file baseinstalldir="/" md5sum="1ea52c0ce3fb6f9f4d43a3169a95b0eb" name="Hamcrest/Core/IsInstanceOf.php" role="php" />
+   <file baseinstalldir="/" md5sum="abffc68c9fadfb7c61b00323aa732eaf" name="Hamcrest/Core/IsNot.php" role="php" />
+   <file baseinstalldir="/" md5sum="f0dd3e14d1e8e884117b32a8685b0101" name="Hamcrest/Core/IsNull.php" role="php" />
+   <file baseinstalldir="/" md5sum="979d8a516395a644850327d41cd59f8d" name="Hamcrest/Core/IsSame.php" role="php" />
+   <file baseinstalldir="/" md5sum="47dfaddbe7faf938d6cb4867a954d4db" name="Hamcrest/Core/IsSet.php" role="php" />
+   <file baseinstalldir="/" md5sum="4bd9a2068d4ffe907bae73939e3a4816" name="Hamcrest/Core/IsTypeOf.php" role="php" />
+   <file baseinstalldir="/" md5sum="b6e39d3ec9ff0cf1efa960aa0f2bcda2" name="Hamcrest/Core/ShortcutCombination.php" role="php" />
+   <file baseinstalldir="/" md5sum="6c6771a3216eb2077cfee15dffcd1b1d" name="Hamcrest/Core/StringContains.php" role="php" />
+   <file baseinstalldir="/" md5sum="823ada6c5123d0abe9bd0e80984a629a" name="Hamcrest/Core/StringEndsWith.php" role="php" />
+   <file baseinstalldir="/" md5sum="72aaaa13b244a7bcbd9ef3d90bb464c1" name="Hamcrest/Core/StringStartsWith.php" role="php" />
+   <file baseinstalldir="/" md5sum="32c1c4612100bedc53901b84e901c8ad" name="Hamcrest/Core/SubstringMatcher.php" role="php" />
+   <file baseinstalldir="/" md5sum="a06640dc5209426f766452eb1f67a87d" name="Hamcrest/Internal/SelfDescribingValue.php" role="php" />
+   <file baseinstalldir="/" md5sum="9212ee9a49391f56a7e245ac450dac52" name="Hamcrest/Number/IsCloseTo.php" role="php" />
+   <file baseinstalldir="/" md5sum="18781e67124fae1580eed5cba8d78a65" name="Hamcrest/Number/OrderingComparison.php" role="php" />
+   <file baseinstalldir="/" md5sum="0daa2dfa821fc4f63904e6f98f64a414" name="Hamcrest/Text/IsEmptyString.php" role="php" />
+   <file baseinstalldir="/" md5sum="0cac7470c10b2b410680d093e225115c" name="Hamcrest/Text/IsEqualIgnoringCase.php" role="php" />
+   <file baseinstalldir="/" md5sum="c1d2281be2a496a036d4b2d13091a20b" name="Hamcrest/Text/IsEqualIgnoringWhiteSpace.php" role="php" />
+   <file baseinstalldir="/" md5sum="c7839c87dd8a82bec90a325355755c4e" name="Hamcrest/Text/MatchesPattern.php" role="php" />
+   <file baseinstalldir="/" md5sum="764368e53db6cbd66f00654c46b79fbd" name="Hamcrest/Text/StringContainsInOrder.php" role="php" />
+   <file baseinstalldir="/" md5sum="dfed705a830225153ddf4bebf845c3ff" name="Hamcrest/Type/IsArray.php" role="php" />
+   <file baseinstalldir="/" md5sum="65adcd330fb514a98883b601021165ee" name="Hamcrest/Type/IsBoolean.php" role="php" />
+   <file baseinstalldir="/" md5sum="44abecef72a2b2be4d8e6c6b57c9e677" name="Hamcrest/Type/IsCallable.php" role="php" />
+   <file baseinstalldir="/" md5sum="a3741f5680ba83d8d9deb4ec094c4891" name="Hamcrest/Type/IsDouble.php" role="php" />
+   <file baseinstalldir="/" md5sum="250925ddb34ce2bc59787cc74e81f6a1" name="Hamcrest/Type/IsInteger.php" role="php" />
+   <file baseinstalldir="/" md5sum="db6173c1183d4a5778a626e548bc6fac" name="Hamcrest/Type/IsNumeric.php" role="php" />
+   <file baseinstalldir="/" md5sum="a9b0a59562a48e9e8c56094cb7036e90" name="Hamcrest/Type/IsObject.php" role="php" />
+   <file baseinstalldir="/" md5sum="23fa0ee3e382625c24e5d42c42c9233c" name="Hamcrest/Type/IsResource.php" role="php" />
+   <file baseinstalldir="/" md5sum="a944b1479c5acfeb0714dd5a8ae87d1b" name="Hamcrest/Type/IsString.php" role="php" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.1</min>
+   </php>
+   <pearinstaller>
+    <min>1.7.0</min>
+   </pearinstaller>
+  </required>
+  <optional>
+   <package>
+    <name>PHPUnit</name>
+    <channel>pear.phpunit.de</channel>
+    <min>3.4.7</min>
+    <recommended>1</recommended>
+   </package>
+  </optional>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.2.0</release>
+    <api>0.2.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2010-07-13</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>
+Release Notes are awesome!
+   </notes>
+  </release>
+ </changelog>
+</package>

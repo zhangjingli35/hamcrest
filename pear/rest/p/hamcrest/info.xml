@@ -1,15 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<p xmlns="http://pear.php.net/dtd/rest.package"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xsi:schemaLocation="http://pear.php.net/dtd/rest.package
-        http://pear.php.net/dtd/rest.package.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<p>
  <n>Hamcrest</n>
- <c>hamcrest.googlecode.com</c>
- <ca xlink:href="/rest/c/Testing">Testing</ca>
- <ca xlink:href="/rest/c/Validation">Validation</ca>
- <l>BSD</l>
+ <c>hamcrest.googlecode.com/svn/pear</c>
+ <ca xlink:href="rest/c/Default" xmlns:xlink="rest/c/Default">Default</ca>
+ <l>New BSD License</l>
  <s>Hamcrest Matching Library</s>
  <d>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</d>
- <r xlink:href="/rest/r/hamcrest"/>
+ <r xmlns="http://pear.php.net/dtd/rest.package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://pear.php.net/dtd/rest.package http://pear.php.net/dtd/rest.package.xsd"/>
 </p>

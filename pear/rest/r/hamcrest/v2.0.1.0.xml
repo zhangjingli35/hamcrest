@@ -10,14 +10,14 @@
  <a>0.1.0</a>
  <mp>5.2.7</mp>
  <st>devel</st>
- <l>BSD</l>
+ <l>New BSD</l>
  <m>dharkness</m>
  <s>Hamcrest Matching Library</s>
  <d>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</d>
- <da>2010-07-06 16:20:00</da>
+ <da>2010-07-08 11:06:15</da>
  <n>- Initial development release
     - Created PEAR channel</n>
- <f>666</f>
+ <f>16850</f>
  <g>http://hamcrest.googlecode.com/files/hamcrest-php-0.1.0</g>
  <x xlink:href="package.0.1.0.xml"/>
 </r>
