@@ -11,6 +11,8 @@ Extensions to the Hamcrest library that provide a convienient way of declaring a
 
 == Text Patterns ==
 
+[http://code.google.com/p/hamcrest-text-patterns/logo?as.png]
+
 An library for writing readable, reusable regular expression matchers that integrates cleanly with Hamcrest.
 
  * http://hamcrest-text-patterns.googlecode.com
