@@ -8,11 +8,11 @@
  <m>hamcrest</m>
  <s>Hamcrest Matching Library</s>
  <d>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</d>
- <da>2010-07-14 12:06:44</da>
+ <da>2010-07-14 12:11:07</da>
  <n>
 Release Notes are awesome!
  </n>
- <f>19543</f>
+ <f>19532</f>
  <g>http://hamcrest.googlecode.com/files/hamcrest-php-0.2.0</g>
  <x xlink:href="package.0.2.0.xml"/>
 </r>
