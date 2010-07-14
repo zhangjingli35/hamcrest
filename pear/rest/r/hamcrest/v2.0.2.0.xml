@@ -4,17 +4,66 @@
  <c>hamcrest.googlecode.com/svn/pear</c>
  <v>0.2.0</v>
  <a>0.2.0</a>
- <mp>5.2.1</mp>
+ <mp>5.0.0</mp>
  <st>alpha</st>
  <l>New BSD License</l>
  <m>hamcrest</m>
  <s>Hamcrest Matching Library</s>
  <d>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</d>
- <da>2010-07-14 12:11:07</da>
+ <da>2010-07-14 16:58:10</da>
  <n>
-Release Notes are awesome!
+Issues Fixed: 109, 111, 114, 115
+
+* Description::appendValues() and appendValueList() accept Iterator and IteratorAggregate. [111]
+  BaseDescription::appendValue() handles IteratorAggregate.
+
+* assertThat() accepts a single boolean parameter and
+  wraps any non-Matcher third parameter with equalTo().
+
+* Removed null return value from assertThat(). [114]
+
+* Fixed wrong variable name in contains(). [109]
+
+* Added Hamcrest_Core_IsSet to assert isset().
+
+    assertThat(array('foo' =&gt; 'bar'), set('foo'));
+    assertThat(array('foo' =&gt; 'bar'), notSet('bar'));
+
+* Added Hamcrest_Core_IsTypeOf to assert built-in types with gettype(). [115]
+  Types: array, boolean, double, integer, null, resource, and string.
+  Note that gettype() returns &quot;double&quot; for float values.
+
+    assertThat($count, typeOf('integer'));
+    assertThat(3.14159, typeOf('double'));
+    assertThat(array('foo', 'bar'), typeOf('array'));
+
+* Added Hamcrest_Type_IsInteger, IsBoolean, etc.
+
+    assertThat($count, integerValue());
+    assertThat('5', numericValue());
+    assertThat('foo', stringValue());
+
+* Added Hamcrest_Type_IsCallable to assert is_callable().
+
+    assertThat('preg_match', callable());
+    assertThat(array('SomeClass', 'SomeMethod'), callable());
+    assertThat(array($object, 'SomeMethod'), callable());
+    assertThat($object, callable());
+
+* Added Hamcrest_Text_MatchesPattern for regex matching with preg_match().
+
+    assertThat('foobar', matchesPattern('/o+b/'));
+
+* Added aliases:
+  - atLeast() for greaterThanOrEqualTo()
+  - atMost() for lessThanOrEqualTo()
+
+
+For full list of changes in all releases, please see
+
+  http://hamcrest.googlecode.com/svn/trunk/hamcrest-php/CHANGES.txt
  </n>
- <f>19532</f>
+ <f>20135</f>
  <g>http://hamcrest.googlecode.com/files/hamcrest-php-0.2.0</g>
  <x xlink:href="package.0.2.0.xml"/>
 </r>

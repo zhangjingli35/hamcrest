@@ -17,7 +17,7 @@
   <active>yes</active>
  </developer>
  <date>2010-07-14</date>
- <time>12:11:07</time>
+ <time>16:58:10</time>
  <version>
   <release>0.2.0</release>
   <api>0.2.0</api>
@@ -28,7 +28,56 @@
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
  <notes>
-Release Notes are awesome!
+Issues Fixed: 109, 111, 114, 115
+
+* Description::appendValues() and appendValueList() accept Iterator and IteratorAggregate. [111]
+  BaseDescription::appendValue() handles IteratorAggregate.
+
+* assertThat() accepts a single boolean parameter and
+  wraps any non-Matcher third parameter with equalTo().
+
+* Removed null return value from assertThat(). [114]
+
+* Fixed wrong variable name in contains(). [109]
+
+* Added Hamcrest_Core_IsSet to assert isset().
+
+    assertThat(array(&apos;foo&apos; =&gt; &apos;bar&apos;), set(&apos;foo&apos;));
+    assertThat(array(&apos;foo&apos; =&gt; &apos;bar&apos;), notSet(&apos;bar&apos;));
+
+* Added Hamcrest_Core_IsTypeOf to assert built-in types with gettype(). [115]
+  Types: array, boolean, double, integer, null, resource, and string.
+  Note that gettype() returns &quot;double&quot; for float values.
+
+    assertThat($count, typeOf(&apos;integer&apos;));
+    assertThat(3.14159, typeOf(&apos;double&apos;));
+    assertThat(array(&apos;foo&apos;, &apos;bar&apos;), typeOf(&apos;array&apos;));
+
+* Added Hamcrest_Type_IsInteger, IsBoolean, etc.
+
+    assertThat($count, integerValue());
+    assertThat(&apos;5&apos;, numericValue());
+    assertThat(&apos;foo&apos;, stringValue());
+
+* Added Hamcrest_Type_IsCallable to assert is_callable().
+
+    assertThat(&apos;preg_match&apos;, callable());
+    assertThat(array(&apos;SomeClass&apos;, &apos;SomeMethod&apos;), callable());
+    assertThat(array($object, &apos;SomeMethod&apos;), callable());
+    assertThat($object, callable());
+
+* Added Hamcrest_Text_MatchesPattern for regex matching with preg_match().
+
+    assertThat(&apos;foobar&apos;, matchesPattern(&apos;/o+b/&apos;));
+
+* Added aliases:
+  - atLeast() for greaterThanOrEqualTo()
+  - atMost() for lessThanOrEqualTo()
+
+
+For full list of changes in all releases, please see
+
+  http://hamcrest.googlecode.com/svn/trunk/hamcrest-php/CHANGES.txt
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -99,11 +148,20 @@ Release Notes are awesome!
  <dependencies>
   <required>
    <php>
-    <min>5.2.1</min>
+    <min>5.0.0</min>
    </php>
    <pearinstaller>
-    <min>1.7.0</min>
+    <min>1.4.0</min>
    </pearinstaller>
+   <package>
+    <name>PEAR</name>
+    <channel>pear.php.net</channel>
+    <min>1.4.0</min>
+   </package>
+   <package>
+    <name>pcre</name>
+    <channel>pecl.php.net</channel>
+   </package>
   </required>
   <optional>
    <package>
@@ -127,7 +185,56 @@ Release Notes are awesome!
    <date>2010-07-14</date>
    <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
    <notes>
-Release Notes are awesome!
+Issues Fixed: 109, 111, 114, 115
+
+* Description::appendValues() and appendValueList() accept Iterator and IteratorAggregate. [111]
+  BaseDescription::appendValue() handles IteratorAggregate.
+
+* assertThat() accepts a single boolean parameter and
+  wraps any non-Matcher third parameter with equalTo().
+
+* Removed null return value from assertThat(). [114]
+
+* Fixed wrong variable name in contains(). [109]
+
+* Added Hamcrest_Core_IsSet to assert isset().
+
+    assertThat(array(&apos;foo&apos; =&gt; &apos;bar&apos;), set(&apos;foo&apos;));
+    assertThat(array(&apos;foo&apos; =&gt; &apos;bar&apos;), notSet(&apos;bar&apos;));
+
+* Added Hamcrest_Core_IsTypeOf to assert built-in types with gettype(). [115]
+  Types: array, boolean, double, integer, null, resource, and string.
+  Note that gettype() returns &quot;double&quot; for float values.
+
+    assertThat($count, typeOf(&apos;integer&apos;));
+    assertThat(3.14159, typeOf(&apos;double&apos;));
+    assertThat(array(&apos;foo&apos;, &apos;bar&apos;), typeOf(&apos;array&apos;));
+
+* Added Hamcrest_Type_IsInteger, IsBoolean, etc.
+
+    assertThat($count, integerValue());
+    assertThat(&apos;5&apos;, numericValue());
+    assertThat(&apos;foo&apos;, stringValue());
+
+* Added Hamcrest_Type_IsCallable to assert is_callable().
+
+    assertThat(&apos;preg_match&apos;, callable());
+    assertThat(array(&apos;SomeClass&apos;, &apos;SomeMethod&apos;), callable());
+    assertThat(array($object, &apos;SomeMethod&apos;), callable());
+    assertThat($object, callable());
+
+* Added Hamcrest_Text_MatchesPattern for regex matching with preg_match().
+
+    assertThat(&apos;foobar&apos;, matchesPattern(&apos;/o+b/&apos;));
+
+* Added aliases:
+  - atLeast() for greaterThanOrEqualTo()
+  - atMost() for lessThanOrEqualTo()
+
+
+For full list of changes in all releases, please see
+
+  http://hamcrest.googlecode.com/svn/trunk/hamcrest-php/CHANGES.txt
    </notes>
   </release>
  </changelog>
