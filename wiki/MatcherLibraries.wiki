@@ -1,6 +1,12 @@
 #summary Hamcrest can be extended with additional libraries of Matchers
 #labels Featured,Category-Users
 
+== [http://code.google.com/p/hamsandwich/logo] Ham Sandwich ==
+
+Extensions to the Hamcrest library that provide a convienient way of declaring and combining property Matchers.
+
+ * http://hamsandwich.googlecode.com
+
 == Text Patterns ==
 
 An library for writing readable, reusable regular expression matchers that integrates cleanly with Hamcrest.
