@@ -3,7 +3,7 @@
 
 == Ham Sandwich ==
 
-[http://code.google.com/p/hamsandwich/logo]
+[http://code.google.com/p/hamsandwich/logo?as.png]
 
 Extensions to the Hamcrest library that provide a convienient way of declaring and combining property Matchers.
 
