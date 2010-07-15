@@ -17,7 +17,7 @@
   <active>yes</active>
  </developer>
  <date>2010-07-14</date>
- <time>17:04:07</time>
+ <time>17:13:45</time>
  <version>
   <release>0.2.0</release>
   <api>0.2.0</api>
@@ -87,7 +87,7 @@ For full list of changes in all releases, please see
    <file baseinstalldir="/" md5sum="e9414a08fb1473e3e6ebdc60a272df96" name="Hamcrest/Description.php" role="php" />
    <file baseinstalldir="/" md5sum="5fffcdc2b0738538cba51646e13345fc" name="Hamcrest/DiagnosingMatcher.php" role="php" />
    <file baseinstalldir="/" md5sum="bef017d3f3b7dfec98fd571659b54c7c" name="Hamcrest/FeatureMatcher.php" role="php" />
-   <file baseinstalldir="/" md5sum="4c61e2692d5f3aab94a05ba294e73eac" name="Hamcrest/hamcrest.php" role="php" />
+   <file baseinstalldir="/" md5sum="94d208b7638b1efcde0b542341a974cb" name="Hamcrest/hamcrest.php" role="php" />
    <file baseinstalldir="/" md5sum="d670312059b316ba1dadbd5414732e02" name="Hamcrest/Matcher.php" role="php" />
    <file baseinstalldir="/" md5sum="a3ee4124f7320efcdd0647fc5e51ba8b" name="Hamcrest/MatcherAssert.php" role="php" />
    <file baseinstalldir="/" md5sum="465889b920135fd6550e950d5bdb114d" name="Hamcrest/Matchers.php" role="php" />
