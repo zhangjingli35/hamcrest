@@ -17,7 +17,7 @@
   <active>yes</active>
  </developer>
  <date>2010-07-14</date>
- <time>16:58:10</time>
+ <time>17:04:07</time>
  <version>
   <release>0.2.0</release>
   <api>0.2.0</api>
@@ -153,23 +153,7 @@ For full list of changes in all releases, please see
    <pearinstaller>
     <min>1.4.0</min>
    </pearinstaller>
-   <package>
-    <name>PEAR</name>
-    <channel>pear.php.net</channel>
-    <min>1.4.0</min>
-   </package>
-   <package>
-    <name>pcre</name>
-    <channel>pecl.php.net</channel>
-   </package>
   </required>
-  <optional>
-   <package>
-    <name>PHPUnit</name>
-    <channel>pear.phpunit.de</channel>
-    <min>3.4.7</min>
-   </package>
-  </optional>
  </dependencies>
  <phprelease />
  <changelog>

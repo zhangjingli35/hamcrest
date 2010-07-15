@@ -23,7 +23,7 @@
   </a>
   <deps>
    <v>0.2.0</v>
-   <d>a:2:{s:8:&quot;required&quot;;a:3:{s:3:&quot;php&quot;;a:1:{s:3:&quot;min&quot;;s:5:&quot;5.0.0&quot;;}s:13:&quot;pearinstaller&quot;;a:1:{s:3:&quot;min&quot;;s:5:&quot;1.4.0&quot;;}s:7:&quot;package&quot;;a:2:{i:0;a:3:{s:4:&quot;name&quot;;s:4:&quot;PEAR&quot;;s:7:&quot;channel&quot;;s:12:&quot;pear.php.net&quot;;s:3:&quot;min&quot;;s:5:&quot;1.4.0&quot;;}i:1;a:2:{s:4:&quot;name&quot;;s:4:&quot;pcre&quot;;s:7:&quot;channel&quot;;s:12:&quot;pecl.php.net&quot;;}}}s:8:&quot;optional&quot;;a:1:{s:7:&quot;package&quot;;a:3:{s:4:&quot;name&quot;;s:7:&quot;PHPUnit&quot;;s:7:&quot;channel&quot;;s:15:&quot;pear.phpunit.de&quot;;s:3:&quot;min&quot;;s:5:&quot;3.4.7&quot;;}}}</d>
+   <d>a:1:{s:8:&quot;required&quot;;a:2:{s:3:&quot;php&quot;;a:1:{s:3:&quot;min&quot;;s:5:&quot;5.0.0&quot;;}s:13:&quot;pearinstaller&quot;;a:1:{s:3:&quot;min&quot;;s:5:&quot;1.4.0&quot;;}}}</d>
   </deps>
  </pi>
 </f>
