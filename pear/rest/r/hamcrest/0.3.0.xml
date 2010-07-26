@@ -8,7 +8,7 @@
  <m>hamcrest</m>
  <s>Hamcrest Matching Library</s>
  <d>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</d>
- <da>2010-07-26 16:45:38</da>
+ <da>2010-07-26 16:50:01</da>
  <n>
 * Added running count to Hamcrest_MatcherAssert with methods to get and reset it.
   This can be used by unit testing frameworks for reporting.
@@ -54,7 +54,7 @@ For full list of changes in all releases, please see
 
   http://hamcrest.googlecode.com/svn/trunk/hamcrest-php/CHANGES.txt
  </n>
- <f>22844</f>
+ <f>22846</f>
  <g>http://hamcrest.googlecode.com/files/hamcrest-php-0.3.0</g>
  <x xlink:href="package.0.3.0.xml"/>
 </r>
