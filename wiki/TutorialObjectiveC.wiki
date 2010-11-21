@@ -150,7 +150,9 @@ The interface consists of two parts: a class definition, and a factory function 
 - (BOOL) matches:(id)item
 {
     if (![item respondsToSelector:@selector(dayOfWeek)])
+    {
         return NO;
+    }
     
     return [item dayOfWeek] == day;
 }
