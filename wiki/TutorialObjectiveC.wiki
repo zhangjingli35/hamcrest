@@ -108,10 +108,11 @@ Here's the interface:
 
 {{{
 #import <OCHamcrest/HCBaseMatcher.h>
+#import <objc/objc-api.h>
 
 @interface IsGivenDayOfWeek : HCBaseMatcher
 {
-    NSInteger day;	// 0 indicates Sunday
+    NSInteger day;      // 0 indicates Sunday
 }
 
 + (IsGivenDayOfWeek*) isGivenDayOfWeek:(NSInteger)dayOfWeek;
@@ -120,23 +121,10 @@ Here's the interface:
 @end
 
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-id<HCMatcher> HC_onASaturday();
-
-#ifdef __cplusplus
-}
-#endif
-
-
-#ifdef HC_SHORTHAND
-#define onASaturday HC_onASaturday
-#endif
+OBJC_EXPORT id<HCMatcher> onASaturday();
 }}}
 
-The interface consists of three parts: a class definition, a factory function (with C binding), and a shorthand macro. Here's what the implementation looks like:
+The interface consists of two parts: a class definition, and a factory function (with C binding). Here's what the implementation looks like:
 
 {{{
 #import "IsGivenDayOfWeek.h"
@@ -153,7 +141,9 @@ The interface consists of three parts: a class definition, a factory function (w
 {
     self = [super init];
     if (self != nil)
+    {
         day = dayOfWeek;
+    }
     return self;
 }
 
@@ -161,7 +151,7 @@ The interface consists of three parts: a class definition, a factory function (w
 {
     if (![item respondsToSelector:@selector(dayOfWeek)])
         return NO;
-
+    
     return [item dayOfWeek] == day;
 }
 
@@ -169,22 +159,16 @@ The interface consists of three parts: a class definition, a factory function (w
 {
     NSString* dayAsString[] =
         {@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday"};
-    [[description appendText:@"calendar date falling on "]
-                  appendText:dayAsString[day]];
+    [[description appendText:@"calendar date falling on "] appendText:dayAsString[day]];
 }
 
 @end
 
 
-extern "C" {
-
-id<HCMatcher> HC_onASaturday()
+id<HCMatcher> onASaturday()
 {
     return [IsGivenDayOfWeek isGivenDayOfWeek:6];
 }
-
-}   // extern "C"
-
 }}}
 
 For our Matcher implementation we implement the `matches:` method - which calls the `dayOfWeek` method after confirming that the argument has such a method - and the `describe_to` method - which is used to produce a failure message when a test fails. Here's an example of how the failure message looks:
@@ -203,4 +187,4 @@ Expected: is calendar date falling on Saturday, got: <06 April 2008>
 
 and Xcode shows it as a build error. Double clicking the error message takes you to the assertion that failed.
 
-Even though the `HC_onASaturday` function creates a new matcher each time it is called, you should not assume this is the only usage pattern for your matcher. Therefore you should make sure your matcher is stateless, so a single instance can be reused between matches.
+Even though the `onASaturday` function creates a new matcher each time it is called, you should not assume this is the only usage pattern for your matcher. Therefore you should make sure your matcher is stateless, so a single instance can be reused between matches.
