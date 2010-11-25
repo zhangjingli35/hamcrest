@@ -11,13 +11,13 @@ When writing tests it is sometimes difficult to get the balance right between ov
 
 OCHamcrest is supported for both Cocoa and iOS development.
 
-Cocoa: 
-* Add *OCHamcrest.framework* to your project.
-* To use OCHamcrest in an Xcode unit test bundle, you may need to add a "Copy Files" build phase which copies OCHamcrest.framework to the Products directory.
+=== Cocoa: ===
+  * Add OCHamcrest.framework to your project.
+  * To use OCHamcrest in an Xcode unit test bundle, you may need to add a "Copy Files" build phase which copies OCHamcrest.framework to the Products directory.
 
-iOS:
-* Add *OCHamcrestIOS.framework* to your project.
-* Add *-lstdc++* to your "Other Linker Flags".
+=== iOS: ===
+  * Add OCHamcrestIOS.framework to your project.
+  * Add "-lstdc++" to your "Other Linker Flags".
 
 == My first OCHamcrest test ==
 
