@@ -182,7 +182,7 @@ id<HCMatcher> onASaturday()
 }
 }}}
 
-For our Matcher implementation we implement the `matches:` method - which calls the `dayOfWeek` method after confirming that the argument has such a method - and the `describe_to` method - which is used to produce a failure message when a test fails. Here's an example of how the failure message looks:
+For our Matcher implementation we implement the `-matches:` method -- which calls the `-dayOfWeek` method after confirming that the argument has such a method -- and the `-describe_to:` method -- which is used to produce a failure message when a test fails. Here's an example of how the failure message looks:
 
 {{{
 NSCalendarDate* date = [NSCalendarDate dateWithString: @"6 April 2008"
