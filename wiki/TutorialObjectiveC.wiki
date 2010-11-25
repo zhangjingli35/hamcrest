@@ -129,7 +129,6 @@ Here's the interface:
 
 @end
 
-
 OBJC_EXPORT id<HCMatcher> onASaturday();
 }}}
 
