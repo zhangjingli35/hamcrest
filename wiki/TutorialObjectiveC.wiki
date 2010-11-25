@@ -82,9 +82,9 @@ OCHamcrest comes with a library of useful matchers. Here are some of the most im
 OCHamcrest strives to make your tests as readable as possible. For example, the `is` matcher is a wrapper that doesn't add any extra behavior to the underlying matcher. The following assertions are all equivalent:
 
 {{{
-    assertThat(theBiscuit, equalTo(myBiscuit));
-    assertThat(theBiscuit, is(equalTo(myBiscuit)));
-    assertThat(theBiscuit, is(myBiscuit));
+assertThat(theBiscuit, equalTo(myBiscuit));
+assertThat(theBiscuit, is(equalTo(myBiscuit)));
+assertThat(theBiscuit, is(myBiscuit));
 }}}
 
 The last form is allowed since `is(id item)` wraps non-matcher arguments with `equal_to`.
