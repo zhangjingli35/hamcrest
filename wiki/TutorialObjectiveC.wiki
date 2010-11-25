@@ -192,9 +192,7 @@ assertThat(date, is(onASaturday()));
 
 fails with the message
 
-{{{
-Expected: is calendar date falling on Saturday, got: <06 April 2008>
-}}}
+  Expected: is calendar date falling on Saturday, got: <06 April 2008>
 
 and Xcode shows it as a build error. Double clicking the error message takes you to the assertion that failed.
 
