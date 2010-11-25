@@ -21,7 +21,7 @@ OCHamcrest is supported for both Cocoa and iOS development.
 
 == My first OCHamcrest test ==
 
-We'll start be writing a very simple Xcode unit test, but instead of using !SenTestingKit's `STAssertEqualObjects` method, we use OCHamcrest's `assertThat` construct and the standard set of matchers.
+We'll start be writing a very simple Xcode unit test, but instead of using !SenTestingKit's `STAssertEqualObjects` function, we use OCHamcrest's `assertThat` construct and the standard set of matchers.
 
 {{{
 #import <SenTestingKit/SenTestingKit.h>
@@ -44,7 +44,7 @@ We'll start be writing a very simple Xcode unit test, but instead of using !SenT
 @end
 }}}
 
-The `assertThat` method is a stylized sentence for making a test assertion. In this example, the subject of the assertion is the object `theBiscuit`, which is the first method parameter. The second method parameter is a matcher for `Biscuit` objects, here a matcher that checks one object is equal to another using the `-isEqual:` method. The test passes since the `Biscuit` class defines an isEqual: method.
+The `assertThat` function is a stylized sentence for making a test assertion. In this example, the subject of the assertion is the object `theBiscuit`, which is the first method parameter. The second method parameter is a matcher for `Biscuit` objects, here a matcher that checks one object is equal to another using the `-isEqual:` method. The test passes since the `Biscuit` class defines an isEqual: method.
 
 OCHamcrest's functions are actually declared with an `HC_` package prefix (such as HC_assertThat and HC_equalTo) to avoid name clashes. To make test writing faster and test code more legible, shorthand macros are provided if `HC_SHORTHAND` is defined before including the OCHamcrest header. These macros omit the package prefix; for example, instead of writing `HC_assertThat` one can simply write `assertThat`.
 
