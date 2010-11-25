@@ -9,13 +9,17 @@ When writing tests it is sometimes difficult to get the balance right between ov
 
 == Cocoa and iOS ==
 
-OCHamcrest is supported for both Cocoa and iOS development. On Cocoa, add *OCHamcrest.framework* to your project.
+OCHamcrest is supported for both Cocoa and iOS development.
 
-On iOS, add *OCHamcrestIOS.framework* to your project, and add *-lstdc++* to your "Other Linker Flags".
+Cocoa: 
+* Add *OCHamcrest.framework* to your project.
+* To use OCHamcrest in an Xcode unit test bundle, you may need to add a "Copy Files" build phase which copies OCHamcrest.framework to the Products directory.
+
+iOS:
+* Add *OCHamcrestIOS.framework* to your project.
+* Add *-lstdc++* to your "Other Linker Flags".
 
 == My first OCHamcrest test ==
-
-_Note: To use OCHamcrest in an Xcode unit test bundle, you may need to add a "Copy Files" build phase which copies OCHamcrest.framework to the Products directory._
 
 We'll start be writing a very simple Xcode unit test, but instead of using !SenTestingKit's `STAssertEqualObjects` method, we use OCHamcrest's `assertThat` construct and the standard set of matchers.
 
