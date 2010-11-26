@@ -13,7 +13,7 @@ OCHamcrest is supported for both Cocoa and iOS development.
 
 === Cocoa: ===
   * Add *OCHamcrest.framework* to your project.
-  * If your target is an Xcode unit test bundle, add a "Copy Files" build phase to copy OCHamcrest.framework to your Products directory.
+  * If your target is an Xcode unit test bundle, add a Copy Files build phase to copy OCHamcrest.framework to your Products Directory. Make sure this build phase comes before the Run Script phase that executes tests.
   * Add
 {{{
 #define HC_SHORTHAND
