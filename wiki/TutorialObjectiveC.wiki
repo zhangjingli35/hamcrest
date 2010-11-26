@@ -22,7 +22,7 @@ OCHamcrest is supported for both Cocoa and iOS development.
 
 === iOS: ===
   * Add *OCHamcrestIOS.framework* to your project.
-  * Add _"-lstdc++"_ to your "Other Linker Flags".
+  * Add _"-lstdc++"_ and _"-ObjC"_ to your "Other Linker Flags".
   * Add
 {{{
 #define HC_SHORTHAND
