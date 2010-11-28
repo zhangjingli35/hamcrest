@@ -39,7 +39,7 @@ As a convenience, assert_that can also be used to verify a boolean condition:
 assert_that(theBiscuit.isCooked(), 'cooked')
 }}}
 
-This is equivalent to the assert_ method of unittest.!TestCase, but because it's a standalone function, it offers greater flexibility in test writing.
+This is equivalent to the `assert_` method of unittest.!TestCase, but because it's a standalone function, it offers greater flexibility in test writing.
 
 
 == A tour of common matchers ==
