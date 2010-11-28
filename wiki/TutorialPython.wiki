@@ -24,7 +24,7 @@ if __name__ == '__main__':
     unittest.main()
 }}}
 
-The `assert_that` function is a stylized sentence for making a test assertion. In this example, the subject of the assertion is the object `theBiscuit`, which is the first method parameter. The second method parameter is a matcher for `Biscuit` objects, here a matcher that checks one object is equal to another using the Python `==` operator. The test passes since the `Biscuit` class defines an __eq__ method.
+The `assert_that` function is a stylized sentence for making a test assertion. In this example, the subject of the assertion is the object `theBiscuit`, which is the first method parameter. The second method parameter is a matcher for `Biscuit` objects, here a matcher that checks one object is equal to another using the Python `==` operator. The test passes since the `Biscuit` class defines an `__eq__` method.
 
 If you have more than one assertion in your test you can include an identifier for the tested value in the assertion:
 
