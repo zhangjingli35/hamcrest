@@ -97,7 +97,7 @@ assertThat(theBiscuit, is(equalTo(myBiscuit)));
 assertThat(theBiscuit, is(myBiscuit));
 }}}
 
-The last form is allowed since `is(id item)` wraps non-matcher arguments with `equal_to`.
+The last form is allowed since `is` wraps non-matcher arguments with `equalTo`. Other matchers that take matchers as arguments provide similar shortcuts, wrapping non-matcher arguments in `equalTo`.
 
 == Writing custom matchers ==
 
