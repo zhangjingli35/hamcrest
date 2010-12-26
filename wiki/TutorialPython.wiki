@@ -1,4 +1,4 @@
-= The Hamcrest Tutorial for Python =
+= PyHamcrest Tutorial =
 
 == Introduction ==
 
