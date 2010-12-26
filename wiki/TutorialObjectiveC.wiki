@@ -1,5 +1,5 @@
 #labels ObjectiveC
-= The OCHamcrest Tutorial =
+= OCHamcrest Tutorial =
 
 == Introduction ==
 
