@@ -1,16 +1,16 @@
 package org.hamcrest.collection;
 
+import static org.hamcrest.core.IsEqual.equalTo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import static java.util.Arrays.asList;
-import static org.hamcrest.core.IsEqual.equalTo;
 
 public class IsArrayContainingInOrder<E> extends TypeSafeMatcher<E[]> {
     private final Collection<Matcher<? super E>> matchers;
@@ -23,13 +23,13 @@ public class IsArrayContainingInOrder<E> extends TypeSafeMatcher<E[]> {
 
     @Override
     public boolean matchesSafely(E[] item) {
-        return iterableMatcher.matches(asList(item));
+        return iterableMatcher.matches(Arrays.asList(item));
     }
     
     @Override
     public void describeMismatchSafely(E[] item, Description mismatchDescription) {
-      iterableMatcher.describeMismatch(asList(item), mismatchDescription);
-    }
+      iterableMatcher.describeMismatch(Arrays.asList(item), mismatchDescription);
+    };
 
     public void describeTo(Description description) {
         description.appendList("[", ", ", "]", matchers);
@@ -46,7 +46,7 @@ public class IsArrayContainingInOrder<E> extends TypeSafeMatcher<E[]> {
 
     @Factory
     public static <E> Matcher<E[]> arrayContaining(Matcher<? super E>... matchers) {
-        return arrayContaining(asList(matchers));
+        return arrayContaining(Arrays.asList(matchers));
     }
 
     @Factory

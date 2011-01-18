@@ -2,19 +2,23 @@
  */
 package org.hamcrest.number;
 
-import org.hamcrest.AbstractMatcherTest;
-import org.hamcrest.Matcher;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsNot.not;
+import static org.hamcrest.number.OrderingComparison.comparesEqualTo;
+import static org.hamcrest.number.OrderingComparison.greaterThan;
+import static org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo;
+import static org.hamcrest.number.OrderingComparison.lessThan;
+import static org.hamcrest.number.OrderingComparison.lessThanOrEqualTo;
 
 import java.math.BigDecimal;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.number.OrderingComparison.*;
+import org.hamcrest.AbstractMatcherTest;
+import org.hamcrest.Matcher;
 
 public class OrderingComparisonTest extends AbstractMatcherTest {
 
     @Override
-    protected Matcher<Integer> createMatcher() {
+    protected Matcher<?> createMatcher() {
         return greaterThan(1);
     }
 

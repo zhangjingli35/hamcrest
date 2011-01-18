@@ -2,12 +2,12 @@
  */
 package org.hamcrest.core;
 
-import org.hamcrest.AbstractMatcherTest;
-import org.hamcrest.Matcher;
-
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.number.OrderingComparison.greaterThan;
+
+import org.hamcrest.AbstractMatcherTest;
+import org.hamcrest.Matcher;
 
 public class IsNotTest extends AbstractMatcherTest {
   @Override

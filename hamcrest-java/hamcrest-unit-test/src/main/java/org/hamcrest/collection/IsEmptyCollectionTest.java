@@ -1,14 +1,14 @@
 package org.hamcrest.collection;
 
-import org.hamcrest.AbstractMatcherTest;
-import org.hamcrest.Matcher;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.collection.IsEmptyCollection.empty;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static org.hamcrest.collection.IsEmptyCollection.empty;
-import static org.hamcrest.core.Is.is;
+import org.hamcrest.AbstractMatcherTest;
+import org.hamcrest.Matcher;
 
 public class IsEmptyCollectionTest extends AbstractMatcherTest {
 
