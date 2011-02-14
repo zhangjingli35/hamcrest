@@ -48,7 +48,7 @@ This is equivalent to the `assert_` method of unittest.!TestCase, but because it
 
   * Core
     * `anything` - always matches, useful if you don't care what the object under test is
-    * `described_as` - decorator to adding custom failure description
+    * `described_as` - decorator to add custom failure description
     * `is_` - decorator to improve readability - see "Syntactic sugar", below
   * Logical
     * `all_of` - matches if all matchers match, short circuits (like Python &&)
@@ -62,8 +62,8 @@ This is equivalent to the `assert_` method of unittest.!TestCase, but because it
     * `none`, `not_none` - tests for None
     * `same_instance` - tests object identity
   * Collection
-    * `has_entry`, `has_key`, `has_value` - tests that a dictionary contains an entry, key or value
-    * `has_item`, `has_items` - tests that a sequence contains elements
+    * `has_entry`, `has_entries`, `has_key`, `has_value` - tests that a dictionary contains an entry, key or value
+    * `has_item`, `contains`, `contains_inanyorder` - tests that a sequence contains elements
   * Number
     * `close_to` - tests that numeric values are close to a given value
     * `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to` - tests ordering
