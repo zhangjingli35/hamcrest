@@ -60,7 +60,7 @@ OCHamcrest's functions are actually declared with an "HC" package prefix (such a
 
 == A tour of common matchers ==
 
-OCHamcrest comes with a library of useful matchers. Here are some of the most important ones.
+OCHamcrest comes with a library of useful matchers:
 
   * Core
     * `anything` - always matches, useful if you don't care what the object under test is
@@ -78,14 +78,14 @@ OCHamcrest comes with a library of useful matchers. Here are some of the most im
     * `sameInstance` - tests object identity
   * Collections
     * `hasEntry`, `hasEntries`, `hasKey`, `hasValue` - tests that an NSDictionary contains an entry, key or value
-    * `hasItem`, `contains`, `containsInAnyOrder` - tests that a collection contains elements
+    * `hasItem`, `contains`, `containsInAnyOrder`, `onlyContains` - tests that a collection contains elements
   * Number
     * `closeTo` - tests floating point values are close to a given value
     * `greaterThan`, `greaterThanOrEqualTo`, `lessThan`, `lessThanOrEqualTo` - tests ordering
   * Text
     * `equalToIgnoringCase` - tests string equality ignoring case
     * `equalToIgnoringWhiteSpace` - tests string equality ignoring differences in runs of whitespace
-    * `containsString`, `endsWith`, `startsWith` - tests string matching
+    * `containsString`, `endsWith`, `startsWith`, `stringContainsInOrder ` - tests string matching
 
 == Syntactic sugar ==
 
