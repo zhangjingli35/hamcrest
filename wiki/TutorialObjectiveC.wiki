@@ -79,7 +79,7 @@ OCHamcrest comes with a library of useful matchers:
   * Collections
     * `hasEntry`, `hasEntries`, `hasKey`, `hasValue` - tests that an NSDictionary contains an entry, key or value
     * `hasItem`, `contains`, `containsInAnyOrder`, `onlyContains` - tests that a collection contains elements
-    * `hasCount`, `hasCountOf` - tests that a collection has a given number of elements
+    * `hasCount`, `hasCountOf`, `empty` - tests that a collection has a given number of elements
   * Number
     * `closeTo` - tests floating point values are close to a given value
     * `greaterThan`, `greaterThanOrEqualTo`, `lessThan`, `lessThanOrEqualTo` - tests ordering
