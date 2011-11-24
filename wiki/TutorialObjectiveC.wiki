@@ -20,6 +20,12 @@ OCHamcrest is supported for both Cocoa and iOS development.
 #import <OCHamcrest/OCHamcrest.h>
 }}}
 
+Note: If your Console shows
+{{{
+otest[57510:203] *** NSTask: Task create for path '...' failed: 22, "Invalid argument".  Terminating temporary process.
+}}}
+double-check your Copy Files phase.
+
 === iOS: ===
   * Add *OCHamcrestIOS.framework* to your project.
   * Add _"-lstdc++"_ and _"-ObjC"_ to your "Other Linker Flags".
