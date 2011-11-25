@@ -9,7 +9,7 @@ When writing tests it is sometimes difficult to get the balance right between ov
 
 == Mac and iOS ==
 
-OCHamcrest is supported for both Mac and iOS development.
+OCHamcrest supports both Mac and iOS development.
 
 === Mac: ===
   * Add *OCHamcrest.framework* to your project.
