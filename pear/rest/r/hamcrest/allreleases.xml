@@ -3,6 +3,10 @@
  <n>Hamcrest</n>
  <c>hamcrest.googlecode.com</c>
  <r>
+  <v>1.0.0</v>
+  <s>stable</s>
+ </r>
+ <r>
   <v>0.3.0</v>
   <s>stable</s>
  </r>
