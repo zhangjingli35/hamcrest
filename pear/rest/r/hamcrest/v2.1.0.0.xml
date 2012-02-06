@@ -12,44 +12,28 @@
  <d>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</d>
  <da>2012-01-20 21:08:24</da>
  <n>
-* Added running count to Hamcrest_MatcherAssert with methods to get and reset it.
-  This can be used by unit testing frameworks for reporting.
+Issues Fixed: 119, 136, 139, 141, 148, 149, 172
 
-* Added Hamcrest_Core_HasToString to assert return value of toString() or __toString().
+* Moved hamcrest.php into Hamcrest folder and renamed to Hamcrest.php.
+  This is more in line with PEAR packaging standards.
 
-    assertThat($anObject, hasToString('foo'));
+* Renamed callable() to callableValue() for compatibility with PHP 5.4.
 
-* Added Hamcrest_Type_IsScalar to assert is_scalar().
-  Matches values of type bool, int, float, double, and string.
+* Added Hamcrest_Text_StringContainsIgnoringCase to assert using stripos().
 
-    assertThat($count, scalarValue());
-    assertThat('foo', scalarValue());
+    assertThat('fOObAr', containsStringIgnoringCase('oba'));
+    assertThat('fOObAr', containsString('oba')->ignoringCase());
 
-* Added Hamcrest_Collection package.
+* Fixed Hamcrest_Core_IsInstanceOf to return false for native types.
 
-  - IsEmptyTraversable
-  - IsTraversableWithSize
+* Moved string-based matchers to Hamcrest_Text package.
+  StringContains, StringEndsWith, StringStartsWith, and SubstringMatcher
 
-    assertThat($iterator, emptyTraversable());
-    assertThat($iterator, traversableWithSize(5));
+* Hamcrest.php and Hamcrest_Matchers.php are now built from @factory doctags.
+  Added @factory doctag to every static factory method.
 
-* Added Hamcrest_Xml_HasXPath to assert XPath expressions or the content of nodes in an XML/HTML DOM.
-
-    assertThat($dom, hasXPath('books/book/title'));
-    assertThat($dom, hasXPath('books/book[contains(title, &quot;Alice&quot;)]', 3));
-    assertThat($dom, hasXPath('books/book/title', 'Alice in Wonderland'));
-    assertThat($dom, hasXPath('count(books/book)', greaterThan(10)));
-
-* Added aliases to match the Java API.
-
-    hasEntry() -&gt; hasKeyValuePair()
-    hasValue() -&gt; hasItemInArray()
-    contains() -&gt; arrayContaining()
-    containsInAnyOrder() -&gt; arrayContainingInAnyOrder()
-
-* Added optional subtype to Hamcrest_TypeSafeMatcher to enforce object class or resource type.
-
-* Hamcrest_TypeSafeDiagnosingMatcher now extends Hamcrest_TypeSafeMatcher.
+* Hamcrest_Matchers and Hamcrest.php now import each matcher as-needed
+  and Hamcrest.php calls the matchers directly instead of Hamcrest_Matchers.
 
 
 For full list of changes in all releases, please see

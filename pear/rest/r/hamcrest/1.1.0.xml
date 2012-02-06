@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<r xmlns="http://pear.php.net/dtd/rest.release" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://pear.php.net/dtd/rest.release http://pear.php.net/dtd/rest.release.xsd">
+ <p xlink:href="rest/p/hamcrest">Hamcrest</p>
+ <c>hamcrest.googlecode.com/svn/pear</c>
+ <v>1.1.0</v>
+ <st>stable</st>
+ <l>New BSD License</l>
+ <m>hamcrest</m>
+ <s>Hamcrest Matching Library</s>
+ <d>Provides a library of generic PHP value matching functions for use in assertions, validation, etc.</d>
+ <da>2012-02-03 01:24:28</da>
+ <n>
+Issues Fixed: 121, 138, 147
+
+* Added non-empty matchers to complement the emptiness-matching forms.
+
+  - nonEmptyString()
+  - nonEmptyArray()
+  - nonEmptyTraversable()
+
+* Added ability to pass variable arguments to several array-based matcher
+  factory methods so they work like allOf() et al.
+
+  - anArray()
+  - arrayContainingInAnyOrder(), containsInAnyOrder()
+  - arrayContaining(), contains()
+  - stringContainsInOrder()
+
+* Matchers that accept an array of matchers now also accept variable arguments.
+  Any non-matcher arguments are wrapped by IsEqual.
+
+* Added noneOf() as a shortcut for not(anyOf()).
+
+
+For full list of changes in all releases, please see
+
+  http://hamcrest.googlecode.com/svn/trunk/hamcrest-php/CHANGES.txt
+ </n>
+ <f>23973</f>
+ <g>http://hamcrest.googlecode.com/files/hamcrest-php-1.1.0</g>
+ <x xlink:href="package.1.1.0.xml"/>
+</r>

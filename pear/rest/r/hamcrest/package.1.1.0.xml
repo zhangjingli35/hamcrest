@@ -16,40 +16,38 @@
   <email>dharkness@gmail.com</email>
   <active>yes</active>
  </developer>
- <date>2012-01-20</date>
- <time>21:08:24</time>
+ <date>2012-02-03</date>
+ <time>01:24:28</time>
  <version>
-  <release>1.0.0</release>
-  <api>0.3.0</api>
+  <release>1.1.0</release>
+  <api>1.1.0</api>
  </version>
  <stability>
   <release>stable</release>
-  <api>alpha</api>
+  <api>stable</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
  <notes>
-Issues Fixed: 119, 136, 139, 141, 148, 149, 172
+Issues Fixed: 121, 138, 147
 
-* Moved hamcrest.php into Hamcrest folder and renamed to Hamcrest.php.
-  This is more in line with PEAR packaging standards.
+* Added non-empty matchers to complement the emptiness-matching forms.
 
-* Renamed callable() to callableValue() for compatibility with PHP 5.4.
+  - nonEmptyString()
+  - nonEmptyArray()
+  - nonEmptyTraversable()
 
-* Added Hamcrest_Text_StringContainsIgnoringCase to assert using stripos().
+* Added ability to pass variable arguments to several array-based matcher
+  factory methods so they work like allOf() et al.
 
-    assertThat('fOObAr', containsStringIgnoringCase('oba'));
-    assertThat('fOObAr', containsString('oba')->ignoringCase());
+  - anArray()
+  - arrayContainingInAnyOrder(), containsInAnyOrder()
+  - arrayContaining(), contains()
+  - stringContainsInOrder()
 
-* Fixed Hamcrest_Core_IsInstanceOf to return false for native types.
+* Matchers that accept an array of matchers now also accept variable arguments.
+  Any non-matcher arguments are wrapped by IsEqual.
 
-* Moved string-based matchers to Hamcrest_Text package.
-  StringContains, StringEndsWith, StringStartsWith, and SubstringMatcher
-
-* Hamcrest.php and Hamcrest_Matchers.php are now built from @factory doctags.
-  Added @factory doctag to every static factory method.
-
-* Hamcrest_Matchers and Hamcrest.php now import each matcher as-needed
-  and Hamcrest.php calls the matchers directly instead of Hamcrest_Matchers.
+* Added noneOf() as a shortcut for not(anyOf()).
 
 
 For full list of changes in all releases, please see
@@ -64,54 +62,55 @@ For full list of changes in all releases, please see
    <file baseinstalldir="/" md5sum="e9414a08fb1473e3e6ebdc60a272df96" name="Hamcrest/Description.php" role="php" />
    <file baseinstalldir="/" md5sum="5fffcdc2b0738538cba51646e13345fc" name="Hamcrest/DiagnosingMatcher.php" role="php" />
    <file baseinstalldir="/" md5sum="1a79a4b3359ba12408fcdc1596e7437f" name="Hamcrest/FeatureMatcher.php" role="php" />
-   <file baseinstalldir="/" md5sum="95464c366282667278ea1d03ac65fd2a" name="Hamcrest/Hamcrest.php" role="php" />
+   <file baseinstalldir="/" md5sum="3e09cbe4794db172e541eb54953548c7" name="Hamcrest/Hamcrest.php" role="php" />
    <file baseinstalldir="/" md5sum="d670312059b316ba1dadbd5414732e02" name="Hamcrest/Matcher.php" role="php" />
-   <file baseinstalldir="/" md5sum="8d81c249594adde5892d85b222bc349a" name="Hamcrest/MatcherAssert.php" role="php" />
-   <file baseinstalldir="/" md5sum="00c2f252fd5e5dc88b0776991c904a30" name="Hamcrest/Matchers.php" role="php" />
+   <file baseinstalldir="/" md5sum="28f28f89ddb8f7d46a072d0930d0cbc8" name="Hamcrest/MatcherAssert.php" role="php" />
+   <file baseinstalldir="/" md5sum="1635d35412dd34bc9a0223d7419ea3d8" name="Hamcrest/Matchers.php" role="php" />
    <file baseinstalldir="/" md5sum="c01e1353be051bd6fad00153b4890509" name="Hamcrest/NullDescription.php" role="php" />
    <file baseinstalldir="/" md5sum="ddefd268285c36513b35b343b12ae1d6" name="Hamcrest/SelfDescribing.php" role="php" />
    <file baseinstalldir="/" md5sum="419abc315a51c2d269bcbe9376cf67ca" name="Hamcrest/StringDescription.php" role="php" />
    <file baseinstalldir="/" md5sum="643799f6d9b9399f1f05aea8802aa45b" name="Hamcrest/TypeSafeDiagnosingMatcher.php" role="php" />
    <file baseinstalldir="/" md5sum="d9baae20f0372d06d71112a4186ef9bf" name="Hamcrest/TypeSafeMatcher.php" role="php" />
-   <file baseinstalldir="/" md5sum="54ba4c0828ddae9be961ca1a82dcfe49" name="Hamcrest/Array/IsArray.php" role="php" />
-   <file baseinstalldir="/" md5sum="7d98897e87c07a53e602feb962fd96a8" name="Hamcrest/Array/IsArrayContaining.php" role="php" />
-   <file baseinstalldir="/" md5sum="49648165c06cab3914ed607e65f8fa89" name="Hamcrest/Array/IsArrayContainingInAnyOrder.php" role="php" />
-   <file baseinstalldir="/" md5sum="cca8a7429d67e239ebc73ab1ef6afdf4" name="Hamcrest/Array/IsArrayContainingInOrder.php" role="php" />
-   <file baseinstalldir="/" md5sum="97fae53ddf8e74c066514f9da118778c" name="Hamcrest/Array/IsArrayContainingKey.php" role="php" />
-   <file baseinstalldir="/" md5sum="fa5818a29994b6c00a85b7298c61493c" name="Hamcrest/Array/IsArrayContainingKeyValuePair.php" role="php" />
-   <file baseinstalldir="/" md5sum="a33cde06cbba9d3229b824ede8dcdc3e" name="Hamcrest/Array/IsArrayWithSize.php" role="php" />
+   <file baseinstalldir="/" md5sum="a96bb45c0f8e65808e73c3afe1fbef90" name="Hamcrest/Util.php" role="php" />
+   <file baseinstalldir="/" md5sum="6093f61b4ecff80fe0689bdda8ed8d37" name="Hamcrest/Array/IsArray.php" role="php" />
+   <file baseinstalldir="/" md5sum="7b91d9692b563ec2d00536805dbe3c40" name="Hamcrest/Array/IsArrayContaining.php" role="php" />
+   <file baseinstalldir="/" md5sum="736c514b453e302b5edb5e9921455e71" name="Hamcrest/Array/IsArrayContainingInAnyOrder.php" role="php" />
+   <file baseinstalldir="/" md5sum="70c4d860b7921f32467022ada1694adc" name="Hamcrest/Array/IsArrayContainingInOrder.php" role="php" />
+   <file baseinstalldir="/" md5sum="11935512547144710e1558cb507156a5" name="Hamcrest/Array/IsArrayContainingKey.php" role="php" />
+   <file baseinstalldir="/" md5sum="109c2cd46f6c0957a72fc77adc25798b" name="Hamcrest/Array/IsArrayContainingKeyValuePair.php" role="php" />
+   <file baseinstalldir="/" md5sum="c07fcf4eea5b0f8779e8a474eac60726" name="Hamcrest/Array/IsArrayWithSize.php" role="php" />
    <file baseinstalldir="/" md5sum="377b668b2242e30eed3c588dfb66ad16" name="Hamcrest/Array/MatchingOnce.php" role="php" />
    <file baseinstalldir="/" md5sum="f3d74c7627a84fcdfa6d3fd658805a0d" name="Hamcrest/Array/SeriesMatchingOnce.php" role="php" />
-   <file baseinstalldir="/" md5sum="fe9c90ecb78cfed97723cfe561d01db7" name="Hamcrest/Collection/IsEmptyTraversable.php" role="php" />
-   <file baseinstalldir="/" md5sum="002b4e98f739b2f1b8a726adc7f02604" name="Hamcrest/Collection/IsTraversableWithSize.php" role="php" />
-   <file baseinstalldir="/" md5sum="1f061f76b6663f3441943f232eb358a9" name="Hamcrest/Core/AllOf.php" role="php" />
-   <file baseinstalldir="/" md5sum="b8f5f5b04b0bfa70712b26c9ee0119c8" name="Hamcrest/Core/AnyOf.php" role="php" />
+   <file baseinstalldir="/" md5sum="0a4d3e4f93b1896ba33a2295a7b9434b" name="Hamcrest/Collection/IsEmptyTraversable.php" role="php" />
+   <file baseinstalldir="/" md5sum="4c8e8b242462e39c7d63c71dab1842da" name="Hamcrest/Collection/IsTraversableWithSize.php" role="php" />
+   <file baseinstalldir="/" md5sum="5ac5be05d8a1597e0526f0a3f7943fee" name="Hamcrest/Core/AllOf.php" role="php" />
+   <file baseinstalldir="/" md5sum="92185c844761c032fce45c8104428040" name="Hamcrest/Core/AnyOf.php" role="php" />
    <file baseinstalldir="/" md5sum="f8162bcf3c24372e5d78f4b95efda5f3" name="Hamcrest/Core/CombinableMatcher.php" role="php" />
    <file baseinstalldir="/" md5sum="ea9ebd702937d756b6302f0939aeef3a" name="Hamcrest/Core/DescribedAs.php" role="php" />
    <file baseinstalldir="/" md5sum="d0f109b5062876cdc19c9f014708498e" name="Hamcrest/Core/Every.php" role="php" />
-   <file baseinstalldir="/" md5sum="631044b48ff3f9db192371423c526467" name="Hamcrest/Core/HasToString.php" role="php" />
-   <file baseinstalldir="/" md5sum="a5f8837b47c1a8c4b4a2543c78be9d31" name="Hamcrest/Core/Is.php" role="php" />
+   <file baseinstalldir="/" md5sum="51045b4af569eec5c251819dba111912" name="Hamcrest/Core/HasToString.php" role="php" />
+   <file baseinstalldir="/" md5sum="4ba971b0562b7740a4606a5938ea324d" name="Hamcrest/Core/Is.php" role="php" />
    <file baseinstalldir="/" md5sum="324632e11c2fc9898733b273a9c9124a" name="Hamcrest/Core/IsAnything.php" role="php" />
-   <file baseinstalldir="/" md5sum="5bd6f6470796c67113ea7d193a32089e" name="Hamcrest/Core/IsCollectionContaining.php" role="php" />
+   <file baseinstalldir="/" md5sum="ad416dade3933c439e283a04eccd5b38" name="Hamcrest/Core/IsCollectionContaining.php" role="php" />
    <file baseinstalldir="/" md5sum="e1b3b73973ab2f4caae1f005c4f41508" name="Hamcrest/Core/IsEqual.php" role="php" />
    <file baseinstalldir="/" md5sum="8056eba239ca9b3673527094a92120da" name="Hamcrest/Core/IsIdentical.php" role="php" />
    <file baseinstalldir="/" md5sum="2f83b3a23f45c7e38e513b4bac1a365e" name="Hamcrest/Core/IsInstanceOf.php" role="php" />
-   <file baseinstalldir="/" md5sum="12fcd708f71bf400c216f855499d4605" name="Hamcrest/Core/IsNot.php" role="php" />
-   <file baseinstalldir="/" md5sum="c21dce0da7555478d144642f51cc5e3e" name="Hamcrest/Core/IsNull.php" role="php" />
+   <file baseinstalldir="/" md5sum="7385af7151dabca21fc59f85d78b44d7" name="Hamcrest/Core/IsNot.php" role="php" />
+   <file baseinstalldir="/" md5sum="1472211e5f5b5306070468ff9b384381" name="Hamcrest/Core/IsNull.php" role="php" />
    <file baseinstalldir="/" md5sum="253fa6780075bab904f184428521a8be" name="Hamcrest/Core/IsSame.php" role="php" />
    <file baseinstalldir="/" md5sum="c6f617edd39923bd0321e1be297e6408" name="Hamcrest/Core/IsSet.php" role="php" />
    <file baseinstalldir="/" md5sum="5540d74787fb1fc9f3ed526ee417f952" name="Hamcrest/Core/IsTypeOf.php" role="php" />
-   <file baseinstalldir="/" md5sum="b6e39d3ec9ff0cf1efa960aa0f2bcda2" name="Hamcrest/Core/ShortcutCombination.php" role="php" />
+   <file baseinstalldir="/" md5sum="339ef5a726df2964ad29e5b7bab9648d" name="Hamcrest/Core/ShortcutCombination.php" role="php" />
    <file baseinstalldir="/" md5sum="a06640dc5209426f766452eb1f67a87d" name="Hamcrest/Internal/SelfDescribingValue.php" role="php" />
    <file baseinstalldir="/" md5sum="7e2ee1cc95d1cb58686654c08cc191ea" name="Hamcrest/Number/IsCloseTo.php" role="php" />
    <file baseinstalldir="/" md5sum="a3c2c5c7504f789e60e99d5c73be335b" name="Hamcrest/Number/OrderingComparison.php" role="php" />
-   <file baseinstalldir="/" md5sum="9aa077145a79a0f29384186e904b5a09" name="Hamcrest/Text/IsEmptyString.php" role="php" />
+   <file baseinstalldir="/" md5sum="3057c65ee685cb93cfba2b88396122b5" name="Hamcrest/Text/IsEmptyString.php" role="php" />
    <file baseinstalldir="/" md5sum="405484accd7d90007d66ba8b7215b0fe" name="Hamcrest/Text/IsEqualIgnoringCase.php" role="php" />
    <file baseinstalldir="/" md5sum="359005be2e02005264418ca96e7e1914" name="Hamcrest/Text/IsEqualIgnoringWhiteSpace.php" role="php" />
    <file baseinstalldir="/" md5sum="2dea5bde3c8b2d214e6f91625eee62a8" name="Hamcrest/Text/MatchesPattern.php" role="php" />
    <file baseinstalldir="/" md5sum="1f4cf32f83496ab61044600f2428fab2" name="Hamcrest/Text/StringContains.php" role="php" />
    <file baseinstalldir="/" md5sum="0a29bb8c7a0ab9241d166022b779c14a" name="Hamcrest/Text/StringContainsIgnoringCase.php" role="php" />
-   <file baseinstalldir="/" md5sum="27ae7f0520e00371b25ae60d126f4cc0" name="Hamcrest/Text/StringContainsInOrder.php" role="php" />
+   <file baseinstalldir="/" md5sum="a0869d174aa62906fe794e64ba7f73a6" name="Hamcrest/Text/StringContainsInOrder.php" role="php" />
    <file baseinstalldir="/" md5sum="36ce2f9c7f2280da134a695d3c16752a" name="Hamcrest/Text/StringEndsWith.php" role="php" />
    <file baseinstalldir="/" md5sum="6431a148afb3a65d07e5a16d77bdad65" name="Hamcrest/Text/StringStartsWith.php" role="php" />
    <file baseinstalldir="/" md5sum="af8bf44fd14da051ec00cd3ccd3b3218" name="Hamcrest/Text/SubstringMatcher.php" role="php" />
@@ -142,38 +141,36 @@ For full list of changes in all releases, please see
  <changelog>
   <release>
    <version>
-    <release>1.0.0</release>
-    <api>0.3.0</api>
+    <release>1.1.0</release>
+    <api>1.1.0</api>
    </version>
    <stability>
     <release>stable</release>
-    <api>alpha</api>
+    <api>stable</api>
    </stability>
-   <date>2012-01-20</date>
+   <date>2012-02-02</date>
    <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
    <notes>
-Issues Fixed: 119, 136, 139, 141, 148, 149, 172
+Issues Fixed: 121, 138, 147
 
-* Moved hamcrest.php into Hamcrest folder and renamed to Hamcrest.php.
-  This is more in line with PEAR packaging standards.
+* Added non-empty matchers to complement the emptiness-matching forms.
 
-* Renamed callable() to callableValue() for compatibility with PHP 5.4.
+  - nonEmptyString()
+  - nonEmptyArray()
+  - nonEmptyTraversable()
 
-* Added Hamcrest_Text_StringContainsIgnoringCase to assert using stripos().
+* Added ability to pass variable arguments to several array-based matcher
+  factory methods so they work like allOf() et al.
 
-    assertThat('fOObAr', containsStringIgnoringCase('oba'));
-    assertThat('fOObAr', containsString('oba')->ignoringCase());
+  - anArray()
+  - arrayContainingInAnyOrder(), containsInAnyOrder()
+  - arrayContaining(), contains()
+  - stringContainsInOrder()
 
-* Fixed Hamcrest_Core_IsInstanceOf to return false for native types.
+* Matchers that accept an array of matchers now also accept variable arguments.
+  Any non-matcher arguments are wrapped by IsEqual.
 
-* Moved string-based matchers to Hamcrest_Text package.
-  StringContains, StringEndsWith, StringStartsWith, and SubstringMatcher
-
-* Hamcrest.php and Hamcrest_Matchers.php are now built from @factory doctags.
-  Added @factory doctag to every static factory method.
-
-* Hamcrest_Matchers and Hamcrest.php now import each matcher as-needed
-  and Hamcrest.php calls the matchers directly instead of Hamcrest_Matchers.
+* Added noneOf() as a shortcut for not(anyOf()).
 
 
 For full list of changes in all releases, please see
