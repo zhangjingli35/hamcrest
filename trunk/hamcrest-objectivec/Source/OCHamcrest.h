@@ -1,6 +1,6 @@
 //
 //  OCHamcrest - OCHamcrest.h
-//  Copyright 2011 hamcrest.org. See LICENSE.txt
+//  Copyright 2012 hamcrest.org. See LICENSE.txt
 //
 //  Created by: Jon Reid
 //
@@ -18,6 +18,7 @@
 
     @ingroup library
  */
+#import <OCHamcrest/HCConformsToProtocol.h>
 #import <OCHamcrest/HCHasDescription.h>
 #import <OCHamcrest/HCHasProperty.h>
 #import <OCHamcrest/HCIsEqual.h>

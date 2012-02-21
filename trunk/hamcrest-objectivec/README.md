@@ -1,40 +1,41 @@
-* [Full documentation](http://jonreid.github.com/OCHamcrest/)
-* [Latest sources](https://github.com/jonreid/OCHamcrest)
-* [Hamcrest information](http://code.google.com/p/hamcrest/)
+What is OCHamcrest?
+===================
 
-See also:
+OCHamcrest is:
 
-* [PyHamcrest](http://pypi.python.org/pypi/PyHamcrest) - Python version.
-* [Quality Coding](http://jonreid.blogs.com/qualitycoding/) - Tools, tips and
-techniques for _building quality in_ to your iOS programs.
+* a library of "matcher" objects that let you declare rules for whether a given
+  object matches the criteria or not.
+* a framework for writing your own matchers.
 
+Matchers are useful for a variety of purposes, such as UI validation. But
+they're most commonly used for writing unit tests that are expressive and
+flexible.
 
-Introduction
-============
+OCHamcrest is used for both Mac and iOS development with:
 
-OCHamcrest is a framework for writing matcher objects, allowing you to
-declaratively define "match" rules. There are a number of situations where
-matchers are invaluable, such as UI validation, or data filtering, but it is in
-the area of writing flexible tests that matchers are most commonly used. This
-tutorial shows you how to use OCHamcrest for unit testing.
-
-When writing tests it is sometimes difficult to get the balance right between
-overspecifying the test (and making it brittle to changes), and not specifying
-enough (making the test less valuable since it continues to pass even when the
-thing being tested is broken). Having a tool that allows you to pick out
-precisely the aspect under test and describe the values it should have, to a
-controlled level of precision, helps greatly in writing tests that are "just
-right." Such tests fail when the behavior of the aspect under test deviates from
-the expected behavior, yet continue to pass when minor, unrelated changes to the
-behavior are made.
+* OCUnit (SenTestingKit) built in to Xcode
+* Google Toolbox for Mac (GTM)
+* GHUnit
+* Cedar BDD framework
+* OCMock
+* OCHandMock
+* OCMockito
 
 
-Cocoa and iOS
-=============
+How do I add OCHamcrest to my project?
+======================================
 
-OCHamcrest is supported for both Cocoa and iOS development.
+Rather than build OCHamcrest yourself, I recommend you use the pre-built release
+available in Downloads. This works for projects using Automatic Reference
+Counting (ARC) as well as for projects using traditional memory management.
 
-__Cocoa:__
+(But if you still want to build OCHamcrest yourself, go into the Source folder
+and execute ``MakeDistribution.sh`` from Terminal.)
+
+The steps vary slightly depending on whether your project is a Mac project or an
+iOS project:
+
+__Mac:__
 
 Add OCHamcrest.framework to your project.
 
@@ -47,6 +48,11 @@ Add:
     #define HC_SHORTHAND
     #import <OCHamcrest/OCHamcrest.h>
 
+Note: If your Console shows
+
+    otest[57510:203] *** NSTask: Task create for path '...' failed: 22, "Invalid argument".  Terminating temporary process.
+
+double-check your Copy Files phase.
 
 __iOS:__
 
@@ -107,17 +113,18 @@ OCHamcrest comes with a library of useful matchers:
 
 * Object
 
+  * ``conformsToProtocol`` - match object that conforms to protocol
   * ``equalTo`` - match equal object
   * ``hasDescription`` - match object's ``-description``
   * ``hasProperty`` - match return value of method with given name
   * ``instanceOf`` - match object type
-  * ``nilValue``, ``notNilValue`` - match @c nil, or not @nil
+  * ``nilValue``, ``notNilValue`` - match ``nil``, or not ``nil``
   * ``sameInstance`` - match same object
 
 * Number
 
   * ``closeTo`` - match number close to a given value
-  * equalTo<TypeName> - match number equal to a primitive number (such as
+  * equalTo&lt;TypeName&gt; - match number equal to a primitive number (such as
   ``equalToInt`` for an ``int``)
   * ``greaterThan``, ``greaterThanOrEqualTo``, ``lessThan``,
   ``lessThanOrEqualTo`` - match numeric ordering
@@ -149,10 +156,10 @@ OCHamcrest comes with a library of useful matchers:
   * ``hasCountOf`` - match collection with given number of elements
   * ``hasEntries`` - match dictionary with list of key-value pairs
   * ``hasEntry`` - match dictionary containing a key-value pair
-  * ``hasKey`` - match dictionary with a key
-  * ``hasValue`` - match dictionary with a value
   * ``hasItem`` - match if given item appears in the collection
   * ``hasItems`` - match if all given items appear in the collection, in any order
+  * ``hasKey`` - match dictionary with a key
+  * ``hasValue`` - match dictionary with a value
   * ``onlyContains`` - match if collections's items appear in given list
 
 * Decorator
@@ -283,3 +290,14 @@ Even though the ``onASaturday`` function creates a new matcher each time it is
 called, you should not assume this is the only usage pattern for your matcher.
 Therefore you should make sure your matcher is stateless, so a single instance
 can be reused between matches.
+
+
+More resources
+==============
+
+* [OCHamcrest documentation](http://jonreid.github.com/OCHamcrest/)
+* [Latest OCHamcrest sources](https://github.com/jonreid/OCHamcrest)
+* [Official Hamcrest website](http://code.google.com/p/hamcrest/)
+* [PyHamcrest](http://pypi.python.org/pypi/PyHamcrest) - Python version.
+* [Quality Coding](http://qualitycoding.org/) - Tools, tips &
+techniques for _building quality in_ to iOS development.

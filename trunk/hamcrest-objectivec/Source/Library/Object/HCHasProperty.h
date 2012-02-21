@@ -1,6 +1,6 @@
 //
 //  OCHamcrest - HCHasProperty.h
-//  Copyright 2011 hamcrest.org. See LICENSE.txt
+//  Copyright 2012 hamcrest.org. See LICENSE.txt
 //
 //  Created by: Justin Shacklette
 //
@@ -36,8 +36,8 @@ OBJC_EXPORT id<HCMatcher> HC_hasProperty(NSString *name, id valueMatch);
     methods, not just properties.
  
     Examples:
-    @li @ref hasProperty(@"firstName", @"Joe")
-    @li @ref hasProperty(@"firstName", startsWith(@"J"))
+    @li @ref hasProperty(\@"firstName", \@"Joe")
+    @li @ref hasProperty(\@"firstName", startsWith(\@"J"))
  
     (In the event of a name clash, don't \#define @c HC_SHORTHAND and use the synonym
     @c HC_hasProperty instead.)
