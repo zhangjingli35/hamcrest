@@ -10,36 +10,47 @@
     @mainpage OCHamcrest
 
     @section contents Contents:
-    @li @ref intro
-    @li @ref platforms
+    @li @ref whatisit
+    @li @ref addtoproject
     @li @ref firsttest
     @li @ref predefined
     @li @ref sugar
     @li @ref custom
+    @li @ref resources
 
 
-    @section intro Introduction
+    @section whatisit What is OCHamcrest?
 
-    OCHamcrest is an Objective-C framework for writing matcher objects, allowing you to
-    declaratively define "match" rules. There are a number of situations where matchers are
-    invaluable, such as UI validation or data filtering, but it is in the area of writing flexible
-    tests that matchers are most commonly used. This tutorial shows you how to use OCHamcrest for
-    unit testing.
+    OCHamcrest is:
+    @li a library of "matcher" objects that let you declare rules for whether a given object matches
+        the criteria or not.
+    @li a framework for writing your own matchers.
 
-    When writing tests it is sometimes difficult to get the balance right between overspecifying the
-    test (and making it brittle to changes), and not specifying enough (making the test less
-    valuable since it continues to pass even when the thing being tested is broken). Having a tool
-    that allows you to pick out precisely the aspect under test and describe the values it should
-    have, to a controlled level of precision, helps greatly in writing tests that are "just right."
-    Such tests fail when the behavior of the aspect under test deviates from the expected behavior,
-    yet continue to pass when minor, unrelated changes to the behavior are made.
+    Matchers are useful for a variety of purposes, such as UI validation. But they're most commonly
+    used for writing unit tests that are expressive and flexible.
+
+    OCHamcrest is used for both Mac and iOS development with:
+    @li OCUnit (SenTestingKit) built in to Xcode
+    @li Google Toolbox for Mac (GTM)
+    @li GHUnit
+    @li Cedar BDD framework
+    @li OCMock
+    @li OCHandMock
+    @li OCMockito
 
 
-    @section platforms Cocoa and iOS
+    @section addtoproject How do I add OCHamcrest to my project?
 
-    OCHamcrest is supported for both Cocoa and iOS development.
+    Rather than build OCHamcrest yourself, I recommend you use the pre-built release available in
+    Downloads. This works for projects using Automatic Reference Counting (ARC) as well as for
+    projects using traditional memory management.
 
-    @b Cocoa:
+    (But if you still want to build OCHamcrest yourself, go into the Source folder and execute
+    @c MakeDistribution.sh from Terminal.)
+
+    The steps vary slightly depending on whether your project is a Mac project or an iOS project:
+
+    @b Mac:
     @li Add @b OCHamcrest.framework to your project.
     @li Add a Copy Files build phase to copy OCHamcrest.framework to your Products Directory. For
         unit test bundles, make sure this Copy Files phase comes before the Run Script phase that
@@ -48,6 +59,11 @@
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
     @endcode
+
+	Note: If your Console shows @code
+otest[57510:203] *** NSTask: Task create for path '...' failed: 22, "Invalid argument".  Terminating temporary process.
+	@endcode
+	double-check your Copy Files phase.
 
     @b iOS:
     @li Add @b OCHamcrestIOS.framework to your project.
@@ -109,6 +125,7 @@
         <li>@ref hasDescription - match object's @c -description</li>
 		<li>@ref hasProperty - match return value of method with given name</li>
         <li>@ref instanceOf - match object type</li>
+        <li>@ref conformsToProtocol - match object protocol conformance</li>
         <li>@ref nilValue, @ref notNilValue - match for @c nil, or not @c nil</li>
         <li>@ref sameInstance - match same object</li>
         </ul>
@@ -143,9 +160,10 @@
         <li>@ref hasCountOf - match collection with given number of elements</li>
         <li>@ref hasEntries - match dictionary with list of key-value pairs</li>
         <li>@ref hasEntry - match dictionary containing a key-value pair</li>
+        <li>@ref hasItem - match if given item appears in the collection</li>
+        <li>@ref hasItems - match if all given items appears in the collection, in any order</li>
         <li>@ref hasKey - match dictionary with a key</li>
         <li>@ref hasValue - match dictionary with a value</li>
-        <li>@ref hasItems - match if given item appears in the collection</li>
         <li>@ref onlyContains -  match if collections's items appear in given list</li>
         </ul>
     <li>Decorator</li>
@@ -154,7 +172,7 @@
         <li>@ref is - decorator to improve readability - see @ref sugar, below</li>
         </ul>
     </ul>
-    
+
     The arguments for many of these matchers accept not just a matching value, but another matcher,
     so matchers can be composed for greater flexibility. For example,
     <tt>only_contains(endsWith(\@"."))</tt> will match any collection where every item is a string
@@ -178,5 +196,15 @@ assertThat(theBiscuit, is(myBiscuit));
 
     A key feature of OCHamcrest is its extensibility. See @ref custom-matchers for an example of how
     to write your own matchers.
+
+
+    @section resources More resources
+
+    @li <a href="http://jonreid.github.com/OCHamcrest/">OCHamcrest documentation</a>
+    @li <a href="https://github.com/jonreid/OCHamcrest">Latest OCHamcrest sources</a>
+    @li <a href="http://code.google.com/p/hamcrest/">Official Hamcrest website
+    @li <a href="http://pypi.python.org/pypi/PyHamcrest">PyHamcrest</a> - Python version.
+    @li <a href="http://qualitycoding.org/">Quality Coding</a> - Tools, tips &amp; techniques for
+        <em>building quality in</em> to iOS development.
 
  */

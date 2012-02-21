@@ -39,6 +39,8 @@
 		0802654D134597C000A8DCCA /* HCSubstringMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 087602FF13440A9F001B439B /* HCSubstringMatcher.mm */; };
 		0802654E134597C000A8DCCA /* HCWrapInMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0876024113440A83001B439B /* HCWrapInMatcher.mm */; };
 		0802654F134597C000A8DCCA /* NSObject+HCSelfDescribingValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0876024313440A83001B439B /* NSObject+HCSelfDescribingValue.mm */; };
+		0817B5CD147EC45200C5401D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817B5CC147EC45200C5401D /* SenTestingKit.framework */; };
+		0817B5CE147EC45200C5401D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817B5CC147EC45200C5401D /* SenTestingKit.framework */; };
 		081BEE631345979F003F846A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087601EA13440807001B439B /* Foundation.framework */; };
 		081BEE6E1345979F003F846A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087601EA13440807001B439B /* Foundation.framework */; };
 		081BEE721345979F003F846A /* libochamcrest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 081BEE621345979F003F846A /* libochamcrest.a */; };
@@ -227,6 +229,11 @@
 		088FB0AF136A70B800C191E1 /* HCStringContainsInOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = 088FB0AD136A70B800C191E1 /* HCStringContainsInOrder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		088FB0B1136A70B800C191E1 /* HCStringContainsInOrder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 088FB0AE136A70B800C191E1 /* HCStringContainsInOrder.mm */; };
 		088FB0B2136A70B800C191E1 /* HCStringContainsInOrder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 088FB0AE136A70B800C191E1 /* HCStringContainsInOrder.mm */; };
+		5F2773401436F50C00B9683A /* HCConformsToProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F27733E1436F50C00B9683A /* HCConformsToProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F2773411436F50C00B9683A /* HCConformsToProtocol.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F27733F1436F50C00B9683A /* HCConformsToProtocol.mm */; };
+		5F2773471436FA9D00B9683A /* HCConformsToProtocol.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F27733F1436F50C00B9683A /* HCConformsToProtocol.mm */; };
+		5F2773481436FAA600B9683A /* ConformsToProtocolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2773441436F81000B9683A /* ConformsToProtocolTest.m */; };
+		5F2773491436FAA700B9683A /* ConformsToProtocolTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2773441436F81000B9683A /* ConformsToProtocolTest.m */; };
 		77C7B86D14292D5100DE60CC /* HCHasProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 77C7B86B14292D5100DE60CC /* HCHasProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77C7B86E14292D5100DE60CC /* HCHasProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77C7B86C14292D5100DE60CC /* HCHasProperty.mm */; };
 		77C7B8771429361200DE60CC /* HasPropertyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C7B8761429361200DE60CC /* HasPropertyTest.m */; };
@@ -252,6 +259,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0817B5CC147EC45200C5401D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		081BEE621345979F003F846A /* libochamcrest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libochamcrest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		081BEE6C1345979F003F846A /* libochamcrestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libochamcrestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		082E7C2913FF676E004A22FE /* AbstractMatcherTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractMatcherTest.h; sourceTree = "<group>"; };
@@ -398,6 +406,9 @@
 		08BDD5FD1350C7BE00E5A443 /* MakeDistribution.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = MakeDistribution.sh; sourceTree = "<group>"; };
 		08BDD5FE1350C7BE00E5A443 /* MakeDocumentation.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = MakeDocumentation.sh; sourceTree = "<group>"; };
 		08BDD5FF1350C7BE00E5A443 /* MakeIOSFramework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = MakeIOSFramework.sh; sourceTree = "<group>"; };
+		5F27733E1436F50C00B9683A /* HCConformsToProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCConformsToProtocol.h; sourceTree = "<group>"; };
+		5F27733F1436F50C00B9683A /* HCConformsToProtocol.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCConformsToProtocol.mm; sourceTree = "<group>"; };
+		5F2773441436F81000B9683A /* ConformsToProtocolTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConformsToProtocolTest.m; sourceTree = "<group>"; };
 		77C7B86B14292D5100DE60CC /* HCHasProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHasProperty.h; sourceTree = "<group>"; };
 		77C7B86C14292D5100DE60CC /* HCHasProperty.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCHasProperty.mm; sourceTree = "<group>"; };
 		77C7B8761429361200DE60CC /* HasPropertyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HasPropertyTest.m; sourceTree = "<group>"; };
@@ -418,6 +429,7 @@
 			files = (
 				081BEE6E1345979F003F846A /* Foundation.framework in Frameworks */,
 				081BEE721345979F003F846A /* libochamcrest.a in Frameworks */,
+				0817B5CE147EC45200C5401D /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +447,7 @@
 			files = (
 				081BEE9613459FB2003F846A /* Foundation.framework in Frameworks */,
 				087601FB13440807001B439B /* OCHamcrest.framework in Frameworks */,
+				0817B5CD147EC45200C5401D /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				087601EA13440807001B439B /* Foundation.framework */,
+				0817B5CC147EC45200C5401D /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -643,6 +657,8 @@
 		087602F013440A9F001B439B /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				5F27733E1436F50C00B9683A /* HCConformsToProtocol.h */,
+				5F27733F1436F50C00B9683A /* HCConformsToProtocol.mm */,
 				087602F113440A9F001B439B /* HCHasDescription.h */,
 				087602F213440A9F001B439B /* HCHasDescription.mm */,
 				77C7B86B14292D5100DE60CC /* HCHasProperty.h */,
@@ -731,6 +747,7 @@
 		0876035713440AD8001B439B /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				5F2773441436F81000B9683A /* ConformsToProtocolTest.m */,
 				0876035813440AD8001B439B /* HasDescriptionTest.m */,
 				77C7B8761429361200DE60CC /* HasPropertyTest.m */,
 				0846B6F313EE5FD200EA68E8 /* IsEqualTest.m */,
@@ -837,6 +854,7 @@
 				0846B6CD13EE5D8A00EA68E8 /* HCIsNil.h in Headers */,
 				0846B6D113EE5D8A00EA68E8 /* HCIsSame.h in Headers */,
 				77C7B86D14292D5100DE60CC /* HCHasProperty.h in Headers */,
+				5F2773401436F50C00B9683A /* HCConformsToProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,6 +868,7 @@
 				081BEE5E1345979F003F846A /* Sources */,
 				081BEE5F1345979F003F846A /* Frameworks */,
 				081BEE601345979F003F846A /* Headers */,
+				08627FF81465CE1A00F80D7D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -922,6 +941,7 @@
 		087601D813440806001B439B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "eBay Inc";
 			};
 			buildConfigurationList = 087601DB13440806001B439B /* Build configuration list for PBXProject "OCHamcrest" */;
@@ -981,6 +1001,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		08627FF81465CE1A00F80D7D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = TestSupport/exportenv.sh;
 		};
 		087601F513440807001B439B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1046,6 +1079,7 @@
 				0846B6D013EE5D8A00EA68E8 /* HCIsNil.mm in Sources */,
 				0846B6D413EE5D8A00EA68E8 /* HCIsSame.mm in Sources */,
 				77C7B87914293CC500DE60CC /* HCHasProperty.mm in Sources */,
+				5F2773471436FA9D00B9683A /* HCConformsToProtocol.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1094,6 +1128,7 @@
 				082E7C3613FF676E004A22FE /* InvocationMatcherTest.m in Sources */,
 				082E7C3813FF676E004A22FE /* StringDescriptionTest.m in Sources */,
 				77C7B87A14293D0700DE60CC /* HasPropertyTest.m in Sources */,
+				5F2773491436FAA700B9683A /* ConformsToProtocolTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1145,6 +1180,7 @@
 				0846B6CF13EE5D8A00EA68E8 /* HCIsNil.mm in Sources */,
 				0846B6D313EE5D8A00EA68E8 /* HCIsSame.mm in Sources */,
 				77C7B86E14292D5100DE60CC /* HCHasProperty.mm in Sources */,
+				5F2773411436F50C00B9683A /* HCConformsToProtocol.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1193,6 +1229,7 @@
 				082E7C3513FF676E004A22FE /* InvocationMatcherTest.m in Sources */,
 				082E7C3713FF676E004A22FE /* StringDescriptionTest.m in Sources */,
 				77C7B8771429361200DE60CC /* HasPropertyTest.m in Sources */,
+				5F2773481436FAA600B9683A /* ConformsToProtocolTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,11 +1286,7 @@
 				);
 				INFOPLIST_FILE = "Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = (
-					"-lstdc++",
-					"-framework",
-					SenTestingKit,
-				);
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
@@ -1271,16 +1304,106 @@
 				);
 				INFOPLIST_FILE = "Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = (
-					"-lstdc++",
-					"-framework",
-					SenTestingKit,
-				);
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
+		};
+		08627FEE1465BDFA00F80D7D /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "OCHamcrest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lgcov";
+				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wextra",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+				);
+			};
+			name = Coverage;
+		};
+		08627FEF1465BDFA00F80D7D /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				INFOPLIST_FILE = "OCHamcrest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Coverage;
+		};
+		08627FF01465BDFA00F80D7D /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Coverage;
+		};
+		08627FF11465BDFA00F80D7D /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/libochamcrest.dst;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ochamcrest;
+				SDKROOT = iphoneos;
+			};
+			name = Coverage;
+		};
+		08627FF21465BDFA00F80D7D /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-lgcov",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Coverage;
 		};
 		0876020713440807001B439B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1373,10 +1496,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1391,10 +1510,6 @@
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1407,6 +1522,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				081BEE7F1345979F003F846A /* Debug */,
+				08627FF11465BDFA00F80D7D /* Coverage */,
 				081BEE801345979F003F846A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1416,6 +1532,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				081BEE821345979F003F846A /* Debug */,
+				08627FF21465BDFA00F80D7D /* Coverage */,
 				081BEE831345979F003F846A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1425,6 +1542,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0876020713440807001B439B /* Debug */,
+				08627FEE1465BDFA00F80D7D /* Coverage */,
 				0876020813440807001B439B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1434,6 +1552,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0876020A13440807001B439B /* Debug */,
+				08627FEF1465BDFA00F80D7D /* Coverage */,
 				0876020B13440807001B439B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1443,6 +1562,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0876020D13440807001B439B /* Debug */,
+				08627FF01465BDFA00F80D7D /* Coverage */,
 				0876020E13440807001B439B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

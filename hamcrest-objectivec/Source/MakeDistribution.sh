@@ -1,4 +1,4 @@
-VERSION=1.6
+VERSION=1.7
 DISTFILE=OCHamcrest-${VERSION}
 DISTPATH=build/${DISTFILE}
 PROJECTROOT=..
@@ -32,6 +32,7 @@ rm -rf "${DISTPATH}"
 mkdir "${DISTPATH}"
 cp -R "build/Release/OCHamcrest.framework" "${DISTPATH}"
 cp -R "build/Release/OCHamcrestIOS.framework" "${DISTPATH}"
+cp "${PROJECTROOT}/README.md" "${DISTPATH}"
 cp "${PROJECTROOT}/CHANGES.txt" "${DISTPATH}"
 cp "${PROJECTROOT}/LICENSE.txt" "${DISTPATH}"
 cp -R "${PROJECTROOT}/Examples" "${DISTPATH}"
