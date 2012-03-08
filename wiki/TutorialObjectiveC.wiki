@@ -12,7 +12,7 @@ Matchers are useful for a variety of purposes, such as UI validation. But they'r
 
 OCHamcrest is used for both Mac and iOS development with:
 
-  * OCUnit (SenTestingKit) built in to Xcode
+  * OCUnit (!SenTestingKit) built in to Xcode
   * Google Toolbox for Mac (GTM)
   * GHUnit
   * Cedar BDD framework
