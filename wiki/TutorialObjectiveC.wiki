@@ -53,8 +53,6 @@ double-check your Copy Files phase.
 
 Add OCHamcrestIOS.framework to your project.
 
-Add "-lstdc++" and "-ObjC" to your "Other Linker Flags".
-
 Add:
 {{{
 #define HC_SHORTHAND
@@ -97,7 +95,7 @@ OCHamcrest's functions are actually declared with an "HC" package prefix (such a
 OCHamcrest comes with a library of useful matchers:
 
   * Object
-    * `conformsToProtocol` - match object that conforms to protocol
+    * `conformsTo` - match object that conforms to protocol
     * `equalTo` - match equal object
     * `hasDescription` - match object's `-description`
     * `hasProperty` - match return value of method with given name
@@ -106,7 +104,7 @@ OCHamcrest comes with a library of useful matchers:
     * `sameInstance` - match same object
   * Number
     * `closeTo` - match number close to a given value
-    * equalTo&lt;TypeName&gt; - match number equal to a primitive number (such as `equalToInt` for an `int`)
+    * `equalTo<TypeName>` - match number equal to a primitive number (such as `equalToInt` for an `int`)
     * `greaterThan`, `greaterThanOrEqualTo`, `lessThan`, `lessThanOrEqualTo` - match numeric ordering
   * Text
     * `containsString` - match part of a string
@@ -118,7 +116,7 @@ OCHamcrest comes with a library of useful matchers:
   * Logical
     * `allOf` - "and" together all matchers
     * `anyOf` - "or" together all matchers
-    * `anything` - match anything, useful in composite matchers when you don't care about a particular value
+    * `anything` - match anything (useful in composite matchers when you don't care about a particular value)
     * `isNot` - negate the matcher
   * Collection
     * `contains` - exactly match the entire collection
